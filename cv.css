@@ -155,7 +155,9 @@ body {
 }
 
 .resume .resume_right .resume_work ul,
-.resume .resume_right .resume_education ul {
+.resume .resume_right .resume_education ul,
+.resume .resume_right .resume_project ul {
+
   padding-left: 40px;
   overflow: hidden;
 }
@@ -179,7 +181,8 @@ body {
 }
 
 .resume .resume_right .resume_work ul li:before,
-.resume .resume_right .resume_education ul li:before {
+.resume .resume_right .resume_education ul li:before,
+.resume .resume_right .resume_project ul li:before {
   content: "";
   position: absolute;
   top: 5px;
@@ -191,7 +194,8 @@ body {
 }
 
 .resume .resume_right .resume_work ul li:after,
-.resume .resume_right .resume_education ul li:after {
+.resume .resume_right .resume_education ul li:after, 
+.resume .resume_right .resume_project ul li:after {
   content: "";
   position: absolute;
   top: 14px;
