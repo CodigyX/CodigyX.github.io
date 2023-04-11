@@ -18,7 +18,7 @@ form.addEventListener('submit', (e) => {
 
 function callAPI(city, country){
     const apiId = '41d1d7f5c2475b3a16167b30bc4f265c';
-    const url = `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${apiId}`;
+    const url = `https//api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${apiId}`;
 
     fetch(url)
         .then(data => {
