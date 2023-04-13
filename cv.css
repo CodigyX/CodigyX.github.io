@@ -56,7 +56,8 @@ body {
   margin-bottom: 20px;
 }
 
-.resume .resume_left .bold {
+.resume .resume_left .bold,
+#enlace {
   color: #fff;
 }
 
@@ -156,7 +157,8 @@ body {
 
 .resume .resume_right .resume_work ul,
 .resume .resume_right .resume_education ul,
-.resume .resume_right .resume_project ul {
+.resume .resume_right .resume_project ul,
+.resume .resume_right .resume_idioma ul {
 
   padding-left: 40px;
   overflow: hidden;
@@ -182,7 +184,8 @@ body {
 
 .resume .resume_right .resume_work ul li:before,
 .resume .resume_right .resume_education ul li:before,
-.resume .resume_right .resume_project ul li:before {
+.resume .resume_right .resume_project ul li:before,
+.resume .resume_right .resume_idioma ul li:before {
   content: "";
   position: absolute;
   top: 5px;
@@ -195,7 +198,8 @@ body {
 
 .resume .resume_right .resume_work ul li:after,
 .resume .resume_right .resume_education ul li:after, 
-.resume .resume_right .resume_project ul li:after {
+.resume .resume_right .resume_project ul li:after,
+.resume .resume_right .resume_idioma ul li:after {
   content: "";
   position: absolute;
   top: 14px;
