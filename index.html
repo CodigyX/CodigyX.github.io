@@ -1,367 +1,163 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="UTF-8">
-  <title>Currículum Vitae De BARRENA GONZÁLEZ ERICK</title>
+  <title>CV Erick Barrena</title>
   <link rel="stylesheet" href="cv.css">
-  <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Librería para PDF -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 
 <body>
 
-  <div class="resume">
+  <div style="text-align:center; margin:20px;">
+    <button onclick="downloadPDF()" class="btn-pdf">
+      📄 Descargar CV
+    </button>
+  </div>
+
+  <div class="resume" id="cv">
+
     <div class="resume_left">
       <div class="resume_profile">
         <img src="cv.jpeg" alt="profile_pic">
       </div>
+
       <div class="resume_content">
-        <div class="resume_item resume_info">
+
+        <div class="resume_item">
           <div class="title">
             <p class="bold">Erick Barrena González</p>
-            <p class="regular">Ingeniero De Software</p>
+            <p class="regular">Backend Developer | Java & Spring Boot</p>
           </div>
+
           <ul>
             <li>
-              <div class="icon">
-                <i class="fas fa-map-signs"></i>
-              </div>
-              <div class="data">
-                Orizaba <br /> Veracruz, México
-              </div>
+              <div class="icon"><i class="fas fa-location-dot"></i></div>
+              <div>Orizaba, Veracruz</div>
             </li>
+
             <li>
-              <div class="icon">
-                <i class="fas fa-mobile-alt"></i>
-              </div>
-              <div class="data">
-                +52 271 709 9590
-              </div>
+              <div class="icon"><i class="fas fa-phone"></i></div>
+              <div>+52 271 709 9590</div>
             </li>
+
             <li>
-              <div class="icon">
-                <i class="fas fa-envelope"></i>
-              </div>
-              <div class="data">
-                ecodigyx@gmail.com
-              </div>
+              <div class="icon"><i class="fas fa-envelope"></i></div>
+              <div>ecodigyx@gmail.com</div>
             </li>
           </ul>
         </div>
+
+        <!-- SKILLS -->
         <div class="resume_item resume_skills">
           <div class="title">
-            <p class="bold">HABILIDADES Y COMPETENCIAS</p>
+            <p class="bold">Habilidades</p>
           </div>
           <ul>
-            <li>
-              <div class="skill_name">
-                JAVA
-              </div>
-              <div class="skill_progress">
-                <span style="width: 100%;"></span>
-              </div>
-              <div class="skill_per">100%</div>
-            </li>
-            <li>
-              <div class="skill_name">
-                C++
-              </div>
-              <div class="skill_progress">
-                <span style="width: 80%;"></span>
-              </div>
-              <div class="skill_per">80%</div>
-            </li>
-            <li>
-              <div class="skill_name">
-                JS
-              </div>
-              <div class="skill_progress">
-                <span style="width: 60%;"></span>
-              </div>
-              <div class="skill_per">60%</div>
-            </li>
-            <li>
-              <div class="skill_name">
-                HTML
-              </div>
-              <div class="skill_progress">
-                <span style="width: 100%;"></span>
-              </div>
-              <div class="skill_per">100%</div>
-            </li>
-            <li>
-              <div class="skill_name">
-                CSS
-              </div>
-              <div class="skill_progress">
-                <span style="width: 88%;"></span>
-              </div>
-              <div class="skill_per">88%</div>
-            </li>
-            <li>
-              <div class="skill_name">
-                REACT
-              </div>
-              <div class="skill_progress">
-                <span style="width: 70%;"></span>
-              </div>
-              <div class="skill_per">70%</div>
-            </li>
-            <li>
-              <div class="skill_name">
-                Angular
-              </div>
-              <div class="skill_progress">
-                <span style="width: 75%;"></span>
-              </div>
-              <div class="skill_per">75%</div>
-            </li>
-            <li>
-              <div class="skill_name">
-                Flutter
-              </div>
-              <div class="skill_progress">
-                <span style="width: 70%;"></span>
-              </div>
-              <div class="skill_per">70%</div>
-            </li>
-            <li>
-              <div class="skill_name">
-                SQL
-              </div>
-              <div class="skill_progress">
-                <span style="width: 100%;"></span>
-              </div>
-              <div class="skill_per">100%</div>
-            </li>
+            <li>Java / Spring Boot</li>
+            <li>JavaScript</li>
+            <li>React / Angular</li>
+            <li>Flutter</li>
+            <li>SQL</li>
+            <li>Docker</li>
+            <li>Git & GitHub</li>
+            <li>APIs REST</li>
           </ul>
         </div>
-        <div class="resume_item resume_social">
+
+        <!-- SOCIAL -->
+        <div class="resume_item">
           <div class="title">
-            <p class="bold">Social</p>
+            <p class="bold">Redes</p>
           </div>
+
           <ul>
             <li>
-              <div class="icon">
-                <i class="fab fa-facebook-square"></i>
-              </div>
-              <div class="data">
-                <p class="semi-bold">Facebook</p>
-                <p>Erick BG</p>
-              </div>
+              <div class="icon"><i class="fab fa-github"></i></div>
+              <a href="https://github.com/CodigyX" target="_blank">GitHub</a>
             </li>
+
             <li>
-              <div class="icon">
-                <i class="fab fa-github"></i>
-              </div>
-              <div class="data">
-                <p class="semi-bold">GitHub</p>
-                <a id="enlace" href="https://github.com/CodigyX">CodigyX</a>
-              </div>
-            </li>
-            <li>
-              <div class="icon">
-                <i class="fab fa-linkedin"></i>
-              </div>
-              <div class="data">
-                <p class="semi-bold">Linkedin</p>
-                <a id="enlace" href="https://www.linkedin.com/in/codigyx/">CodigyX</a>
-              </div>
-            </li>
-            <li>
-              <!--   <div class="icon">
-              <i class="fas fa-briefcase"></i>
-            </div>
-            <div class="data">
-              <p class="semi-bold">Portafolio</p>
-              <p>CodigyX</p>
-            </div> -->
+              <div class="icon"><i class="fab fa-linkedin"></i></div>
+              <a href="https://www.linkedin.com/in/codigyx/" target="_blank">LinkedIn</a>
             </li>
           </ul>
         </div>
+
       </div>
     </div>
+
+    <!-- RIGHT -->
     <div class="resume_right">
-      <div class="resume_item resume_about">
+
+      <!-- PERFIL -->
+      <div class="resume_item">
         <div class="title">
-          <p class="bold">Acerca de mí</p>
+          <p class="bold">Perfil Profesional</p>
         </div>
-        <p> "Soy un estudiante de Ingeniería de Software en la Universidad Veracruzana, actualmente con 24 años; mi
-          objetivo profesional es Desarrollar y pulir mis habilidades en el diseño y desarrollo de software, así como en
-          el análisis de requerimientos para la toma de decisiones sobre el modelo de negocio. Seguir un ciclo de vida
-          de desarrollo, con el objetivo de entregar software de calidad que cumpla con las expectativas del cliente.
-          Aspiro a liderar equipos y aplicar prácticas sostenibles para contribuir al éxito continuo en la ingeniería de
-          software". </p>
+        <p>
+          Backend Developer con enfoque en Java y Spring Boot.
+          Experiencia en desarrollo web y móvil con React, Angular y Flutter.
+          Apasionado por crear soluciones eficientes, escalables y centradas en el usuario.
+        </p>
       </div>
-      <div class="resume_item resume_work">
+
+      <!-- EXPERIENCIA -->
+      <div class="resume_item">
         <div class="title">
-          <p class="bold">Experiencia Laboral</p>
+          <p class="bold">Experiencia</p>
         </div>
+
         <ul>
           <li>
-            <p>Amatlán de los Reyes, Veracruz</p>
-            <div class="date">2016 - 2017</div>
-            <div class="info">
-              <p class="semi-bold">Kenworth Del Este S.A de C.V</p>
-              <p>Puesto: Asistente de TI</p>
-            </div>
-          </li>
-          <!--	    <li>
-              <div class="date">2015 - 2017</div>
-              <div class="info">
-                     <p class="semi-bold"></p> 
-                  <p></p>
-                </div>
-            </li> -->
-          <li>
-            <p>Cuitlahuac, Veracruz</p>
-            <div class="date">2020 - Presente</div>
-            <div class="info">
-              <p class="semi-bold">JAMOVA Technology</p>
-              <p>Puesto: Desarrolador Web Jr & Técnico en Redes</p>
-            </div>
+            <p class="semi-bold">JAMOVA Technology</p>
+            <p>Desarrollador Web Jr & Técnico en Redes</p>
           </li>
         </ul>
       </div>
-      <div class="resume_item resume_education">
-        <div class="title">
-          <p class="bold">Educación</p>
-        </div>
-        <ul>
-          <li>
-            <div class="date">2017 - 2020</div>
-            <div class="info">
-              <p class="semi-bold">Ingeniería Informática (Universidad Veracruzana)</p>
-              <p>No Culminada | Quinto Semestre</p>
-            </div>
-          </li>
-          <li>
-            <div class="date">2021 - Presente</div>
-            <div class="info">
-              <p class="semi-bold">Ingeniería De Software (Universidad Veracruzana)</p>
-              <p> En Proceso | Sexto Semestre</p>
-            </div>
-          </li>
-          <!-- <li>
-              <div class="date">2014 - 2017</div>
-              <div class="info">
-                     <p class="semi-bold">COBAEV 29 "Gaspar Yanga"</p> 
-                  <p></p>
-                </div>
-            </li> -->
-        </ul>
-      </div>
+
+      <!-- PROYECTOS -->
       <div class="resume_item">
         <div class="title">
           <p class="bold">Proyectos</p>
         </div>
+
         <ul>
-          <!--li>
-                <div class="data"></div>
-                <div class="info">
-                     <p class="semi-bold"></p>
-		     <a href="json/alumno.html">JsonToObject</a>
-                  <p></p>
-                </div>
-	    </li>
-	    <li>
-		<div class="data"></div>
-                <div class="info">
-                     <p class="semi-bold"></p>
-                     <a href="calculadora/calculadora.html">Calculadora</a>
-                  <p></p>
-                </div>
-	    </li>
-	    <li>
-		 <div class="data"></div>
-                <div class="info">
-                     <p class="semi-bold"></p>
-                     <a href="clima/clima.html">Clima</a>
-                  <p></p>
-                </div>
-            </li>
-            <li>
-              <div class="data"></div>
-                         <div class="info">
-                              <p class="semi-bold"></p>
-                              <a href="javascript/ciclos.html">Ciclos</a>
-                           <p></p>
-                         </div>
-                     </li>
-                     <li>
-                      <div class="data"></div>
-                                 <div class="info">
-                                      <p class="semi-bold"></p>
-                                      <a href="javascript/ciclosdom.html">Ciclos DOM</a>
-                                   <p></p>
-                                 </div>
-                             </li>
-                             <li>
-                              <div class="data"></div>
-                                         <div class="info">
-                                              <p class="semi-bold"></p>
-                                              <a href="javascript/variables.html">Variables</a>
-                                           <p></p>
-                                         </div>
-                                     </li>
-                                     <li>
-                                      <div class="data"></div>
-                                                 <div class="info">
-                                                      <p class="semi-bold"></p>
-                                                      <a href="javascript/triangulo.html">Triángulo</a>
-                                                   <p></p>
-                                                 </div>
-                                             </li-->
-                                             <li>
-                                              <div class="icono">
-                                                <i class="fas fa-briefcase fa-2x"></i> <!-- Ajusta el tamaño del icono con la clase fa-2x -->
-                                              </div>
-                                              <div class="data">
-                                                <div class="info">
-                                                  <p class="semi-bold "></p>
-                                                  <a href="https://codigy89.github.io/">Portafolio</a>
-                                                  <p>https://codigy89.github.io/</p>
-                                                </div>
-                                              </div>
-                                            </li>
-                                            
+          <li>
+            <p class="semi-bold">Sistema Punto de Venta</p>
+            <p>Aplicación backend en Java + Spring Boot para gestión de ventas.</p>
+          </li>
+
+          <li>
+            <p class="semi-bold">App Finanzas Personal</p>
+            <p>Flutter + Spring Boot, control de ingresos y gastos.</p>
+          </li>
+
+          <li>
+            <p class="semi-bold">Portafolio Web</p>
+            <a href="https://codigy89.github.io/" target="_blank">Ver proyecto</a>
+          </li>
         </ul>
       </div>
-      <div class="resume_item resume_idioma">
+
+      <!-- IDIOMAS -->
+      <div class="resume_item">
         <div class="title">
           <p class="bold">Idiomas</p>
         </div>
+
         <ul>
-          <li>
-            <div class="date"></div>
-            <div class="info">
-              <p class="semi-bold">Español (Nativo)</p>
-              <p></p>
-            </div>
-          </li>
-          <li>
-            <div class="date"></div>
-            <div class="info">
-              <p class="semi-bold">Inglés Intermedio (Nivel B1)</p>
-              <p></p>
-            </div>
-          </li>
+          <li>Español (Nativo)</li>
+          <li>Inglés (B1)</li>
         </ul>
       </div>
-      <!--div class="resume_item resume_hobby">
-      <div class="title">
-           <p class="bold">Hobby</p>
-         </div>
-       <ul>
-         <li><i class="fas fa-book"></i></li>
-         <li><i class="fas fa-gamepad"></i></li>
-         <li><i class="fas fa-music"></i></li>
-         <li><i class="fas fa-code"></i></li>
-      </ul>
-    </div-->
+
     </div>
   </div>
-
 </body>
-
 </html>
