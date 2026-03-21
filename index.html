@@ -4,15 +4,17 @@
 <head>
   <meta charset="UTF-8">
   <title>CV Erick Barrena</title>
+
   <link rel="stylesheet" href="cv.css">
 
+  <!-- ICONOS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <!-- Librería para PDF -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <!-- PDF -->
+  <script src="https://unpkg.com/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js"></script>
 </head>
 
-<body>
+<body id="body">
 
   <div style="text-align:center; margin:20px;">
     <button id="btnPDF" class="btn-pdf">
@@ -22,9 +24,10 @@
 
   <div class="resume" id="cv">
 
+    <!-- LEFT -->
     <div class="resume_left">
       <div class="resume_profile">
-        <img src="cv.jpeg" alt="profile_pic">
+        <img src="cv2.png" alt="profile_pic">
       </div>
 
       <div class="resume_content">
@@ -58,19 +61,37 @@
           <div class="title">
             <p class="bold">Habilidades</p>
           </div>
-          <ul>
-            <li>Java / Spring Boot</li>
-            <li>JavaScript</li>
-            <li>React / Angular</li>
-            <li>Flutter</li>
-            <li>SQL</li>
-            <li>Docker</li>
-            <li>Git & GitHub</li>
-            <li>APIs REST</li>
-          </ul>
+
+          <div class="skill_group">
+            <p class="skill_title">Backend</p>
+            <ul>
+              <li>Java</li>
+              <li>Spring Boot</li>
+              <li>SQL</li>
+              <li>APIs REST</li>
+            </ul>
+          </div>
+
+          <div class="skill_group">
+            <p class="skill_title">Frontend</p>
+            <ul>
+              <li>JavaScript</li>
+              <li>React</li>
+              <li>Angular</li>
+              <li>Flutter</li>
+            </ul>
+          </div>
+
+          <div class="skill_group">
+            <p class="skill_title">Tools</p>
+            <ul>
+              <li>Git & GitHub</li>
+              <li>Docker</li>
+            </ul>
+          </div>
         </div>
 
-        <!-- SOCIAL -->
+        <!-- REDES -->
         <div class="resume_item">
           <div class="title">
             <p class="bold">Redes</p>
@@ -79,12 +100,12 @@
           <ul>
             <li>
               <div class="icon"><i class="fab fa-github"></i></div>
-              <a href="https://github.com/CodigyX" target="_blank">GitHub</a>
+              <div><a href="https://github.com/CodigyX" target="_blank">GitHub</a></div>
             </li>
 
             <li>
               <div class="icon"><i class="fab fa-linkedin"></i></div>
-              <a href="https://www.linkedin.com/in/codigyx/" target="_blank">LinkedIn</a>
+              <div><a href="https://www.linkedin.com/in/codigyx/" target="_blank">LinkedIn</a></div>
             </li>
           </ul>
         </div>
@@ -101,9 +122,10 @@
           <p class="bold">Perfil Profesional</p>
         </div>
         <p>
-          Backend Developer con enfoque en Java y Spring Boot.
-          Experiencia en desarrollo web y móvil con React, Angular y Flutter.
-          Apasionado por crear soluciones eficientes, escalables y centradas en el usuario.
+          Backend Developer especializado en Java y Spring Boot.
+          Experiencia en desarrollo de APIs REST, manejo de bases de datos SQL y control de versiones con Git.
+          Conocimiento en desarrollo frontend con React, Angular y aplicaciones móviles con Flutter.
+          Enfocado en desarrollo de software escalable, eficiente y orientado a soluciones.
         </p>
       </div>
 
@@ -112,11 +134,22 @@
         <div class="title">
           <p class="bold">Experiencia</p>
         </div>
-
+        <p class="exp_desc">
+          Desarrollo y mantenimiento de aplicaciones web, resolución de incidencias técnicas
+          y soporte en infraestructura, mejorando procesos y estabilidad del sistema.
+        </p>
+        
         <ul>
-          <li>
+          <li class="exp_item">
             <p class="semi-bold">JAMOVA Technology</p>
             <p>Desarrollador Web Jr & Técnico en Redes</p>
+            <p class="exp_date">2020 - Presente</p>
+          </li>
+
+          <li>
+            <p class="semi-bold">Kenworth del Este</p>
+            <p>Asistente de TI</p>
+            <p class="exp_date">2016 - 2017</p>
           </li>
         </ul>
       </div>
@@ -130,17 +163,47 @@
         <ul>
           <li>
             <p class="semi-bold">Sistema Punto de Venta</p>
-            <p>Aplicación backend en Java + Spring Boot para gestión de ventas.</p>
+            <p>
+              Sistema backend desarrollado con Java y Spring Boot para gestión de ventas,
+              productos y usuarios, enfocado en lógica de negocio y persistencia de datos.
+            </p>
           </li>
 
           <li>
             <p class="semi-bold">App Finanzas Personal</p>
-            <p>Flutter + Spring Boot, control de ingresos y gastos.</p>
+            <p>
+              Aplicación móvil con Flutter y backend en Spring Boot para control de ingresos y gastos.
+            </p>
           </li>
 
           <li>
             <p class="semi-bold">Portafolio Web</p>
             <a href="https://codigy89.github.io/" target="_blank">Ver proyecto</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- EDUCACIÓN -->
+      <div class="resume_item">
+        <div class="title">
+          <p class="bold">Educación</p>
+        </div>
+
+        <p class="edu_desc">
+          Formación en programación, estructuras de datos y fundamentos de desarrollo de software.
+        </p>
+
+        <ul>
+          <li class="edu_item">
+            <p class="semi-bold">Ingeniería de Software</p>
+            <p>Universidad Veracruzana</p>
+            <p class="edu_date">2021 - 2025</p>
+          </li>
+
+          <li class="edu_item">
+            <p class="semi-bold">Ingeniería Informática</p>
+            <p>Universidad Veracruzana</p>
+            <p class="edu_date">2017 - 2020</p>
           </li>
         </ul>
       </div>
@@ -159,6 +222,9 @@
 
     </div>
   </div>
+
   <script src="cv.js"></script>
+
 </body>
+
 </html>
