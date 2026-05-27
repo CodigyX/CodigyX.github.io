@@ -1,29 +1,23 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CV Erick Barrena</title>
-
   <link rel="stylesheet" href="cv.css">
-
-  <!-- ICONOS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-  <!-- PDF -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Source+Serif+4:wght@300;400;600&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js"></script>
 </head>
-
 <body id="body">
 
-  <div class="top-controls">
+  <!-- CONTROLES -->
+  <div class="top-controls" id="controls">
     <button id="btnPDF" class="btn-pdf">
       <i class="fas fa-file-pdf"></i>
       <span data-es="Descargar CV" data-en="Download CV">Descargar CV</span>
     </button>
-
-    <button id="btnLang" class="btn-lang" title="Switch language">
+    <button id="btnLang" class="btn-lang">
       <i class="fas fa-globe"></i>
       <span id="langLabel">EN</span>
     </button>
@@ -31,298 +25,191 @@
 
   <div class="resume" id="cv">
 
-    <!-- LEFT -->
-    <div class="resume_left">
-      <div class="resume_content">
-
-        <!-- NOMBRE Y TÍTULO -->
-        <div class="resume_item name_block">
-          <p class="bold">Erick Barrena González</p>
-          <p class="regular" data-es="Desarrollador Backend Jr." data-en="Junior Backend Developer">Desarrollador Backend Jr.</p>
-          <p class="stack_tag">Java · Spring Boot · Docker · K8s</p>
-        </div>
-
-        <!-- CONTACTO -->
-        <div class="resume_item">
-          <div class="title">
-            <p class="bold" data-es="Contacto" data-en="Contact">Contacto</p>
-          </div>
-          <ul>
-            <li>
-              <div class="icon"><i class="fas fa-location-dot"></i></div>
-              <div>Orizaba, Veracruz</div>
-            </li>
-            <li>
-              <div class="icon"><i class="fas fa-phone"></i></div>
-              <div>+52 271 709 9590</div>
-            </li>
-            <li>
-              <div class="icon"><i class="fas fa-envelope"></i></div>
-              <div>ecodigyx@gmail.com</div>
-            </li>
-            <li>
-              <div class="icon"><i class="fab fa-github"></i></div>
-              <div><a href="https://github.com/CodigyX" target="_blank">github.com/CodigyX</a></div>
-            </li>
-            <li>
-              <div class="icon"><i class="fab fa-linkedin"></i></div>
-              <div><a href="https://www.linkedin.com/in/codigyx/" target="_blank">linkedin.com/in/codigyx</a></div>
-            </li>
-            <li>
-              <div class="icon"><i class="fas fa-globe"></i></div>
-              <div><a href="https://codigyx.github.io/portfolio/" target="_blank">codigyx.github.io/portfolio</a></div>
-            </li>
-          </ul>
-        </div>
-
-        <!-- HABILIDADES -->
-        <div class="resume_item resume_skills">
-          <div class="title">
-            <p class="bold" data-es="Habilidades" data-en="Skills">Habilidades</p>
-          </div>
-
-          <div class="skill_group">
-            <p class="skill_title">Backend</p>
-            <ul>
-              <li>Java</li>
-              <li>Spring Boot</li>
-              <li>APIs RESTful</li>
-              <li>Hibernate</li>
-            </ul>
-          </div>
-
-          <div class="skill_group">
-            <p class="skill_title">
-              <span data-es="Base de datos" data-en="Databases">Base de datos</span>
-            </p>
-            <ul>
-              <li>MySQL</li>
-              <li>PostgreSQL</li>
-            </ul>
-          </div>
-
-          <div class="skill_group">
-            <p class="skill_title">Frontend</p>
-            <ul>
-              <li>Angular</li>
-              <li>React</li>
-              <li>JavaScript</li>
-            </ul>
-          </div>
-
-          <div class="skill_group">
-            <p class="skill_title">
-              <span data-es="Móvil" data-en="Mobile">Móvil</span>
-            </p>
-            <ul>
-              <li>Flutter</li>
-              <li>Dart</li>
-            </ul>
-          </div>
-
-          <div class="skill_group">
-            <p class="skill_title">DevOps</p>
-            <ul>
-              <li>Docker</li>
-              <li>Kubernetes</li>
-              <li>Docker Compose</li>
-            </ul>
-          </div>
-
-          <div class="skill_group">
-            <p class="skill_title">Tools</p>
-            <ul>
-              <li>Git & GitHub</li>
-              <li>Jira</li>
-              <li>Figma</li>
-              <li>Postman</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- IDIOMAS -->
-        <div class="resume_item">
-          <div class="title">
-            <p class="bold" data-es="Idiomas" data-en="Languages">Idiomas</p>
-          </div>
-          <ul>
-            <li>
-              <span data-es="Español — Nativo" data-en="Spanish — Native">Español — Nativo</span>
-            </li>
-            <li>
-              <span data-es="Inglés — Básico" data-en="English — Basic">Inglés — Básico</span>
-            </li>
-          </ul>
-        </div>
-
-        <!-- CERTIFICACIONES -->
-        <div class="resume_item">
-          <div class="title">
-            <p class="bold" data-es="Certificaciones" data-en="Certifications">Certificaciones</p>
-          </div>
-          <ul class="cert_list">
-            <li>
-              <span class="cert_name">Spring Boot Esencial</span>
-              <span class="cert_meta">LinkedIn Learning · <span data-es="Mayo" data-en="May">Mayo</span> 2026</span>
-            </li>
-            <li>
-              <span class="cert_name">Docker Profesional</span>
-              <span class="cert_meta">Código Facilito · <span data-es="Mayo" data-en="May">Mayo</span> 2026</span>
-            </li>
-            <li>
-              <span class="cert_name">Kubernetes Profesional</span>
-              <span class="cert_meta">Código Facilito · <span data-es="Mayo" data-en="May">Mayo</span> 2026</span>
-            </li>
-            <li>
-              <span class="cert_name">
-                <span data-es="Introducción a DevOps" data-en="Introduction to DevOps">Introducción a DevOps</span>
-              </span>
-              <span class="cert_meta">Código Facilito · <span data-es="Mayo" data-en="May">Mayo</span> 2026</span>
-            </li>
-          </ul>
-        </div>
-
+    <!-- ENCABEZADO -->
+    <header class="cv-header">
+      <h1>Erick Barrena González</h1>
+      <p class="cv-title" data-es="Desarrollador Backend Junior · Java & Spring Boot · Docker · Kubernetes" data-en="Junior Backend Developer · Java & Spring Boot · Docker · Kubernetes">
+        Desarrollador Backend Junior · Java & Spring Boot · Docker · Kubernetes
+      </p>
+      <div class="cv-contact">
+        <span><i class="fas fa-location-dot"></i> Monterrey, Nuevo León</span>
+        <span class="sep">·</span>
+        <span><i class="fas fa-phone"></i> +52 271 709 9590</span>
+        <span class="sep">·</span>
+        <span><i class="fas fa-envelope"></i> ecodigyx@gmail.com</span>
       </div>
-    </div>
-
-    <!-- RIGHT -->
-    <div class="resume_right">
-
-      <!-- PERFIL -->
-      <div class="resume_item">
-        <div class="title">
-          <p class="bold" data-es="Perfil Profesional" data-en="Professional Profile">Perfil Profesional</p>
-        </div>
-        <p data-es="Desarrollador Backend Junior con proyectos propios desarrollados en Java y Spring Boot, incluyendo un sistema de punto de venta y una aplicación móvil con Flutter integrada a backend propio. Ingeniero en Software egresado de la Universidad Veracruzana. Certificado recientemente en Docker, Kubernetes y DevOps. En búsqueda de mi primera oportunidad formal donde pueda aportar, crecer y desarrollarme en un equipo real."
-           data-en="Junior Backend Developer with personal projects built in Java and Spring Boot, including a point-of-sale system and a Flutter mobile app integrated with a custom backend. Software Engineer graduated from Universidad Veracruzana. Recently certified in Docker, Kubernetes and DevOps. Looking for my first formal opportunity to contribute, grow, and develop within a real team.">
-          Desarrollador Backend Junior con proyectos propios desarrollados en Java y Spring Boot, incluyendo un sistema de punto de venta y una aplicación móvil con Flutter integrada a backend propio. Ingeniero en Software egresado de la Universidad Veracruzana. Certificado recientemente en Docker, Kubernetes y DevOps. En búsqueda de mi primera oportunidad formal donde pueda aportar, crecer y desarrollarme en un equipo real.
-        </p>
+      <div class="cv-contact">
+        <span><i class="fab fa-github"></i> <a href="https://github.com/CodigyX" target="_blank">github.com/CodigyX</a></span>
+        <span class="sep">·</span>
+        <span><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/codigyx/" target="_blank">linkedin.com/in/codigyx</a></span>
+        <span class="sep">·</span>
+        <span><i class="fas fa-globe"></i> <a href="https://codigyx.github.io/portfolio/" target="_blank">codigyx.github.io/portfolio</a></span>
       </div>
+    </header>
 
-      <!-- EXPERIENCIA -->
-      <div class="resume_item">
-        <div class="title">
-          <p class="bold" data-es="Experiencia" data-en="Experience">Experiencia</p>
+    <!-- PERFIL -->
+    <section class="cv-section">
+      <h2 data-es="Perfil Profesional" data-en="Professional Profile">Perfil Profesional</h2>
+      <p data-es="Desarrollador Backend Junior con proyectos propios desarrollados en Java y Spring Boot, incluyendo un sistema de punto de venta y una aplicación móvil con Flutter integrada a backend propio. Ingeniero en Software egresado de la Universidad Veracruzana. Certificado recientemente en Docker, Kubernetes y DevOps. En búsqueda de mi primera oportunidad formal donde pueda aportar, crecer y desarrollarme en un equipo real."
+         data-en="Junior Backend Developer with personal projects built in Java and Spring Boot, including a point-of-sale system and a Flutter mobile app integrated with a custom backend. Software Engineer graduated from Universidad Veracruzana. Recently certified in Docker, Kubernetes and DevOps. Looking for my first formal opportunity to contribute, grow and develop within a real team.">
+        Desarrollador Backend Junior con proyectos propios desarrollados en Java y Spring Boot, incluyendo un sistema de punto de venta y una aplicación móvil con Flutter integrada a backend propio. Ingeniero en Software egresado de la Universidad Veracruzana. Certificado recientemente en Docker, Kubernetes y DevOps. En búsqueda de mi primera oportunidad formal donde pueda aportar, crecer y desarrollarme en un equipo real.
+      </p>
+    </section>
+
+    <!-- EXPERIENCIA -->
+    <section class="cv-section">
+      <h2 data-es="Experiencia" data-en="Experience">Experiencia</h2>
+
+      <div class="cv-entry">
+        <div class="cv-entry-header">
+          <span class="cv-org">JAMOVA Technology</span>
+          <span class="cv-date">2020 — <span data-es="Presente" data-en="Present">Presente</span></span>
         </div>
-
+        <p class="cv-role" data-es="Desarrollador Jr. & Soporte TI" data-en="Jr. Developer & IT Support">Desarrollador Jr. & Soporte TI</p>
         <ul>
-          <li class="exp_item">
-            <div class="exp_header">
-              <p class="semi-bold">JAMOVA Technology</p>
-              <p class="exp_date">2020 — <span data-es="Presente" data-en="Present">Presente</span></p>
-            </div>
-            <p class="exp_role" data-es="Desarrollador Jr. & Soporte TI" data-en="Jr. Developer & IT Support">Desarrollador Jr. & Soporte TI</p>
-            <ul class="bullet_list">
-              <li data-es="Desarrollo de aplicación móvil en Flutter con backend Java Spring Boot para gestión de ingresos y gastos de la empresa."
-                  data-en="Developed a Flutter mobile app with Java Spring Boot backend for company income and expense management.">
-                Desarrollo de aplicación móvil en Flutter con backend Java Spring Boot para gestión de ingresos y gastos de la empresa.
-              </li>
-              <li data-es="Administración y mantenimiento de bases de datos."
-                  data-en="Database administration and maintenance.">
-                Administración y mantenimiento de bases de datos.
-              </li>
-              <li data-es="Soporte técnico en infraestructura de red y conectividad."
-                  data-en="Technical support for network infrastructure and connectivity.">
-                Soporte técnico en infraestructura de red y conectividad.
-              </li>
-            </ul>
-          </li>
-
-          <li class="exp_item">
-            <div class="exp_header">
-              <p class="semi-bold">Dislyshop</p>
-              <p class="exp_date"><span data-es="Sep — Nov 2024 · Remoto" data-en="Sep — Nov 2024 · Remote">Sep — Nov 2024 · Remoto</span></p>
-            </div>
-            <p class="exp_role" data-es="Prácticas Profesionales — Desarrollador Frontend" data-en="Professional Internship — Frontend Developer">Prácticas Profesionales — Desarrollador Frontend</p>
-            <ul class="bullet_list">
-              <li data-es="Desarrollo de interfaces web con Angular y Angular Material, consumiendo APIs y gestionando componentes reutilizables."
-                  data-en="Built web interfaces with Angular and Angular Material, consuming APIs and managing reusable components.">
-                Desarrollo de interfaces web con Angular y Angular Material, consumiendo APIs y gestionando componentes reutilizables.
-              </li>
-              <li data-es="Configuración de entornos de desarrollo con Docker y Docker Compose."
-                  data-en="Configured development environments using Docker and Docker Compose.">
-                Configuración de entornos de desarrollo con Docker y Docker Compose.
-              </li>
-              <li data-es="Gestión de base de datos PostgreSQL."
-                  data-en="PostgreSQL database management.">
-                Gestión de base de datos PostgreSQL.
-              </li>
-              <li data-es="Colaboración en equipo mediante GitHub para control de versiones y Jira para seguimiento de tickets."
-                  data-en="Team collaboration using GitHub for version control and Jira for ticket tracking.">
-                Colaboración en equipo mediante GitHub para control de versiones y Jira para seguimiento de tickets.
-              </li>
-            </ul>
-          </li>
+          <li data-es="Desarrollo de aplicación móvil en Flutter con backend Java Spring Boot para gestión de ingresos y gastos de la empresa." data-en="Developed a Flutter mobile app with Java Spring Boot backend for company income and expense management.">Desarrollo de aplicación móvil en Flutter con backend Java Spring Boot para gestión de ingresos y gastos de la empresa.</li>
+          <li data-es="Administración y mantenimiento de bases de datos." data-en="Database administration and maintenance.">Administración y mantenimiento de bases de datos.</li>
+          <li data-es="Soporte técnico en infraestructura de red y conectividad." data-en="Technical support for network infrastructure and connectivity.">Soporte técnico en infraestructura de red y conectividad.</li>
         </ul>
       </div>
 
-      <!-- PROYECTOS -->
-      <div class="resume_item">
-        <div class="title">
-          <p class="bold" data-es="Proyectos" data-en="Projects">Proyectos</p>
+      <div class="cv-entry">
+        <div class="cv-entry-header">
+          <span class="cv-org">Dislyshop</span>
+          <span class="cv-date"><span data-es="Sep — Nov 2024 · Remoto" data-en="Sep — Nov 2024 · Remote">Sep — Nov 2024 · Remoto</span></span>
         </div>
-
+        <p class="cv-role" data-es="Prácticas Profesionales — Desarrollador Frontend" data-en="Professional Internship — Frontend Developer">Prácticas Profesionales — Desarrollador Frontend</p>
         <ul>
-          <li class="proj_item">
-            <div class="proj_header">
-              <p class="semi-bold">Code Sale — <span data-es="Sistema Punto de Venta" data-en="Point of Sale System">Sistema Punto de Venta</span></p>
-              <a href="https://github.com/CodigyX" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-            </div>
-            <p class="proj_stack">Java · Java Swing · MySQL</p>
-            <p data-es="Aplicación de escritorio con gestión de productos por categorías, control de usuarios con roles (gerente/empleado), registro de ventas y generación automática de tickets en PDF."
-               data-en="Desktop application with product management by category, role-based user control (manager/employee), sales registration and automatic PDF ticket generation.">
-              Aplicación de escritorio con gestión de productos por categorías, control de usuarios con roles (gerente/empleado), registro de ventas y generación automática de tickets en PDF.
-            </p>
-          </li>
+          <li data-es="Desarrollo de interfaces web con Angular y Angular Material, consumiendo APIs y gestionando componentes reutilizables." data-en="Built web interfaces with Angular and Angular Material, consuming APIs and managing reusable components.">Desarrollo de interfaces web con Angular y Angular Material, consumiendo APIs y gestionando componentes reutilizables.</li>
+          <li data-es="Configuración de entornos de desarrollo con Docker y Docker Compose." data-en="Configured development environments using Docker and Docker Compose.">Configuración de entornos de desarrollo con Docker y Docker Compose.</li>
+          <li data-es="Gestión de base de datos PostgreSQL." data-en="PostgreSQL database management.">Gestión de base de datos PostgreSQL.</li>
+          <li data-es="Colaboración en equipo mediante GitHub para control de versiones y Jira para seguimiento de tickets." data-en="Team collaboration via GitHub for version control and Jira for ticket tracking.">Colaboración en equipo mediante GitHub para control de versiones y Jira para seguimiento de tickets.</li>
+        </ul>
+      </div>
+    </section>
 
-          <li class="proj_item">
-            <div class="proj_header">
-              <p class="semi-bold">Spendify — <span data-es="Gestor de Finanzas Personales" data-en="Personal Finance Manager">Gestor de Finanzas Personales</span></p>
-              <a href="https://github.com/CodigyX" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-            </div>
-            <p class="proj_stack">Flutter · Spring Boot · PostgreSQL · Figma</p>
-            <p data-es="Desarrollo completo desde levantamiento de requerimientos y diseño en Figma hasta implementación. Registro de ingresos y gastos con categorías, alertas de presupuesto y visualización mediante gráfica circular."
-               data-en="Full development cycle from requirements gathering and Figma design to implementation. Income and expense tracking with categories, budget alerts and circular chart visualization.">
-              Desarrollo completo desde levantamiento de requerimientos y diseño en Figma hasta implementación. Registro de ingresos y gastos con categorías, alertas de presupuesto y visualización mediante gráfica circular.
-            </p>
-          </li>
+    <!-- PROYECTOS -->
+    <section class="cv-section">
+      <h2 data-es="Proyectos" data-en="Projects">Proyectos</h2>
 
-          <li class="proj_item">
-            <div class="proj_header">
-              <p class="semi-bold" data-es="Portafolio Web Personal" data-en="Personal Web Portfolio">Portafolio Web Personal</p>
-              <a href="https://codigyx.github.io/portfolio/" target="_blank"><i class="fas fa-globe"></i> <span data-es="Ver sitio" data-en="View site">Ver sitio</span></a>
-            </div>
-            <p class="proj_stack">HTML · CSS · JavaScript</p>
-            <p data-es="Sitio web personal responsive que presenta proyectos, stack tecnológico y perfil profesional."
-               data-en="Responsive personal website showcasing projects, tech stack and professional profile.">
-              Sitio web personal responsive que presenta proyectos, stack tecnológico y perfil profesional.
-            </p>
-          </li>
+      <div class="cv-entry">
+        <div class="cv-entry-header">
+          <span class="cv-org">Code Sale — <span data-es="Sistema Punto de Venta" data-en="Point of Sale System">Sistema Punto de Venta</span></span>
+          <a href="https://github.com/CodigyX" target="_blank" class="cv-link"><i class="fab fa-github"></i> GitHub</a>
+        </div>
+        <p class="cv-stack">Java · Java Swing · MySQL</p>
+        <ul>
+          <li data-es="Aplicación de escritorio con gestión de productos por categorías, control de usuarios con roles (gerente/empleado), registro de ventas y generación automática de tickets en PDF." data-en="Desktop application with category-based product management, role-based user control (manager/employee), sales registration and automatic PDF ticket generation.">Aplicación de escritorio con gestión de productos por categorías, control de usuarios con roles (gerente/empleado), registro de ventas y generación automática de tickets en PDF.</li>
         </ul>
       </div>
 
-      <!-- EDUCACIÓN -->
-      <div class="resume_item">
-        <div class="title">
-          <p class="bold" data-es="Educación" data-en="Education">Educación</p>
+      <div class="cv-entry">
+        <div class="cv-entry-header">
+          <span class="cv-org">Spendify — <span data-es="Gestor de Finanzas Personales" data-en="Personal Finance Manager">Gestor de Finanzas Personales</span></span>
+          <a href="https://github.com/CodigyX" target="_blank" class="cv-link"><i class="fab fa-github"></i> GitHub</a>
         </div>
-
+        <p class="cv-stack">Flutter · Spring Boot · PostgreSQL · Figma</p>
         <ul>
-          <li class="edu_item">
-            <div class="exp_header">
-              <p class="semi-bold" data-es="Ingeniería en Software" data-en="Software Engineering">Ingeniería en Software</p>
-              <p class="edu_date">2021 — 2026</p>
-            </div>
-            <p class="exp_role">Universidad Veracruzana</p>
-            <p class="edu_badge" data-es="Titulado" data-en="Graduated">Titulado</p>
-          </li>
+          <li data-es="Desarrollo completo desde levantamiento de requerimientos y diseño en Figma hasta implementación." data-en="Full development cycle from requirements gathering and Figma design to implementation.">Desarrollo completo desde levantamiento de requerimientos y diseño en Figma hasta implementación.</li>
+          <li data-es="Registro de ingresos y gastos con categorías, alertas de presupuesto y visualización mediante gráfica circular." data-en="Income and expense tracking with categories, budget alerts and circular chart visualization.">Registro de ingresos y gastos con categorías, alertas de presupuesto y visualización mediante gráfica circular.</li>
         </ul>
       </div>
 
-    </div>
+      <div class="cv-entry">
+        <div class="cv-entry-header">
+          <span class="cv-org" data-es="Portafolio Web Personal" data-en="Personal Web Portfolio">Portafolio Web Personal</span>
+          <a href="https://codigyx.github.io/portfolio/" target="_blank" class="cv-link"><i class="fas fa-globe"></i> <span data-es="Ver sitio" data-en="View site">Ver sitio</span></a>
+        </div>
+        <p class="cv-stack">HTML · CSS · JavaScript</p>
+        <ul>
+          <li data-es="Sitio web personal responsive que presenta proyectos, stack tecnológico y perfil profesional." data-en="Responsive personal website showcasing projects, tech stack and professional profile.">Sitio web personal responsive que presenta proyectos, stack tecnológico y perfil profesional.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- EDUCACIÓN -->
+    <section class="cv-section">
+      <h2 data-es="Educación" data-en="Education">Educación</h2>
+      <div class="cv-entry">
+        <div class="cv-entry-header">
+          <span class="cv-org" data-es="Ingeniería en Software" data-en="Software Engineering">Ingeniería en Software</span>
+          <span class="cv-date">2021 — 2026</span>
+        </div>
+        <p class="cv-role">Universidad Veracruzana · <span class="cv-badge" data-es="Titulado" data-en="Graduated">Titulado</span></p>
+      </div>
+    </section>
+
+    <!-- CERTIFICACIONES -->
+    <section class="cv-section">
+      <h2 data-es="Certificaciones" data-en="Certifications">Certificaciones</h2>
+      <div class="cert-grid">
+        <div class="cert-item">
+          <a href="https://www.linkedin.com/learning/certificates/8a9da27f5ceda5a4108403d5660f873a975d3f5b0c34040a9322b1e1a2ef3892" target="_blank">Spring Boot Esencial <i class="fas fa-external-link-alt"></i></a>
+          <span>LinkedIn Learning · <span data-es="Mayo" data-en="May">Mayo</span> 2026</span>
+        </div>
+        <div class="cert-item">
+          <a href="https://codigofacilito.com/certificados/74459f98-1915-4737-90b5-8c258245de63" target="_blank">Docker Profesional <i class="fas fa-external-link-alt"></i></a>
+          <span>Código Facilito · <span data-es="Mayo" data-en="May">Mayo</span> 2026</span>
+        </div>
+        <div class="cert-item">
+          <a href="https://codigofacilito.com/certificados/89b8b070-4e31-4e05-9659-3c6f63740d12" target="_blank">Kubernetes Profesional <i class="fas fa-external-link-alt"></i></a>
+          <span>Código Facilito · <span data-es="Mayo" data-en="May">Mayo</span> 2026</span>
+        </div>
+        <div class="cert-item">
+          <a href="https://codigofacilito.com/certificados/40725046-e38b-41cb-a271-be0118d42e0f" target="_blank"><span data-es="Introducción a DevOps" data-en="Introduction to DevOps">Introducción a DevOps</span> <i class="fas fa-external-link-alt"></i></a>
+          <span>Código Facilito · <span data-es="Mayo" data-en="May">Mayo</span> 2026</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- HABILIDADES -->
+    <section class="cv-section">
+      <h2 data-es="Habilidades Técnicas" data-en="Technical Skills">Habilidades Técnicas</h2>
+      <div class="skills-grid">
+        <div class="skill-row">
+          <span class="skill-label">Backend</span>
+          <span class="skill-val">Java, Spring Boot, APIs RESTful, Hibernate</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-label" data-es="Base de datos" data-en="Databases">Base de datos</span>
+          <span class="skill-val">MySQL, PostgreSQL</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-label">Frontend</span>
+          <span class="skill-val">Angular, Angular Material, React, JavaScript</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-label" data-es="Móvil" data-en="Mobile">Móvil</span>
+          <span class="skill-val">Flutter, Dart</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-label">DevOps</span>
+          <span class="skill-val">Docker, Docker Compose, Kubernetes</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-label">Tools</span>
+          <span class="skill-val">Git, GitHub, Jira, Figma, Postman</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- IDIOMAS -->
+    <section class="cv-section last">
+      <h2 data-es="Idiomas" data-en="Languages">Idiomas</h2>
+      <div class="skills-grid">
+        <div class="skill-row">
+          <span class="skill-label" data-es="Español" data-en="Spanish">Español</span>
+          <span class="skill-val" data-es="Nativo" data-en="Native">Nativo</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-label" data-es="Inglés" data-en="English">Inglés</span>
+          <span class="skill-val" data-es="Básico" data-en="Basic">Básico</span>
+        </div>
+      </div>
+    </section>
+
   </div>
 
   <script src="cv.js"></script>
 </body>
-
 </html>

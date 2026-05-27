@@ -1,408 +1,272 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&display=swap");
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Inter", sans-serif;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-  background: #f1f5f9;
-  color: #111;
+  background: #eef0f4;
+  color: #1a1a1a;
+  font-family: "Source Serif 4", Georgia, serif;
 }
 
-/* CONTROLES SUPERIORES */
+/* ── CONTROLES ─────────────────────────────────── */
 .top-controls {
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 12px;
-  margin: 20px auto;
-  width: 800px;
+  gap: 10px;
+  padding: 20px 0 14px;
 }
 
-/* BOTÓN PDF */
 .btn-pdf {
-  background: linear-gradient(135deg, #082d7a, #1d4ed8);
-  color: white;
-  padding: 8px 18px;
+  background: #082d7a;
+  color: #fff;
   border: none;
-  border-radius: 6px;
+  padding: 8px 18px;
+  border-radius: 5px;
+  font-size: 12.5px;
+  font-family: "Source Serif 4", serif;
   cursor: pointer;
-  font-size: 13px;
-  font-weight: 500;
   display: flex;
   align-items: center;
-  gap: 8px;
-  transition: 0.3s;
+  gap: 7px;
+  transition: background 0.2s, transform 0.2s;
 }
+.btn-pdf:hover { background: #0a3d9e; transform: scale(1.03); }
 
-.btn-pdf:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(8, 45, 122, 0.3);
-}
-
-/* BOTÓN IDIOMA */
 .btn-lang {
   background: #fff;
   color: #082d7a;
-  padding: 8px 14px;
   border: 1.5px solid #082d7a;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 13px;
+  padding: 8px 14px;
+  border-radius: 5px;
+  font-size: 12.5px;
   font-weight: 600;
+  font-family: "Source Serif 4", serif;
+  cursor: pointer;
   display: flex;
   align-items: center;
   gap: 6px;
-  transition: 0.3s;
+  transition: background 0.2s, color 0.2s;
 }
+.btn-lang:hover { background: #082d7a; color: #fff; }
 
-.btn-lang:hover {
-  background: #082d7a;
-  color: white;
-}
-
-/* CONTENEDOR */
+/* ── CONTENEDOR ────────────────────────────────── */
 .resume {
-  width: 800px;
-  margin: 0 auto 30px;
-  display: flex;
+  width: 760px;
+  margin: 0 auto 40px;
   background: #fff;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-  border-radius: 4px;
-  overflow: hidden;
+  padding: 52px 64px;
+  box-shadow: 0 6px 32px rgba(0,0,0,0.10);
 }
 
-/* LEFT */
-.resume_left {
-  width: 28%;
-  padding: 24px 16px;
-  background: #f8fafc;
-  border-right: 1px solid #e5e7eb;
-}
-
-/* NOMBRE */
-.name_block {
-  border-bottom: 2px solid #082d7a !important;
-  padding-bottom: 14px !important;
-  margin-bottom: 4px;
-}
-
-.name_block .bold {
-  font-size: 14px;
-  font-weight: 700;
-  color: #082d7a;
-  line-height: 1.3;
-  margin-bottom: 4px;
-}
-
-.name_block .regular {
-  font-size: 11px;
-  color: #555;
-  margin-bottom: 6px;
-}
-
-.stack_tag {
-  font-size: 10px;
-  color: #0369a1;
-  background: #e0f2fe;
-  padding: 3px 7px;
-  border-radius: 20px;
-  display: inline-block;
-  font-weight: 500;
-}
-
-/* TEXTO */
-.bold {
-  font-size: 11px;
-  font-weight: 700;
-  margin-bottom: 4px;
-}
-
-.regular {
-  font-size: 11px;
-  color: #555;
-  margin-bottom: 8px;
-}
-
-/* TÍTULOS */
-.title {
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: #082d7a;
-  margin: 14px 0 8px;
-  position: relative;
-  padding-left: 10px;
-}
-
-.title::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 1px;
-  width: 3px;
-  height: 12px;
-  background: #082d7a;
-  border-radius: 2px;
-}
-
-/* LISTAS */
-ul {
-  list-style: none;
-}
-
-ul li {
-  font-size: 11px;
-}
-
-.resume_left ul {
-  margin-top: 4px;
-}
-
-.resume_left ul li {
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
-  margin-bottom: 10px;
-  line-height: 1.4;
-}
-
-.icon {
-  width: 20px;
+/* ── ENCABEZADO ────────────────────────────────── */
+.cv-header {
   text-align: center;
-  color: #082d7a;
-  font-size: 11px;
-  margin-top: 1px;
-  flex-shrink: 0;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #082d7a;
+  margin-bottom: 24px;
 }
 
-.resume_left .resume_item {
-  margin-bottom: 4px;
-}
-
-/* SKILLS */
-.skill_group {
-  margin-bottom: 10px;
-}
-
-.skill_title {
-  font-size: 10px;
-  font-weight: 700;
-  color: #374151;
-  margin-bottom: 5px;
-  text-transform: uppercase;
-  letter-spacing: 0.3px;
-}
-
-.skill_group ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-}
-
-.resume_skills ul li {
-  background: #e0f2fe;
-  color: #0369a1;
-  padding: 3px 7px;
-  border-radius: 4px;
-  font-size: 10px;
-  font-weight: 500;
-  display: inline;
-}
-
-/* CERTIFICACIONES */
-.cert_list li {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 1px !important;
-  margin-bottom: 8px !important;
-  padding-bottom: 8px;
-  border-bottom: 1px solid #e5e7eb;
-}
-
-.cert_list li:last-child {
-  border-bottom: none;
-}
-
-.cert_name {
-  font-size: 11px;
+.cv-header h1 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 28px;
   font-weight: 600;
-  color: #111;
-}
-
-.cert_meta {
-  font-size: 10px;
-  color: #6b7280;
-}
-
-/* LINKS */
-a {
   color: #082d7a;
-  text-decoration: none;
-  font-size: 11px;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-/* RIGHT */
-.resume_right {
-  width: 72%;
-  padding: 24px 20px;
-}
-
-/* SECCIONES */
-.resume_item {
-  margin-bottom: 16px;
-  padding-bottom: 14px;
-  border-bottom: 1px solid #e5e7eb;
-}
-
-.resume_item:last-child {
-  border-bottom: none;
-}
-
-.resume_right .title {
-  margin-top: 0;
-}
-
-/* EXPERIENCIA */
-.exp_item {
-  margin-bottom: 14px;
-}
-
-.exp_item:last-child {
-  margin-bottom: 0;
-}
-
-.exp_header {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 2px;
-}
-
-.exp_role {
-  font-size: 11px;
-  color: #6b7280;
-  font-style: italic;
+  letter-spacing: 0.5px;
   margin-bottom: 6px;
 }
 
-.exp_date {
-  font-size: 10px;
-  color: #6b7280;
-  white-space: nowrap;
+.cv-title {
+  font-size: 12px;
+  color: #555;
+  letter-spacing: 0.3px;
+  margin-bottom: 10px;
+  font-style: italic;
 }
 
-/* BULLET LIST */
-.bullet_list {
-  padding-left: 4px;
-}
-
-.bullet_list li {
-  font-size: 11px;
-  line-height: 1.5;
-  color: #374151;
+.cv-contact {
+  font-size: 11.5px;
+  color: #444;
   margin-bottom: 4px;
-  padding-left: 12px;
-  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 4px 0;
+  align-items: center;
 }
 
-.bullet_list li::before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  color: #082d7a;
-  font-size: 11px;
+.cv-contact span { padding: 0 2px; }
+.sep { color: #aaa; padding: 0 6px; }
+.cv-contact i { color: #082d7a; margin-right: 4px; font-size: 10px; }
+
+a { color: #082d7a; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ── SECCIONES ─────────────────────────────────── */
+.cv-section {
+  margin-bottom: 22px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid #e2e5ea;
 }
 
-/* PROYECTOS */
-.proj_item {
-  margin-bottom: 12px;
-  padding-bottom: 12px;
-  border-bottom: 1px dashed #e5e7eb;
-}
-
-.proj_item:last-child {
+.cv-section.last {
   border-bottom: none;
   margin-bottom: 0;
   padding-bottom: 0;
 }
 
-.proj_header {
+.cv-section h2 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: #082d7a;
+  margin-bottom: 12px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #c8d0e0;
+}
+
+/* ── ENTRADAS ──────────────────────────────────── */
+.cv-entry {
+  margin-bottom: 14px;
+}
+.cv-entry:last-child { margin-bottom: 0; }
+
+.cv-entry-header {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
   margin-bottom: 2px;
 }
 
-.proj_stack {
-  font-size: 10px;
-  color: #0369a1;
-  font-weight: 500;
-  margin-bottom: 4px;
-  background: #f0f9ff;
-  display: inline-block;
-  padding: 2px 6px;
-  border-radius: 3px;
+.cv-org {
+  font-size: 13px;
+  font-weight: 600;
+  color: #111;
 }
 
-.proj_item > p {
+.cv-date {
   font-size: 11px;
-  line-height: 1.5;
-  color: #374151;
+  color: #777;
+  white-space: nowrap;
+  font-style: italic;
 }
 
-/* EDUCACIÓN */
-.edu_item {
-  margin-bottom: 10px;
+.cv-role {
+  font-size: 11.5px;
+  color: #555;
+  font-style: italic;
+  margin-bottom: 6px;
 }
 
-.edu_date {
-  font-size: 10px;
-  color: #6b7280;
-}
-
-.edu_badge {
-  display: inline-block;
-  font-size: 10px;
+.cv-badge {
+  font-style: normal;
+  font-size: 10.5px;
   font-weight: 600;
   color: #065f46;
   background: #d1fae5;
-  padding: 2px 8px;
+  padding: 1px 8px;
   border-radius: 20px;
-  margin-top: 4px;
 }
 
-/* TEXTO GENERAL RIGHT */
-.semi-bold {
-  font-weight: 600;
+/* ── BULLETS ───────────────────────────────────── */
+ul { list-style: none; padding: 0; }
+
+.cv-section ul li {
   font-size: 12px;
+  line-height: 1.65;
+  color: #333;
+  padding-left: 14px;
+  position: relative;
+  margin-bottom: 3px;
 }
 
-.resume_right p {
+.cv-section ul li::before {
+  content: "–";
+  position: absolute;
+  left: 0;
+  color: #082d7a;
+  font-weight: 600;
+}
+
+/* ── STACK TAG ─────────────────────────────────── */
+.cv-stack {
+  font-size: 10.5px;
+  color: #0369a1;
+  font-weight: 600;
+  margin-bottom: 5px;
+  font-style: normal;
+  letter-spacing: 0.2px;
+}
+
+.cv-link {
   font-size: 11px;
+  color: #082d7a;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.cv-link i { font-size: 10px; }
+
+/* ── CERTIFICACIONES ───────────────────────────── */
+.cert-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 32px;
+}
+
+.cert-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.cert-item a {
+  font-size: 12px;
+  font-weight: 600;
+  color: #082d7a;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.cert-item a i { font-size: 9px; opacity: 0.7; }
+
+.cert-item span {
+  font-size: 11px;
+  color: #777;
+  font-style: italic;
+}
+
+/* ── HABILIDADES ───────────────────────────────── */
+.skills-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.skill-row {
+  display: flex;
+  gap: 0;
+  font-size: 12px;
   line-height: 1.5;
 }
 
-/* PRINT */
+.skill-label {
+  min-width: 130px;
+  font-weight: 600;
+  color: #111;
+  flex-shrink: 0;
+}
+
+.skill-val {
+  color: #444;
+}
+
+/* ── PRINT ─────────────────────────────────────── */
 @media print {
-  body {
-    background: white;
-  }
-
-  .top-controls {
-    display: none;
-  }
-
-  .resume {
-    width: 100%;
-    box-shadow: none;
-    border-radius: 0;
-  }
+  body { background: white; }
+  .top-controls { display: none; }
+  .resume { box-shadow: none; margin: 0; width: 100%; padding: 40px 60px; }
 }
