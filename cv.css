@@ -8,7 +8,7 @@ body {
   font-family: "Source Serif 4", Georgia, serif;
 }
 
-/* ── CONTROLES ─────────────────────────────────── */
+/* CONTROLES */
 .top-controls {
   display: flex;
   justify-content: center;
@@ -49,7 +49,7 @@ body {
 }
 .btn-lang:hover { background: #082d7a; color: #fff; }
 
-/* ── CONTENEDOR ────────────────────────────────── */
+/* CONTENEDOR */
 .resume {
   width: 760px;
   margin: 0 auto 40px;
@@ -58,50 +58,72 @@ body {
   box-shadow: 0 6px 32px rgba(0,0,0,0.10);
 }
 
-/* ── ENCABEZADO ────────────────────────────────── */
+/* ENCABEZADO */
 .cv-header {
   text-align: center;
-  padding-bottom: 20px;
+  padding-bottom: 22px;
   border-bottom: 2px solid #082d7a;
-  margin-bottom: 24px;
+  margin-bottom: 26px;
 }
 
 .cv-header h1 {
   font-family: "Playfair Display", Georgia, serif;
-  font-size: 28px;
+  font-size: 30px;
   font-weight: 600;
   color: #082d7a;
   letter-spacing: 0.5px;
-  margin-bottom: 6px;
+  margin-bottom: 5px;
 }
 
 .cv-title {
-  font-size: 12px;
-  color: #555;
-  letter-spacing: 0.3px;
-  margin-bottom: 10px;
+  font-size: 17px;
+  color: #444;
   font-style: italic;
+  margin-bottom: 12px;
+  letter-spacing: 0.2px;
 }
 
-.cv-contact {
-  font-size: 11.5px;
-  color: #444;
-  margin-bottom: 4px;
+/* TAGS DE STACK */
+.cv-tags {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 4px 0;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.tag {
+  font-size: 10.5px;
+  font-weight: 600;
+  color: #082d7a;
+  background: #eef2fb;
+  border: 1px solid #c0cff0;
+  padding: 3px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.2px;
+  font-style: normal;
+  font-family: "Source Serif 4", serif;
+}
+
+/* CONTACTO */
+.cv-contact {
+  font-size: 11.5px;
+  color: #444;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   align-items: center;
 }
 
 .cv-contact span { padding: 0 2px; }
-.sep { color: #aaa; padding: 0 6px; }
+.sep { color: #bbb; padding: 0 8px; }
 .cv-contact i { color: #082d7a; margin-right: 4px; font-size: 10px; }
 
 a { color: #082d7a; text-decoration: none; }
 a:hover { text-decoration: underline; }
 
-/* ── SECCIONES ─────────────────────────────────── */
+/* SECCIONES */
 .cv-section {
   margin-bottom: 22px;
   padding-bottom: 22px;
@@ -116,19 +138,19 @@ a:hover { text-decoration: underline; }
 
 .cv-section h2 {
   font-family: "Playfair Display", Georgia, serif;
-  font-size: 13px;
+  font-size: 12.5px;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 1.2px;
+  letter-spacing: 1.4px;
   color: #082d7a;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   padding-bottom: 5px;
   border-bottom: 1px solid #c8d0e0;
 }
 
-/* ── ENTRADAS ──────────────────────────────────── */
+/* ENTRADAS */
 .cv-entry {
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 }
 .cv-entry:last-child { margin-bottom: 0; }
 
@@ -156,7 +178,7 @@ a:hover { text-decoration: underline; }
   font-size: 11.5px;
   color: #555;
   font-style: italic;
-  margin-bottom: 6px;
+  margin-bottom: 7px;
 }
 
 .cv-badge {
@@ -169,12 +191,12 @@ a:hover { text-decoration: underline; }
   border-radius: 20px;
 }
 
-/* ── BULLETS ───────────────────────────────────── */
+/* BULLETS */
 ul { list-style: none; padding: 0; }
 
 .cv-section ul li {
   font-size: 12px;
-  line-height: 1.65;
+  line-height: 1.7;
   color: #333;
   padding-left: 14px;
   position: relative;
@@ -189,13 +211,12 @@ ul { list-style: none; padding: 0; }
   font-weight: 600;
 }
 
-/* ── STACK TAG ─────────────────────────────────── */
+/* STACK */
 .cv-stack {
   font-size: 10.5px;
   color: #0369a1;
   font-weight: 600;
-  margin-bottom: 5px;
-  font-style: normal;
+  margin-bottom: 6px;
   letter-spacing: 0.2px;
 }
 
@@ -205,15 +226,15 @@ ul { list-style: none; padding: 0; }
   display: flex;
   align-items: center;
   gap: 4px;
+  white-space: nowrap;
 }
-
 .cv-link i { font-size: 10px; }
 
-/* ── CERTIFICACIONES ───────────────────────────── */
+/* CERTIFICACIONES */
 .cert-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px 32px;
+  gap: 10px 40px;
 }
 
 .cert-item {
@@ -231,7 +252,7 @@ ul { list-style: none; padding: 0; }
   gap: 5px;
 }
 
-.cert-item a i { font-size: 9px; opacity: 0.7; }
+.cert-item a i { font-size: 9px; opacity: 0.6; }
 
 .cert-item span {
   font-size: 11px;
@@ -239,16 +260,15 @@ ul { list-style: none; padding: 0; }
   font-style: italic;
 }
 
-/* ── HABILIDADES ───────────────────────────────── */
+/* HABILIDADES */
 .skills-grid {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 7px;
 }
 
 .skill-row {
   display: flex;
-  gap: 0;
   font-size: 12px;
   line-height: 1.5;
 }
@@ -260,11 +280,9 @@ ul { list-style: none; padding: 0; }
   flex-shrink: 0;
 }
 
-.skill-val {
-  color: #444;
-}
+.skill-val { color: #444; }
 
-/* ── PRINT ─────────────────────────────────────── */
+/* PRINT */
 @media print {
   body { background: white; }
   .top-controls { display: none; }
