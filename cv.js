@@ -17,22 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // ── DESCARGAR PDF ─────────────────────────────
+  // ── GUARDAR PDF CON TEXTO SELECCIONABLE ───────
   btnPDF.addEventListener("click", () => {
-    const controls = document.getElementById("controls");
-    const element  = document.getElementById("cv");
-    controls.style.display = "none";
-
-    const lang = currentLang === "es" ? "ES" : "EN";
-
-    html2pdf().set({
-      margin: 0.4,
-      filename: `Erick_Barrena_Backend_Developer_${lang}.pdf`,
-      image: { type: "jpeg", quality: 1 },
-      html2canvas: { scale: 2, useCORS: true },
-      jsPDF: { unit: "in", format: "letter", orientation: "portrait" }
-    }).from(element).save().then(() => {
-      controls.style.display = "flex";
-    });
+    window.print();
   });
 });

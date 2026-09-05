@@ -1,11 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&display=swap");
-
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
   background: #eef0f4;
   color: #1a1a1a;
-  font-family: "Source Serif 4", Georgia, serif;
+  font-family: "Source Sans 3", Arial, sans-serif;
 }
 
 /* CONTROLES */
@@ -23,7 +21,7 @@ body {
   padding: 8px 18px;
   border-radius: 5px;
   font-size: 12.5px;
-  font-family: "Source Serif 4", serif;
+  font-family: "Source Sans 3", Arial, sans-serif;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -40,7 +38,7 @@ body {
   border-radius: 5px;
   font-size: 12.5px;
   font-weight: 600;
-  font-family: "Source Serif 4", serif;
+  font-family: "Source Sans 3", Arial, sans-serif;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -76,7 +74,7 @@ body {
 }
 
 .cv-title {
-  font-size: 17px;
+  font-size: 16.5px;
   color: #444;
   font-style: italic;
   margin-bottom: 12px;
@@ -102,7 +100,7 @@ body {
   border-radius: 20px;
   letter-spacing: 0.2px;
   font-style: normal;
-  font-family: "Source Serif 4", serif;
+  font-family: "Source Sans 3", Arial, sans-serif;
 }
 
 /* CONTACTO */
@@ -148,6 +146,12 @@ a:hover { text-decoration: underline; }
   border-bottom: 1px solid #c8d0e0;
 }
 
+.cv-section > p {
+  font-size: 12.5px;
+  line-height: 1.62;
+  color: #333;
+}
+
 /* ENTRADAS */
 .cv-entry {
   margin-bottom: 16px;
@@ -178,7 +182,7 @@ a:hover { text-decoration: underline; }
   font-size: 11.5px;
   color: #555;
   font-style: italic;
-  margin-bottom: 7px;
+  margin-bottom: 5px;
 }
 
 .cv-badge {
@@ -234,17 +238,18 @@ ul { list-style: none; padding: 0; }
 .cert-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px 40px;
+  gap: 7px 28px;
 }
 
 .cert-item {
   display: flex;
-  flex-direction: column;
-  gap: 2px;
+  align-items: baseline;
+  gap: 6px;
+  white-space: nowrap;
 }
 
 .cert-item a {
-  font-size: 12px;
+  font-size: 11.5px;
   font-weight: 600;
   color: #082d7a;
   display: flex;
@@ -255,9 +260,22 @@ ul { list-style: none; padding: 0; }
 .cert-item a i { font-size: 9px; opacity: 0.6; }
 
 .cert-item span {
-  font-size: 11px;
+  font-size: 10.5px;
   color: #777;
   font-style: italic;
+}
+
+/* COMPETENCIAS PROFESIONALES */
+.soft-skills-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 24px;
+  row-gap: 2px;
+}
+
+.cv-section .soft-skills-list li {
+  margin-bottom: 0;
+  line-height: 1.5;
 }
 
 /* HABILIDADES */
@@ -284,7 +302,14 @@ ul { list-style: none; padding: 0; }
 
 /* PRINT */
 @media print {
-  body { background: white; }
+  @page { size: Letter; margin: 0.4in; }
+  html, body { background: white; }
+  body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
   .top-controls { display: none; }
-  .resume { box-shadow: none; margin: 0; width: 100%; padding: 40px 60px; }
+  .resume { box-shadow: none; margin: 0; width: auto; padding: 0; }
+  .cv-entry { break-inside: avoid; page-break-inside: avoid; }
+  .cv-section h2 { break-after: avoid; page-break-after: avoid; }
 }
