@@ -259,7 +259,7 @@ ul { list-style: none; padding: 0; }
 
 .cert-item a i { font-size: 9px; opacity: 0.6; }
 
-.cert-item span {
+.cert-item > span {
   font-size: 10.5px;
   color: #777;
   font-style: italic;
