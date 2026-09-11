@@ -310,6 +310,7 @@ ul { list-style: none; padding: 0; }
   }
   .top-controls { display: none; }
   .resume { box-shadow: none; margin: 0; width: auto; padding: 0; }
+  .cv-section { margin-bottom: 14px; padding-bottom: 14px; }
   .cv-entry { break-inside: avoid; page-break-inside: avoid; }
   .cv-section h2 { break-after: avoid; page-break-after: avoid; }
 }
