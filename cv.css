@@ -185,6 +185,16 @@ a:hover { text-decoration: underline; }
   margin-bottom: 5px;
 }
 
+.cv-role-secondary {
+  margin-top: 9px;
+}
+
+.cv-period {
+  margin: -3px 0 5px;
+  font-size: 10.5px;
+  color: #777;
+}
+
 .cv-badge {
   font-style: normal;
   font-size: 10.5px;
