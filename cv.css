@@ -190,9 +190,10 @@ a:hover { text-decoration: underline; }
 }
 
 .cv-period {
-  margin: -3px 0 5px;
-  font-size: 10.5px;
+  margin: 0 0 5px;
+  font-size: 11px;
   color: #777;
+  font-style: italic;
 }
 
 .cv-badge {
@@ -209,7 +210,7 @@ a:hover { text-decoration: underline; }
 ul { list-style: none; padding: 0; }
 
 .cv-section ul li {
-  font-size: 12px;
+  font-size: 12.5px;
   line-height: 1.7;
   color: #333;
   padding-left: 14px;
@@ -227,7 +228,7 @@ ul { list-style: none; padding: 0; }
 
 /* STACK */
 .cv-stack {
-  font-size: 10.5px;
+  font-size: 11px;
   color: #0369a1;
   font-weight: 600;
   margin-bottom: 6px;
@@ -270,7 +271,7 @@ ul { list-style: none; padding: 0; }
 .cert-item a i { font-size: 9px; opacity: 0.6; }
 
 .cert-item > span {
-  font-size: 10.5px;
+  font-size: 11px;
   color: #777;
   font-style: italic;
 }
@@ -297,7 +298,7 @@ ul { list-style: none; padding: 0; }
 
 .skill-row {
   display: flex;
-  font-size: 12px;
+  font-size: 12.5px;
   line-height: 1.5;
 }
 
