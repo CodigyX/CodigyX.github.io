@@ -1,0 +1,281 @@
+/**
+ * mapa-web — estilos del mapa.
+ * Todo el color sale de variables CSS: cambia el tema sin tocar el JS.
+ */
+
+/* Paleta por defecto: monocromo sobre blanco. Neutra a propósito, para que no
+   imponga una marca. Cámbiala con estas mismas variables; en
+   ejemplo-colombia.html está el mismo componente en oscuro. */
+.mw-contenedor {
+  /* El relleno va un punto por debajo del fondo, no por encima: sobre papel,
+     un gris más claro que el fondo hace que el país parezca iluminado. */
+  --mw-estado-desde: #dedcd6;
+  --mw-estado-hasta: #e6e4de;
+  --mw-activo-desde: #3f3f47;
+  --mw-activo-hasta: #6e6e78;
+  --mw-borde: #0a0a0b;
+  /* Más claro que el punto a propósito: un halo casi negro sobre fondo claro
+     se ve como una mancha en vez de un aura. */
+  --mw-halo: #7a7a86;
+  --mw-resplandor: #b3b1a7;
+  --mw-punto: #0a0a0b;
+  --mw-texto: #0a0a0b;
+  --mw-texto-tenue: #6f6d66;
+  --mw-fondo-texto: #eeede9;
+
+  position: relative;
+  width: 100%;
+}
+
+.mw {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ---------- Entidades ---------- */
+.mw-estado {
+  stroke: var(--mw-borde);
+  stroke-opacity: 0.22;
+  stroke-width: 0.6;
+  opacity: 0;
+}
+.mw-estado-activo {
+  fill: url(#mwActivo);
+  fill-opacity: 0.5;
+  stroke: var(--mw-halo);
+  stroke-opacity: 0.65;
+  stroke-width: 1.1;
+}
+
+.mw-en-vista .mw-estado {
+  animation: mw-aparece 0.9s ease-out forwards;
+  animation-delay: calc(var(--i) * 14ms);
+}
+@keyframes mw-aparece {
+  to { opacity: 1; }
+}
+
+/* En pantallas grandes el país se traza solo, entidad por entidad */
+@media (min-width: 768px) {
+  .mw-estado {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+  }
+  .mw-en-vista .mw-estado {
+    animation: mw-traza 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation-delay: calc(var(--i) * 22ms);
+  }
+  @keyframes mw-traza {
+    0%   { opacity: 1; stroke-dashoffset: 100; fill-opacity: 0; }
+    55%  { fill-opacity: 0; }
+    100% { opacity: 1; stroke-dashoffset: 0; }
+  }
+  .mw-en-vista .mw-estado-activo { animation-name: mw-traza-activo; }
+  @keyframes mw-traza-activo {
+    0%   { opacity: 1; stroke-dashoffset: 100; fill-opacity: 0; }
+    55%  { fill-opacity: 0; }
+    100% { opacity: 1; stroke-dashoffset: 0; fill-opacity: 0.5; }
+  }
+}
+
+.mw-resplandor { opacity: 0; }
+.mw-en-vista .mw-resplandor { animation: mw-fundido 2.2s 0.4s ease-out forwards; }
+.mw-capa-resplandor { transition: opacity 0.4s ease; }
+@keyframes mw-fundido {
+  to { opacity: 1; }
+}
+
+/* ---------- Estado destacado al hacer clic ---------- */
+.mw-halo-estado {
+  fill: none;
+  stroke: var(--mw-activo-hasta);
+  stroke-opacity: 0.4;
+  stroke-width: 7px;
+  stroke-linejoin: round;
+}
+.mw-estado-destacado {
+  fill-opacity: 0.85;
+  stroke: var(--mw-texto);
+  stroke-opacity: 0.95;
+  stroke-width: 1.6px;
+}
+
+/* ---------- Arcos ---------- */
+.mw-arco {
+  fill: none;
+  stroke: var(--mw-halo);
+  stroke-opacity: 0.25;
+  stroke-width: 0.9;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+}
+.mw-en-vista .mw-arco {
+  animation: mw-dibuja 1.4s ease-out forwards;
+  animation-delay: calc(1.2s + var(--d));
+}
+@keyframes mw-dibuja {
+  to { stroke-dashoffset: 0; }
+}
+
+/* Sin filtros: este trazo se repinta en bucle y un drop-shadow aquí obliga a
+   rasterizar toda su caja en cada cuadro. */
+.mw-arco-luz {
+  fill: none;
+  stroke: var(--mw-texto);
+  stroke-width: 2;
+  stroke-opacity: 0.85;
+  stroke-linecap: round;
+  stroke-dasharray: 9 91;
+  stroke-dashoffset: 100;
+  opacity: 0;
+}
+.mw-en-vista .mw-arco-luz {
+  animation: mw-viaja 3.6s linear infinite;
+  animation-delay: calc(2.2s + var(--d) * 3);
+}
+@keyframes mw-viaja {
+  0%   { stroke-dashoffset: 100; opacity: 0; }
+  12%  { opacity: 1; }
+  88%  { opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 0; }
+}
+
+/* ---------- Marcadores ---------- */
+.mw-punto { cursor: pointer; }
+.mw-punto:focus { outline: none; }
+.mw-punto:focus-visible .mw-foco { opacity: 1; stroke-dasharray: 3 3; }
+
+/* --contra devuelve al círculo su tamaño original en pantalla cuando la
+   cámara se acerca. La caja son puros círculos concéntricos, así que el
+   centro no se mueve al escalar. */
+.mw-circulo {
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+  transform: scale(var(--contra, 1));
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.mw-pulso {
+  fill: none;
+  stroke: var(--mw-halo);
+  stroke-width: 1.2;
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+  opacity: 0;
+}
+.mw-en-vista .mw-pulso {
+  animation: mw-late 3.4s cubic-bezier(0.2, 0.6, 0.3, 1) infinite;
+  animation-delay: calc(1.6s + var(--d));
+}
+@keyframes mw-late {
+  0%   { transform: scale(0.4); opacity: 0.85; }
+  70%  { opacity: 0; }
+  100% { transform: scale(2.8); opacity: 0; }
+}
+
+.mw-halo, .mw-nucleo { opacity: 0; }
+.mw-nucleo { fill: var(--mw-punto); }
+.mw-punto-base .mw-nucleo {
+  stroke: var(--mw-halo);
+  stroke-width: 2;
+  stroke-opacity: 0.5;
+}
+.mw-en-vista .mw-halo,
+.mw-en-vista .mw-nucleo {
+  animation: mw-surge 0.7s cubic-bezier(0.2, 1.5, 0.4, 1) forwards;
+  animation-delay: calc(1.35s + var(--d));
+}
+@keyframes mw-surge {
+  to { opacity: 1; }
+}
+
+.mw-foco {
+  fill: none;
+  stroke: var(--mw-punto);
+  stroke-width: 1.3;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.mw-punto.mw-encima .mw-foco { opacity: 0.85; }
+
+/* Sin etiquetas el mapa se ve chico: los puntos necesitan más cuerpo */
+.mw-sin-etiquetas .mw-circulo { transform: scale(calc(1.8 * var(--contra, 1))); }
+
+/* ---------- Etiquetas ---------- */
+.mw-guia {
+  fill: none;
+  stroke: var(--mw-halo);
+  stroke-opacity: 0.45;
+  stroke-width: 0.7;
+  stroke-dasharray: 3 3;
+}
+.mw-etiqueta {
+  fill: var(--mw-texto);
+  font-size: 16px;
+  font-weight: 700;
+  paint-order: stroke fill;
+  stroke: var(--mw-fondo-texto);
+  stroke-width: 4px;
+  stroke-linejoin: round;
+}
+.mw-detalle {
+  fill: var(--mw-texto-tenue);
+  fill-opacity: 0.65;
+  font-size: 12px;
+  font-weight: 500;
+  paint-order: stroke fill;
+  stroke: var(--mw-fondo-texto);
+  stroke-width: 3.5px;
+  stroke-linejoin: round;
+}
+
+.mw-rotulo-interior { opacity: 0; }
+.mw-en-vista .mw-rotulo-interior {
+  animation: mw-fundido 0.8s ease-out forwards;
+  animation-delay: calc(1.7s + var(--d));
+}
+.mw-sin-etiquetas .mw-rotulo { display: none; }
+
+/* ---------- Cámara acercada ---------- */
+/* Nada cambia de golpe: un salto de opacidad en un solo cuadro se percibe
+   como parpadeo aunque no se haya perdido ningún frame. */
+.mw-estados,
+.mw-arcos,
+.mw-rotulo,
+.mw-punto {
+  transition: opacity 0.4s ease;
+}
+
+.mw-enfocado .mw-estados { opacity: 0.4; }
+.mw-enfocado .mw-arcos { opacity: 0.25; }
+.mw-enfocado .mw-punto:not(.mw-seleccionado) { opacity: 0.2; }
+.mw-enfocado .mw-rotulo { opacity: 0; pointer-events: none; }
+
+/* Mientras la cámara viaja se retira lo caro: el filtro de desenfoque y las
+   animaciones en bucle tendrían que redibujarse en cada cuadro del recorrido. */
+.mw-enfocado .mw-capa-resplandor,
+.mw-moviendo .mw-capa-resplandor { opacity: 0; }
+.mw-enfocado .mw-arco-luz,
+.mw-moviendo .mw-arco-luz,
+.mw-enfocado .mw-pulso,
+.mw-moviendo .mw-pulso { visibility: hidden; }
+
+/* ---------- Accesibilidad ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .mw-contenedor *,
+  .mw-contenedor *::before,
+  .mw-contenedor *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .mw-estado,
+  .mw-resplandor,
+  .mw-halo,
+  .mw-nucleo,
+  .mw-rotulo,
+  .mw-rotulo-interior { opacity: 1 !important; }
+  .mw-estado { stroke-dashoffset: 0 !important; }
+  .mw-arco { stroke-dashoffset: 0 !important; }
+  .mw-arco-luz, .mw-pulso { display: none !important; }
+}
