@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 150" fill="none">
+  <defs>
+    <linearGradient id="hull" x1="230" y1="38" x2="230" y2="138" gradientUnits="userSpaceOnUse"><stop stop-color="#f0f7fc"/><stop offset=".45" stop-color="#99afc6"/><stop offset="1" stop-color="#354d6e"/></linearGradient>
+    <linearGradient id="rim" x1="80" y1="8" x2="380" y2="100" gradientUnits="userSpaceOnUse"><stop stop-color="#7793af"/><stop offset=".32" stop-color="#edf7ff"/><stop offset=".68" stop-color="#b2c9e3"/><stop offset="1" stop-color="#48637f"/></linearGradient>
+    <radialGradient id="energy"><stop stop-color="#fffde3"/><stop offset=".36" stop-color="#ffe85f"/><stop offset=".74" stop-color="#f6ba19"/><stop offset="1" stop-color="#a54c04"/></radialGradient>
+    <radialGradient id="aura"><stop stop-color="#ffe359" stop-opacity=".42"/><stop offset="1" stop-color="#ffd336" stop-opacity="0"/></radialGradient>
+    <filter id="glow" x="-25%" y="-100%" width="150%" height="300%"><feGaussianBlur stdDeviation="6"/></filter>
+  </defs>
+  <ellipse cx="230" cy="91" rx="224" ry="58" fill="url(#aura)"/>
+  <!-- A faceted silver hull gives the launch pad its thickness. -->
+  <path d="M24 67 47 35 126 15 332 15 414 35 436 67 421 112 337 136 123 136 39 112Z" fill="url(#hull)" stroke="#617e9d" stroke-width="2"/>
+  <path d="m39 112 8-28 79 23-3 29Z" fill="#c9ddeb"/>
+  <path d="m123 136 3-29 71 5-6 24Z" fill="#91abc2"/>
+  <path d="m191 136 6-24h66l6 24Z" fill="#e3effa"/>
+  <path d="m269 136-6-24 70-5 4 29Z" fill="#92abc4"/>
+  <path d="m337 136-4-29 79-23 9 28Z" fill="#c8ddeb"/>
+  <path d="m47 35 79-20-12 30-59 16Z" fill="#e6f3fa"/>
+  <path d="m332 15 82 20-9 26-61-16Z" fill="#a8bfd6"/>
+  <path d="m24 67 23-32 8 26-8 23Z" fill="#91b0c8"/>
+  <path d="m405 61 9-26 22 32-24 17Z" fill="#f0f6fc"/>
+  <path d="M47 61 113 30 180 18h101l66 12 65 31-9 22-74 27H131L56 83Z" fill="url(#rim)" stroke="#d9ecff" stroke-width="2"/>
+  <path d="m76 63 47-23 65-11h86l65 11 46 23-9 15-62 20H146L85 78Z" fill="#091322" stroke="#5e7186" stroke-width="3"/>
+  <path d="m86 62 42-18 62-9h82l62 9 42 18-8 11-56 17H148L94 73Z" fill="url(#energy)"/>
+  <ellipse cx="230" cy="62" rx="124" ry="24" fill="#fff28f" opacity=".55" filter="url(#glow)"/>
+  <ellipse cx="230" cy="60" rx="80" ry="14" fill="#fff5a3" opacity=".25"/>
+  <!-- Dark seams separate the rim panels like the console-era reference. -->
+  <path d="m114 30 9 10m57-22 8 11m93-11-7 11m73 1-8 10M47 61l29 2m309 0 27-2M56 83l29-5m291 0 27 5m-272 27 15-12m168 0 15 12" stroke="#2d4057" stroke-width="4"/>
+  <path d="M50 111 127 132h205l77-21" stroke="#bcd8ec" stroke-width="2"/>
+  <path d="M202 121h56" stroke="#73e8ff" stroke-width="3"/>
+  <path d="M70 97h17m286 0h17" stroke="#6586a8" stroke-width="3"/>
+</svg>
