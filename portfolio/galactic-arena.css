@@ -133,6 +133,52 @@
 @keyframes nex-idle { 0%,100% { transform: translateY(0) rotate(-1deg); } 50% { transform: translateY(-9px) rotate(1deg); } }
 @keyframes platform-charge { 0%,100% { opacity: .55; transform: scale(.92); } 50% { opacity: 1; transform: scale(1.07); } }
 @keyframes arena-screen-in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 980px) {
+  .console-hero { padding-inline: 20px; }
+  .arena-lobby { gap: 16px; }
+  .galactic-portfolio .career-map { height: auto; }
+  .galactic-portfolio .map-companies { max-height: 680px; }
+  .arena-player-bar > p { font-size: 11px; }
+}
+@media (max-width: 720px) {
+  .galactic-portfolio .nav-menu { background: #0b1b36; border-radius: 3px; border: 2px solid #8199b7; }
+  .console-hero { padding: 108px 5px 25px; }
+  .arena-kicker { font-size: 10px; letter-spacing: .04em; }
+  .arena-title h1 { font-size: clamp(70px, 17vw, 105px); -webkit-text-stroke: 1px #ffe28a; text-shadow: 2px 2px #bd3c20, 4px 4px #821723, 6px 6px #011229; }
+  .arena-lobby { grid-template-columns: 1fr; margin-top: 24px; gap: 12px; }
+  .arena-menu-panel { max-width: 420px; width: 100%; margin: auto; padding-inline: 12px; }
+  .arena-menu-item { min-height: 54px; }
+  .arena-menu-item > span:not(.arena-selector) { font-size: 25px; }
+  .arena-mascot { min-height: 320px; max-width: 340px; width: 100%; margin: auto; padding-bottom: 65px; }
+  .arena-mascot > img { width: 265px; }
+  .arena-energy-ring { max-width: 240px; }
+  .arena-platform { max-width: 320px; bottom: 30px; }
+  .arena-player-bar { flex-wrap: wrap; gap: 10px; padding: 12px 36px 12px 12px; }
+  .arena-player-bar > p { margin-left: 0; flex-basis: 100%; }
+  .arena-player-bar strong { font-size: 18px; }
+  .arena-player-bar span { font-size: 10px; }
+  .galactic-portfolio .experience, .galactic-portfolio .projects, .galactic-portfolio .technology, .galactic-portfolio .contact { padding-top: 106px; padding-bottom: 30px; }
+  .galactic-portfolio .section-heading { gap: 17px; }
+  .galactic-portfolio .section-heading h2 { font-size: 34px; }
+  .galactic-portfolio .map-company { grid-template-columns: 62px minmax(0,1fr) auto; padding: 12px 10px; }
+  .galactic-portfolio .map-company-logo { width: 62px; }
+  .galactic-portfolio .map-companies { max-height: 640px; }
+  .galactic-portfolio .map-company-kicker { font-size: 10px; }
+  .galactic-portfolio .map-back { padding: 8px 10px; }
+  .galactic-portfolio .experience-row { padding: 24px 16px; }
+  .arena-project-roster { gap: 13px; margin-bottom: 35px; }
+  .arena-project-slot { width: calc((100% - 26px) / 3); max-width: 130px; font-size: 14px; padding: 4px; border-width: 3px; }
+  .roster-image { height: 80px; }
+  .roster-erp { font-size: 38px; }
+  .arena-enabled .project-card { grid-template-columns: 1fr; }
+  .galactic-portfolio .project-image, .galactic-portfolio .project-featured .project-image { min-height: 300px; padding: 35px 20px; }
+  .galactic-portfolio .project-image img { max-height: 350px; }
+  .galactic-portfolio .project-body { padding: 24px 20px; }
+  .galactic-portfolio .project-body h3 { font-size: 38px; }
+  .galactic-portfolio .tech-card { min-height: auto; }
+  .galactic-portfolio .contact-card { padding: 29px 22px; }
+  .galactic-portfolio .footer { padding-block: 25px; gap: 16px; }
+}
 @media (prefers-reduced-motion: reduce) {
   .galactic-portfolio:not([data-motion=true]) .arena-mascot img { animation: none; }
   .galactic-portfolio[data-motion=true] .arena-mascot img { animation-duration: 4.2s !important; }
