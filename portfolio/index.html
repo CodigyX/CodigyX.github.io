@@ -8,11 +8,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,700;1,800;1,900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="vendor/mapa-web/mapa-web.css">
   <link rel="stylesheet" href="portafolio.css">
+  <link rel="stylesheet" href="galactic-arena.css">
 </head>
-<body>
+<body class="galactic-portfolio">
+  <div class="universe" aria-hidden="true"><canvas id="galaxy-canvas"></canvas><div class="galaxy-nebula"></div><div class="galaxy-planet"></div></div>
+  <a class="skip-link" href="#portfolio-content">Saltar al contenido</a>
   <header class="site-header" id="inicio">
     <nav class="nav-shell" aria-label="Navegación principal">
       <a class="brand" href="#inicio" aria-label="Ir al inicio"><span>CX</span> CodigyX</a>
@@ -20,43 +24,87 @@
         <span></span><span></span>
       </button>
       <div class="nav-menu" id="main-menu">
+        <a href="#sobre-mi">Sobre mí</a>
         <a href="#experiencia">Experiencia</a>
         <a href="#proyectos">Proyectos</a>
         <a href="#tecnologias">Tecnologías</a>
         <a href="#contacto">Contacto</a>
+        <a href="#inicio">Menú</a>
         <a class="nav-cta" href="../?lang=es">Ver CV <i class="bi bi-arrow-up-right"></i></a>
       </div>
     </nav>
   </header>
 
-  <main>
-    <section class="hero section-shell" aria-labelledby="hero-title">
-      <div class="hero-copy reveal">
-        <p class="eyebrow"><span></span> Full-stack · Java · Angular</p>
-        <h1 id="hero-title">Construyo software que conecta <em>operación, datos y experiencia.</em></h1>
-        <p class="hero-summary">Soy Erick, desarrollador full-stack con mayor fortaleza en backend Java. Actualmente trabajo en un ERP empresarial, desarrollando desde la lógica de negocio y la persistencia hasta las vistas que usa el equipo operativo.</p>
-        <div class="hero-actions">
-          <a class="button button-primary" href="#proyectos">Ver proyectos <i class="bi bi-arrow-down-right"></i></a>
-          <a class="button button-secondary" href="../?lang=es">Consultar CV <i class="bi bi-file-earmark-person"></i></a>
-        </div>
-        <p class="availability"><span></span> Abierto a oportunidades de crecimiento en desarrollo Java full-stack</p>
+  <main id="portfolio-content">
+    <section class="console-hero section-shell" data-arena-screen="inicio" aria-labelledby="hero-title">
+      <div class="arena-title">
+        <p class="arena-kicker">Erick Barrena González · Full-stack Java</p>
+        <h1 id="hero-title">CODIGYX</h1>
+        <span class="arena-subtitle">DIGITAL ARENA</span>
       </div>
-
-      <div class="hero-visual reveal" aria-label="Retrato de Erick Barrena">
-        <div class="orbit orbit-one"></div>
-        <div class="orbit orbit-two"></div>
-        <div class="portrait-card">
-          <div class="portrait-label">Erick Barrena <small>Full-stack Developer</small></div>
-          <img src="imagenes/perfil.png" alt="Erick Barrena González" width="590" height="590">
+      <div class="arena-lobby">
+        <div class="arena-menu-panel">
+          <p class="mode-label">Selecciona una sección</p>
+          <nav class="arena-main-menu" aria-label="Seleccionar sección del portafolio">
+            <a class="arena-menu-item is-selected" href="#proyectos" data-description="Aplicaciones, tecnologías y mi participación en cada proyecto."><span class="arena-selector" aria-hidden="true">▶</span><span>PROYECTOS</span><small>PROJECT SELECT</small></a>
+            <a class="arena-menu-item" href="#experiencia" data-description="Recorre México, Veracruz y los municipios donde he trabajado."><span class="arena-selector" aria-hidden="true">▶</span><span>TRAYECTORIA</span><small>WORLD MAP</small></a>
+            <a class="arena-menu-item" href="#tecnologias" data-description="Java como núcleo; frontend, bases de datos, herramientas y despliegue."><span class="arena-selector" aria-hidden="true">▶</span><span>TECNOLOGÍAS</span><small>TECH DATABASE</small></a>
+            <a class="arena-menu-item" href="#sobre-mi" data-description="Mi ficha: formación, enfoque técnico y cómo trabajo en equipo."><span class="arena-selector" aria-hidden="true">▶</span><span>SOBRE MÍ</span><small>PLAYER PROFILE</small></a>
+            <a class="arena-menu-item" href="#contacto" data-description="Mi perfil profesional, correo y enlaces para entrar en contacto."><span class="arena-selector" aria-hidden="true">▶</span><span>CONTACTO</span><small>COMMUNICATION</small></a>
+            <a class="arena-menu-item arena-menu-cv" href="../?lang=es" data-description="Consulta mi CV: experiencia, educación, proyectos y certificaciones."><span class="arena-selector" aria-hidden="true">▶</span><span>VER CV</span><small>FULL RECORD</small></a>
+          </nav>
+          <p class="arena-menu-description" id="arena-menu-description" aria-live="polite">Aplicaciones, tecnologías y mi participación en cada proyecto.</p>
         </div>
-        <div class="float-card card-java"><i class="bi bi-cup-hot"></i><span>Backend</span><strong>Java</strong></div>
-        <div class="float-card card-stack"><i class="bi bi-layers"></i><span>Enfoque</span><strong>Full-stack</strong></div>
+        <div class="arena-mascot" aria-label="Nex, compañero digital original del portafolio">
+          <div class="arena-energy-ring ring-back" aria-hidden="true"></div>
+          <img src="imagenes/nex-galactic.webp" alt="Nex, una criatura digital espacial con armadura y energía azul" width="600" height="600" fetchpriority="high">
+          <div class="arena-platform" aria-hidden="true"><img src="imagenes/arena-platform.svg" alt="" width="460" height="150"></div>
+          <div class="arena-nameplate"><span>COMPANION</span><strong>NEX</strong><small>Explorador digital</small></div>
+        </div>
       </div>
+      <a class="arena-player-bar" href="#sobre-mi" aria-label="Abrir la ficha de Erick Barrena"><img src="imagenes/perfil.png" alt="" width="64" height="64"><div><strong>ERICK BARRENA</strong><span>Java · Spring Boot · Angular · MariaDB</span></div><p>Desarrollo full-stack con mayor enfoque en backend Java.<br><span>Interfaces, lógica de negocio y datos conectados.</span></p><i class="bi bi-chevron-right" aria-hidden="true"></i></a>
+      <p class="arena-key-hints"><span>↑ ↓</span> Seleccionar <span>ENTER</span> Abrir <span>ESC</span> Menú <span class="touch-hint">También puedes hacer clic o tocar una opción</span></p>
+    </section>
 
-      <div class="hero-metrics reveal" aria-label="Resumen profesional">
-        <div><strong>ERP</strong><span>Experiencia actual</span></div>
-        <div><strong>8 · 17 · 21</strong><span>Versiones de Java</span></div>
-        <div><strong>3 capas</strong><span>UI · lógica · datos</span></div>
+    <section class="player-profile section-shell" id="sobre-mi" aria-labelledby="profile-title">
+      <div class="profile-screen-heading">
+        <div><p class="arena-kicker">PLAYER PROFILE · SOBRE MÍ</p><h2 id="profile-title">Ficha de jugador</h2></div>
+        <a class="profile-menu-back" href="#inicio"><i class="bi bi-arrow-left" aria-hidden="true"></i> Volver al menú</a>
+      </div>
+      <article class="player-dossier">
+        <div class="player-portrait">
+          <div class="player-ident"><span>PLAYER 1</span><span class="player-country"><i class="mexico-flag" aria-hidden="true"></i> MÉXICO</span></div>
+          <div class="player-photo-frame is-avatar"><img src="imagenes/erick-digital-avatar.webp" alt="Avatar de Erick Barrena González como aventurero digital, inspirado en Digimon" width="720" height="900" loading="lazy"><span class="portrait-corner" aria-hidden="true"></span></div>
+          <div class="player-codename"><small>CODENAME</small><strong>CODIGYX</strong><span>Desarrollador full-stack Java</span></div>
+        </div>
+        <div class="player-record">
+          <p class="player-record-label"><span class="profile-hex" aria-hidden="true"></span> PERFIL PROFESIONAL</p>
+          <h3>Erick Barrena <span>González</span></h3>
+          <p class="player-intro">Mi enfoque principal es el backend Java. Trabajo también con interfaces y bases de datos para conectar el flujo completo de una solución.</p>
+          <dl class="player-inventory">
+            <div><dt>Formación</dt><dd>Ingeniería de Software<span>Universidad Veracruzana</span></dd></div>
+            <div><dt>Estado académico</dt><dd class="player-degree"><i class="bi bi-check2" aria-hidden="true"></i> Título profesional obtenido</dd></div>
+            <div><dt>Stack principal</dt><dd>Java · Spring Boot · Angular · MariaDB</dd></div>
+            <div><dt>Base profesional</dt><dd>Veracruz, México<span>Abierto a reubicación</span></dd></div>
+          </dl>
+          <div class="player-working-style"><p>FORMA DE TRABAJAR</p><span>Aprendizaje autónomo · Comunicación asertiva · Inteligencia emocional</span><small>En Spendify V1 coordiné al equipo y participé en las integraciones. La V2 la estoy reconstruyendo de forma individual y sigue en desarrollo.</small></div>
+          <div class="player-profile-actions"><a class="button button-light" href="../?lang=es">Ver CV <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a><a class="button" href="#experiencia">Explorar trayectoria <i class="bi bi-globe-americas" aria-hidden="true"></i></a></div>
+        </div>
+      </article>
+      <div class="profile-loadout">
+        <p class="mode-label">Selecciona un área de mi stack</p>
+        <div class="profile-roster" role="group" aria-label="Áreas técnicas de Erick">
+          <button class="profile-slot is-selected" type="button" data-profile-select="backend" aria-pressed="true" aria-controls="profile-backend"><span><i class="bi bi-braces" aria-hidden="true"></i></span><strong>BACKEND</strong></button>
+          <button class="profile-slot" type="button" data-profile-select="frontend" aria-pressed="false" aria-controls="profile-frontend"><span><i class="bi bi-window" aria-hidden="true"></i></span><strong>FRONTEND</strong></button>
+          <button class="profile-slot" type="button" data-profile-select="datos" aria-pressed="false" aria-controls="profile-datos"><span><i class="bi bi-database" aria-hidden="true"></i></span><strong>DATOS</strong></button>
+          <button class="profile-slot" type="button" data-profile-select="entrega" aria-pressed="false" aria-controls="profile-entrega"><span><i class="bi bi-infinity" aria-hidden="true"></i></span><strong>ENTREGA</strong></button>
+        </div>
+        <div class="profile-specialty" aria-live="polite">
+          <article data-profile-panel="backend" id="profile-backend"><p>ENFOQUE PRINCIPAL</p><h3>Backend Java</h3><span>Java 8/17/21 · Spring Boot · APIs REST · JPA/Hibernate</span><small>Lógica de negocio y persistencia en un ERP; desarrollo de módulos y actualización de Spendify V2.</small></article>
+          <article data-profile-panel="frontend" id="profile-frontend"><p>INTERFACES CONECTADAS</p><h3>Frontend</h3><span>JSP · Angular · Angular Material · TypeScript · HTML/CSS</span><small>Vistas JSP en el ERP, interfaces con Angular en Dislyshop y conexiones con backend Java en proyectos.</small></article>
+          <article data-profile-panel="datos" id="profile-datos"><p>PERSISTENCIA Y CONSULTA</p><h3>Bases de datos</h3><span>MariaDB · PostgreSQL · MySQL · SQLyog</span><small>Consultas y persistencia para módulos empresariales. MariaDB y SQLyog forman parte de mi trabajo en el ERP.</small></article>
+          <article data-profile-panel="entrega" id="profile-entrega"><p>VERSIONADO, PRUEBAS Y DESPLIEGUE</p><h3>Entrega y calidad</h3><span>Git · JUnit · Postman · Cypress · Docker · GitHub Actions</span><small>Versionado y pruebas de proyectos; experiencia con contenedores y despliegues de prueba con Kubernetes/Minikube.</small></article>
+        </div>
       </div>
     </section>
 
@@ -187,22 +235,27 @@
     <section class="projects section-shell" id="proyectos" aria-labelledby="projects-title">
       <div class="section-heading reveal">
         <p class="eyebrow"><span></span> Proyectos seleccionados</p>
-        <h2 id="projects-title">Más que pantallas: decisiones y aprendizaje.</h2>
+        <h2 id="projects-title">Selecciona un proyecto.</h2>
         <p>Cada proyecto muestra una etapa distinta de mi crecimiento: colaboración, producto completo y resolución de problemas empresariales.</p>
       </div>
 
-      <div class="project-grid">
-        <article class="project-card project-featured reveal">
+      <div class="arena-project-roster" aria-label="Selector de proyectos">
+        <button type="button" class="arena-project-slot is-selected" data-project-select="spendify" aria-pressed="true"><span class="roster-image"><img src="imagenes/spendify.png" alt="" width="100" height="100"></span><strong>SPENDIFY</strong></button>
+        <button type="button" class="arena-project-slot" data-project-select="codesale" aria-pressed="false"><span class="roster-image"><img src="imagenes/codesale.png" alt="" width="100" height="100"></span><strong>CODE SALE</strong></button>
+        <button type="button" class="arena-project-slot" data-project-select="erp" aria-pressed="false"><span class="roster-image roster-erp"><i class="bi bi-braces" aria-hidden="true"></i></span><strong>MÓDULOS ERP</strong></button>
+      </div>
+      <div class="project-grid" aria-live="polite">
+        <article class="project-card project-featured reveal" data-project-panel="spendify">
           <div class="project-image"><img src="imagenes/spendify.png" alt="Interfaz de la aplicación Spendify" loading="lazy"><span>V2 en desarrollo</span></div>
           <div class="project-body"><p class="project-number">Proyecto 01</p><h3>Spendify</h3><p>Gestor de finanzas personales. En la primera versión coordiné al equipo y realicé integraciones; en la V2 estoy reconstruyendo de forma individual los módulos, la arquitectura y la experiencia.</p><ul class="tags"><li>Java 21</li><li>Spring Boot</li><li>Flutter</li><li>PostgreSQL</li></ul></div>
         </article>
 
-        <article class="project-card reveal">
+        <article class="project-card reveal" data-project-panel="codesale">
           <div class="project-image"><img src="imagenes/codesale.png" alt="Interfaz del sistema de punto de venta Code Sale" loading="lazy"><span>Proyecto académico</span></div>
           <div class="project-body"><p class="project-number">Proyecto 02</p><h3>Code Sale</h3><p>Punto de venta de escritorio con productos por categoría, usuarios con roles, registro de ventas y generación automática de tickets en PDF.</p><ul class="tags"><li>Java</li><li>Swing</li><li>PostgreSQL</li></ul></div>
         </article>
 
-        <article class="project-card project-case reveal">
+        <article class="project-card project-case reveal" data-project-panel="erp">
           <div class="case-visual" aria-hidden="true"><span class="case-node">Vista JSP</span><i class="bi bi-arrow-right"></i><span class="case-node">Java</span><i class="bi bi-arrow-right"></i><span class="case-node">MariaDB</span></div>
           <div class="project-body"><p class="project-number">Caso profesional</p><h3>Módulos para ERP</h3><p>Trabajo sobre un sistema empresarial existente: análisis de flujo, cambios de interfaz, validaciones, lógica de negocio, consultas y persistencia, cuidando no romper la operación diaria.</p><ul class="tags"><li>Java 8</li><li>JSP</li><li>SQL</li><li>JUnit</li></ul></div>
         </article>
@@ -238,11 +291,13 @@
   <footer class="footer section-shell">
     <a class="brand" href="#inicio"><span>CX</span> CodigyX</a>
     <p>Diseñado y desarrollado por Erick Barrena · <span id="year">2026</span></p>
+    <label class="arena-motion-control"><input id="arena-motion" type="checkbox"> Movimiento</label>
     <div class="social-links"><a href="https://github.com/CodigyX" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="bi bi-github"></i></a><a href="https://www.linkedin.com/in/codigyx/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a><a href="mailto:ecodigyx@gmail.com" aria-label="Correo electrónico"><i class="bi bi-envelope"></i></a></div>
   </footer>
   <script src="vendor/mapa-web/mexico.js"></script>
   <script src="vendor/mapa-web/mapa-web.js"></script>
   <script src="vendor/mx-geo/veracruz-municipios.js"></script>
   <script src="portafolio.js"></script>
+  <script src="galactic-arena.js"></script>
 </body>
 </html>
