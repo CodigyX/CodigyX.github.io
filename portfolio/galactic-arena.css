@@ -1,0 +1,139 @@
+/* Console-era digital arena. The original map styles and geometry remain intact. */
+.galactic-portfolio {
+  --bg: #030819; --bg-soft: #0b1732; --panel: #0a1630; --panel-strong: #13284c;
+  --text: #f3f7ff; --muted: #b9c9e1; --accent: #ffb339; --accent-light: #ffe28a;
+  --cyan: #75eaff; --line: #57739566; --radius: 5px;
+  background: #030819; isolation: isolate;
+}
+.universe { position: fixed; z-index: -1; inset: 0; overflow: hidden; pointer-events: none; background: radial-gradient(ellipse at 72% 45%, #17226b88, transparent 55%), #030819; }
+#galaxy-canvas { display: block; width: 100%; height: 100%; }
+.galaxy-nebula { position: absolute; inset: -20%; opacity: .65; background: radial-gradient(ellipse at 78% 52%, #5c279933, transparent 32%), radial-gradient(ellipse at 20% 68%, #025f9566, transparent 32%), radial-gradient(ellipse at 54% 35%, #4138a033, transparent 22%); }
+.galaxy-planet { position: absolute; top: 17%; right: -55px; width: clamp(130px, 22vw, 290px); aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle at 22% 28%, #123962 5%, #06142c 55%, #020510 78%); box-shadow: -6px -3px 10px #72deff55, -19px -5px 44px #38a0ee44, inset 7px 2px 8px #387398; opacity: .75; }
+.skip-link { position: fixed; z-index: 100; top: -100px; left: 15px; padding: 12px; background: #ffe28a; color: #091124; }
+.skip-link:focus { top: 15px; }
+.galactic-portfolio main { position: relative; }
+.galactic-portfolio .site-header { background: linear-gradient(#051127ee, #08152bdd); border-bottom: 2px solid #3d6791; padding: 12px 0; backdrop-filter: blur(12px); }
+.galactic-portfolio .brand { font-family: "Barlow Condensed", sans-serif; text-transform: uppercase; letter-spacing: .07em; font-size: 1.3rem; }
+.galactic-portfolio .brand span { border-radius: 3px; border: 2px solid #7f98b8; color: #ffe28a; background: linear-gradient(135deg, #2e527b, #06142d); box-shadow: inset 1px 1px 1px #d9eafa77, 2px 2px 0 #010610; }
+.galactic-portfolio .nav-menu { gap: 20px; font-family: "Barlow Condensed", sans-serif; font-size: 1.02rem; letter-spacing: .06em; text-transform: uppercase; }
+.galactic-portfolio .nav-menu > a:not(.nav-cta) { color: #d6e7fa; }
+.galactic-portfolio .nav-menu a[aria-current=page] { color: var(--accent-light); text-shadow: 0 0 12px #ffa33188; }
+.galactic-portfolio .nav-cta { border-radius: 2px; border: 2px solid #778ca7; padding: 7px 16px; background: linear-gradient(#dce3ed, #788ba5); color: #09152d; box-shadow: inset 1px 1px 0 white, 2px 2px 0 #000; }
+.console-hero { position: relative; padding: 112px 32px 35px; }
+.arena-title { position: relative; z-index: 2; text-align: center; }
+.arena-kicker { margin: 0 0 10px; font: 500 12px "IBM Plex Mono", monospace; letter-spacing: .14em; text-transform: uppercase; color: #bcd9ef; }
+.arena-title h1 { display: inline-block; max-width: 100%; margin: 0; font: italic 900 clamp(65px, 12vw, 132px)/.91 "Barlow Condensed", sans-serif; letter-spacing: -.02em; color: #ffcf50; -webkit-text-stroke: 2px #ffe09a; paint-order: stroke fill; text-shadow: 3px 3px 0 #bd3c20, 6px 6px 0 #821723, 9px 9px 0 #011229, 0 0 36px #ff9a2422; transform: skew(-4deg); }
+.arena-subtitle { display: table; margin: 10px auto 0; padding: 5px 34px; border-top: 2px solid #fbe492; border-bottom: 2px solid #f9b632; background: linear-gradient(90deg, transparent, #b83b2588 15%, #a9262fa6 85%, transparent); font: italic 800 clamp(20px, 3vw, 35px)/1.1 "Barlow Condensed", sans-serif; letter-spacing: .11em; text-shadow: 2px 2px 0 #061025; }
+.arena-lobby { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 30px; align-items: center; max-width: 940px; margin: 30px auto 0; }
+.arena-menu-panel { padding: 8px 10px; }
+.mode-label { margin: 0 0 18px; color: #96dbff; font: italic 700 21px "Barlow Condensed", sans-serif; letter-spacing: .06em; text-transform: uppercase; text-shadow: 2px 2px 0 #000; }
+.arena-main-menu { display: grid; gap: 10px; }
+.arena-menu-item { position: relative; display: grid; grid-template-columns: 26px 1fr; align-items: center; padding: 10px 20px 10px 8px; min-height: 57px; border: 3px solid #8d9ebc; background: linear-gradient(#2c4268, #0c1d3b 50%, #153558); color: #d5e6fd; transform: skew(-8deg); box-shadow: inset 0 2px 0 #e4f3ff55, inset 0 -3px 0 #030b20, 4px 4px 0 #000a; transition: transform .18s, border-color .18s, background .18s; }
+.arena-menu-item > * { transform: skew(8deg); }
+.arena-menu-item > span:not(.arena-selector) { font: italic 800 29px/.98 "Barlow Condensed", sans-serif; letter-spacing: .035em; text-shadow: 2px 2px 0 #010510; }
+.arena-menu-item small { grid-column: 2; margin-top: 4px; color: #9fb5d0; font: 500 10px "IBM Plex Mono", monospace; letter-spacing: .07em; }
+.arena-selector { opacity: 0; color: #ffcf31; text-shadow: 1px 1px #832c19; }
+.arena-menu-item.is-selected { border-color: #ffe9a0; color: #ffe575; background: linear-gradient(#a44124, #731a1e 50%, #b94c27); transform: skew(-8deg) translateX(9px); box-shadow: inset 0 2px #ffe39399, inset 0 -3px #45101a, 0 0 18px #ff992933, 4px 4px 0 #000a; }
+.arena-menu-item.is-selected small { color: #ffd39e; }
+.arena-menu-item.is-selected .arena-selector { opacity: 1; }
+.arena-menu-cv { margin-top: 7px; }
+.arena-menu-description { min-height: 45px; margin: 18px 0 0; color: #c1d3e9; font-size: .78rem; line-height: 1.55; }
+.arena-mascot { position: relative; display: grid; place-items: center; min-height: 405px; padding-bottom: 60px; }
+.arena-mascot > img { position: relative; z-index: 3; width: min(100%, 365px); height: auto; filter: drop-shadow(0 0 14px #56b8ff44) drop-shadow(0 18px 20px #010413); animation: nex-idle 4.2s ease-in-out infinite; transform-origin: 50% 90%; }
+.arena-energy-ring { position: absolute; z-index: 1; width: 85%; max-width: 340px; aspect-ratio: 1; border: 1px solid #6dcfff44; border-radius: 50%; box-shadow: 0 0 0 25px #57caff08, 0 0 0 26px #66beff22, 0 0 0 47px #6588ff09; }
+.arena-platform { position: absolute; z-index: 2; bottom: 20px; width: 108%; max-width: 440px; aspect-ratio: 460 / 150; filter: drop-shadow(0 13px 12px #0009); }
+.arena-platform img { display: block; width: 100%; height: auto; }
+.arena-platform::before { content: ""; position: absolute; z-index: -1; inset: -12% 14% 28%; border-radius: 50%; background: radial-gradient(ellipse, #ffd94744, transparent 68%); animation: platform-charge 3s ease-in-out infinite; }
+.arena-nameplate { position: absolute; z-index: 5; right: 30px; bottom: -58px; left: 30px; text-align: center; }
+.arena-nameplate strong { display: block; font: italic 900 37px/.95 "Barlow Condensed", sans-serif; color: #8eefff; text-shadow: 2px 2px #184f97, 4px 4px #000; }
+.arena-nameplate span { display: block; margin-bottom: 3px; color: #b8d2eb; font: 500 10px "IBM Plex Mono", monospace; letter-spacing: .16em; }
+.arena-nameplate small { font-size: 11px; color: #a6bfdc; }
+.arena-player-bar { position: relative; display: flex; align-items: center; gap: 17px; max-width: 940px; margin: 85px auto 0; padding: 11px 36px 11px 17px; border: 2px solid #7f9bbc; border-left: 7px solid #ffb331; background: linear-gradient(100deg, #102b4ae8, #071c36ee); box-shadow: inset 0 1px #d1e5ff55, 4px 4px #0008; }
+.arena-player-bar:hover, .arena-player-bar:focus-visible { border-color: #ffe28a; }
+.arena-player-bar:focus-visible { outline: 3px solid #fff; outline-offset: 5px; }
+.arena-player-bar > i { position: absolute; right: 14px; top: calc(50% - 8px); color: #ffe28a; }
+.arena-player-bar > img { width: 48px; height: 48px; border: 2px solid #96b9dc; object-fit: cover; object-position: top; }
+.arena-player-bar strong { display: block; font: 700 20px "Barlow Condensed", sans-serif; letter-spacing: .07em; white-space: nowrap; }
+.arena-player-bar span { color: #a6c9e8; font-size: 11px; }
+.arena-player-bar > p { margin: 0 0 0 auto; font-size: 12px; color: #d3e6f8; }
+.arena-key-hints { display: flex; justify-content: center; flex-wrap: wrap; gap: 7px; align-items: center; margin: 20px 0 0; font: 500 11px "IBM Plex Mono", monospace; color: #9eb4d3; }
+.arena-key-hints > span:not(.touch-hint) { padding: 3px 6px; margin-left: 10px; border: 1px solid #6a83a1; color: #deecff; background: #172745; }
+.arena-key-hints .touch-hint { display: block; flex-basis: 100%; text-align: center; color: #b1c5df; margin-top: 4px; }
+.arena-enabled [data-arena-screen][hidden], .arena-enabled [data-project-panel][hidden], .arena-enabled [data-profile-panel][hidden] { display: none !important; }
+.galactic-portfolio .experience, .galactic-portfolio .projects, .galactic-portfolio .technology, .galactic-portfolio .contact { padding: 120px 0 55px; }
+.arena-enabled .reveal { opacity: 1; transform: none; }
+.arena-enabled [data-arena-screen]:not([hidden]) { animation: arena-screen-in .4s ease both; }
+.galactic-portfolio .section-heading { margin-bottom: 36px; gap: 20px 35px; align-items: center; }
+.galactic-portfolio .section-heading .eyebrow { margin-bottom: 0; font-family: "IBM Plex Mono", monospace; font-size: 11px; }
+.galactic-portfolio .section-heading h2 { width: fit-content; font: italic 800 clamp(35px, 4vw, 51px)/1.06 "Barlow Condensed", sans-serif; color: #ffe184; text-transform: uppercase; letter-spacing: .01em; padding: 9px 26px 12px 15px; border-left: 5px solid #ffb638; background: linear-gradient(110deg, #751b27cc, #942d3588 70%, transparent); text-shadow: 2px 2px #171124; }
+.galactic-portfolio .section-heading > p:last-child { font-size: .85rem; margin: 0; }
+.galactic-portfolio h3 { font-family: "Barlow Condensed", sans-serif; letter-spacing: .015em; }
+.galactic-portfolio .button { border-radius: 2px; border: 2px solid #92a1b7; box-shadow: inset 1px 1px #d5e1f1aa, 3px 3px #010b1b; text-transform: uppercase; font-family: "Barlow Condensed", sans-serif; font-size: 1.1rem; letter-spacing: .055em; background: linear-gradient(#27456b, #0d1b37); }
+.galactic-portfolio .button-primary, .galactic-portfolio .button-light { color: #101a2a; border-color: #ffe0a2; background: linear-gradient(#ffde75, #d78926); }
+.galactic-portfolio .tags li { border-radius: 2px; background: #122842; color: #c6dbef; font-family: "IBM Plex Mono", monospace; font-size: 11px; padding: 6px 9px; }
+.galactic-portfolio .career-map { border-radius: 5px; border: 3px solid #7892b0; background: #0b1833; box-shadow: inset 0 1px #e3efff88, 6px 6px #010412; }
+.galactic-portfolio .map-stage { background: radial-gradient(ellipse at 65% 70%, #282774bb, transparent 55%), #07122b; }
+.galactic-portfolio .map-stage-heading h3 { color: #d6f2ff; }
+.galactic-portfolio .map-stage-heading p, .galactic-portfolio .map-list-label { color: #a7e8ff; }
+.galactic-portfolio .national-company-place strong { font-family: "Barlow Condensed", sans-serif; font-size: 1.6rem; text-shadow: 2px 2px #000; }
+.galactic-portfolio .national-company-logos b { border-radius: 3px; border: 2px solid #b8c7de; }
+.galactic-portfolio .career-map-canvas { --mw-estado-desde: #112342; --mw-estado-hasta: #253e68; --mw-activo-desde: #475bbd; --mw-activo-hasta: #af99ff; --mw-borde: #8facdb; --mw-halo: #5acbff; --mw-resplandor: #6187ff; --mw-texto-tenue: #bfd9f2; --mw-fondo-texto: #061226; }
+.galactic-portfolio .map-companies { background: #0a1730; }
+.galactic-portfolio .map-company { border-radius: 4px; border-color: #58729488; background: linear-gradient(125deg, #1e3656, #101f39); grid-template-columns: 68px minmax(0,1fr) auto; }
+.galactic-portfolio .map-company-number { display: none; }
+.galactic-portfolio .map-company-logo { border-radius: 3px; }
+.galactic-portfolio .map-company-copy strong { font-family: "Barlow Condensed", sans-serif; font-size: 1.05rem; letter-spacing: .01em; }
+.galactic-portfolio .map-company-kicker, .galactic-portfolio .map-company-copy small { font-size: 11px; color: #b2c9e4; }
+.galactic-portfolio .map-company-duration { font-size: 12px; color: #ffe28a; }
+.galactic-portfolio .map-company-description { font-size: 12px; }
+.galactic-portfolio .map-company-tags span { font-size: 11px; border-radius: 2px; }
+.galactic-portfolio .map-company.active { border-color: #ffe28a; background: linear-gradient(125deg, #304a72, #1a2d50); box-shadow: inset 3px 0 #ffb534, 0 0 20px #f6a52712; }
+.galactic-portfolio .map-company.active .map-company-copy strong { color: #ffe28a; }
+.galactic-portfolio .map-back { border-radius: 3px; border: 2px solid #8098b8; background: #112744; color: #e8f4ff; font-size: 11px; }
+.galactic-portfolio .map-credits { color: #a8bad3; font-size: 10px; }
+.galactic-portfolio .timeline { margin-top: 30px; }
+.galactic-portfolio .experience-row { padding: 30px 0; background: #07152dbb; padding-inline: 20px; gap: 25px; }
+.galactic-portfolio .experience-role > span { display: none; }
+.galactic-portfolio .experience-role { padding-left: 0; }
+.galactic-portfolio .experience-role h3 { font-size: 1.7rem; }
+.arena-project-roster { display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; margin: 0 0 40px; }
+.arena-project-slot { position: relative; width: 144px; padding: 7px; border: 4px solid #94a2b8; border-right-color: #425675; border-bottom-color: #374969; color: #edf4ff; background: linear-gradient(145deg, #71849c, #192c4d); box-shadow: 4px 4px #010713, inset 1px 1px #eef5ff; font: 700 17px "Barlow Condensed", sans-serif; letter-spacing: .03em; cursor: pointer; transition: transform .2s, box-shadow .2s, border-color .2s; }
+.roster-image { display: grid; place-items: center; height: 98px; margin-bottom: 6px; border: 2px solid #09172a; background: #09172a; overflow: hidden; }
+.roster-image img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 25%; }
+.roster-erp { color: #82eaff; font-size: 48px; background: radial-gradient(circle, #26538d, #07152c); }
+.arena-project-slot.is-selected { border-color: #ffe26b; border-right-color: #c35727; border-bottom-color: #912327; box-shadow: 0 0 0 3px #e25423, 0 0 25px #ff8a2377, 4px 4px #010713; transform: translateY(-4px); }
+.arena-project-slot.is-selected:after { content: ""; position: absolute; bottom: -21px; left: calc(50% - 9px); width: 18px; height: 18px; background: #ffe165; clip-path: polygon(0 0, 100% 0, 50% 100%); }
+.arena-project-slot:focus-visible { outline: 3px solid white; outline-offset: 6px; }
+.galactic-portfolio .project-grid { display: grid; grid-template-columns: 1fr; }
+.galactic-portfolio .projects::before { display: none; }
+.arena-enabled .project-card { display: grid; grid-template-columns: 1fr 1fr; border-radius: 4px; border: 3px solid #8495b2; background: #0c1c36; box-shadow: inset 0 1px #e4f0ff88, 6px 6px #010713; animation: arena-screen-in .35s both; }
+.galactic-portfolio .project-card:hover { transform: none; border-color: #b0c3de; }
+.galactic-portfolio .project-image, .galactic-portfolio .project-featured .project-image { min-height: 420px; background: radial-gradient(ellipse at 50% 80%, #497ff155, #071a36 75%); display: grid; place-items: center; padding: 26px; }
+.galactic-portfolio .project-image img { width: 100%; height: auto; max-height: 450px; object-fit: contain; transform: perspective(650px) rotateY(7deg); filter: drop-shadow(0 20px 20px #0007); }
+.galactic-portfolio .project-image::after { inset: auto 10% 18px; height: 26px; border: 2px solid #6ad7ff88; border-radius: 50%; background: #315fff25; pointer-events: none; }
+.galactic-portfolio .project-image > span { border-radius: 2px; font-family: "IBM Plex Mono", monospace; color: #ffe284; background: #07122be8; border-color: #7897bf; }
+.galactic-portfolio .project-body { padding: 32px; }
+.galactic-portfolio .project-body h3 { font: italic 800 46px/1 "Barlow Condensed", sans-serif; color: #ffe18a; text-shadow: 2px 2px #01091a; }
+.galactic-portfolio .project-number { font: 500 11px "IBM Plex Mono", monospace; color: #8dcff4; }
+.galactic-portfolio .project-body > p:not(.project-number) { color: #c3d3e8; }
+.galactic-portfolio .case-visual { background: radial-gradient(circle, #1c4d7455, #07152c); }
+.galactic-portfolio .case-node { border-radius: 3px; color: #ccedff; background: #152c4b; }
+.galactic-portfolio .tech-grid { border-radius: 4px; border: 3px solid #758cab; background: #081831e8; box-shadow: 5px 5px #010713; }
+.galactic-portfolio .tech-card { min-height: 280px; }
+.galactic-portfolio .tech-card i { margin-bottom: 32px; border: 2px solid #7b96b8; border-radius: 3px; background: linear-gradient(#254469,#0c203d); color: #8bddff; }
+.galactic-portfolio .tech-card p { color: #a4cde9; font-size: 11px; }
+.galactic-portfolio .tech-card h3 { font: 700 27px "Barlow Condensed", sans-serif; color: #ffe18a; }
+.galactic-portfolio .contact-card { border-radius: 4px; border: 3px solid #8199b8; padding: 45px; background: linear-gradient(120deg,#102d50,#081831 65%,#292454); box-shadow: 6px 6px #010713; }
+.galactic-portfolio .contact-card h2 { font: italic 800 clamp(35px,5vw,58px)/1.05 "Barlow Condensed", sans-serif; letter-spacing: .01em; color: #ffe18a; }
+.galactic-portfolio .footer { position: relative; min-height: 100px; gap: 15px; color: #b1c7e2; font-size: 11px; flex-wrap: wrap; }
+.galactic-portfolio .social-links a { border-radius: 3px; background: #10233f; }
+.arena-motion-control { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font: 500 11px "IBM Plex Mono", monospace; cursor: pointer; }
+.arena-motion-control input { width: 16px; height: 16px; accent-color: #f7b642; }
+.galactic-portfolio[data-motion=false] *, .galactic-portfolio[data-motion=false] *::before, .galactic-portfolio[data-motion=false] *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+@keyframes nex-idle { 0%,100% { transform: translateY(0) rotate(-1deg); } 50% { transform: translateY(-9px) rotate(1deg); } }
+@keyframes platform-charge { 0%,100% { opacity: .55; transform: scale(.92); } 50% { opacity: 1; transform: scale(1.07); } }
+@keyframes arena-screen-in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) {
+  .galactic-portfolio:not([data-motion=true]) .arena-mascot img { animation: none; }
+  .galactic-portfolio[data-motion=true] .arena-mascot img { animation-duration: 4.2s !important; }
+}
