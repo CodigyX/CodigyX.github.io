@@ -13,8 +13,10 @@
   <link rel="stylesheet" href="vendor/mapa-web/mapa-web.css">
   <link rel="stylesheet" href="portafolio.css">
   <link rel="stylesheet" href="galactic-arena.css">
+  <link rel="stylesheet" href="cosmic-console.css">
+  <link rel="stylesheet" href="professional.css">
 </head>
-<body class="galactic-portfolio">
+<body class="professional-portfolio" data-motion="false">
   <div class="universe" aria-hidden="true"><canvas id="galaxy-canvas"></canvas><div class="galaxy-nebula"></div><div class="galaxy-planet"></div></div>
   <a class="skip-link" href="#portfolio-content">Saltar al contenido</a>
   <header class="site-header" id="inicio">
@@ -29,52 +31,72 @@
         <a href="#proyectos">Proyectos</a>
         <a href="#tecnologias">Tecnologías</a>
         <a href="#contacto">Contacto</a>
-        <a href="#inicio">Menú</a>
         <a class="nav-cta" href="../?lang=es">Ver CV <i class="bi bi-arrow-up-right"></i></a>
       </div>
     </nav>
   </header>
 
   <main id="portfolio-content">
-    <section class="console-hero section-shell" data-arena-screen="inicio" aria-labelledby="hero-title">
+    <section class="professional-hero section-shell" aria-labelledby="professional-title">
+      <p class="eyebrow">ERICK BARRENA GONZÁLEZ · CODIGYX</p>
+      <h1 id="professional-title">Desarrollo software.<br><span>Conecto soluciones.</span></h1>
+      <p class="hero-role">Desarrollador full-stack · Backend Java</p>
+      <p class="hero-summary">Trabajo con Java, interfaces web y bases de datos para construir y mantener soluciones empresariales. Mi enfoque principal: lógica de negocio, APIs y persistencia.</p>
+      <div class="hero-actions"><a class="button button-light" href="#proyectos">Ver proyectos <i class="bi bi-arrow-down" aria-hidden="true"></i></a><a class="button button-ghost" href="../?lang=es">Ver CV <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a></div>
+      <div class="hero-links"><a href="https://github.com/CodigyX" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://www.linkedin.com/in/codigyx/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><span>Veracruz, México · Abierto a reubicación</span></div>
+    </section>
+    <section class="console-hero section-shell" hidden data-arena-screen="inicio" aria-labelledby="hero-title">
+      <div class="digital-console-bar"><span><i class="bi bi-cpu" aria-hidden="true"></i> PORTAFOLIO · CODIGYX</span><span>EXPLORA / CONECTA / DESCUBRE</span></div>
       <div class="arena-title">
         <p class="arena-kicker">Erick Barrena González · Full-stack Java</p>
         <h1 id="hero-title">CODIGYX</h1>
-        <span class="arena-subtitle">DIGITAL ARENA</span>
+        <span class="arena-subtitle">MUNDO DIGITAL</span>
       </div>
       <div class="arena-lobby">
         <div class="arena-menu-panel">
+          <div class="digital-emblem" aria-hidden="true"><span>✧</span></div>
           <p class="mode-label">Selecciona una sección</p>
           <nav class="arena-main-menu" aria-label="Seleccionar sección del portafolio">
             <a class="arena-menu-item is-selected" href="#proyectos" data-description="Aplicaciones, tecnologías y mi participación en cada proyecto."><span class="arena-selector" aria-hidden="true">▶</span><span>PROYECTOS</span><small>PROJECT SELECT</small></a>
             <a class="arena-menu-item" href="#experiencia" data-description="Recorre México, Veracruz y los municipios donde he trabajado."><span class="arena-selector" aria-hidden="true">▶</span><span>TRAYECTORIA</span><small>WORLD MAP</small></a>
             <a class="arena-menu-item" href="#tecnologias" data-description="Java como núcleo; frontend, bases de datos, herramientas y despliegue."><span class="arena-selector" aria-hidden="true">▶</span><span>TECNOLOGÍAS</span><small>TECH DATABASE</small></a>
-            <a class="arena-menu-item" href="#sobre-mi" data-description="Mi ficha: formación, enfoque técnico y cómo trabajo en equipo."><span class="arena-selector" aria-hidden="true">▶</span><span>SOBRE MÍ</span><small>PLAYER PROFILE</small></a>
+            <a class="arena-menu-item" href="#sobre-mi" data-description="Mi ficha: formación, enfoque técnico y cómo trabajo en equipo."><span class="arena-selector" aria-hidden="true">▶</span><span>SOBRE MÍ</span><small>DEVELOPER PROFILE</small></a>
             <a class="arena-menu-item" href="#contacto" data-description="Mi perfil profesional, correo y enlaces para entrar en contacto."><span class="arena-selector" aria-hidden="true">▶</span><span>CONTACTO</span><small>COMMUNICATION</small></a>
             <a class="arena-menu-item arena-menu-cv" href="../?lang=es" data-description="Consulta mi CV: experiencia, educación, proyectos y certificaciones."><span class="arena-selector" aria-hidden="true">▶</span><span>VER CV</span><small>FULL RECORD</small></a>
           </nav>
           <p class="arena-menu-description" id="arena-menu-description" aria-live="polite">Aplicaciones, tecnologías y mi participación en cada proyecto.</p>
         </div>
-        <div class="arena-mascot" aria-label="Nex, compañero digital original del portafolio">
-          <div class="arena-energy-ring ring-back" aria-hidden="true"></div>
-          <img src="imagenes/nex-galactic.webp" alt="Nex, una criatura digital espacial con armadura y energía azul" width="600" height="600" fetchpriority="high">
-          <div class="arena-platform" aria-hidden="true"><img src="imagenes/arena-platform.svg" alt="" width="460" height="150"></div>
-          <div class="arena-nameplate"><span>COMPANION</span><strong>NEX</strong><small>Explorador digital</small></div>
+        <div class="companion-console">
+          <div class="arena-mascot" id="companion-stage" aria-label="Nex, compañero original del portafolio">
+            <div class="arena-energy-ring ring-back" aria-hidden="true"></div>
+            <div class="evolution-light" aria-hidden="true"></div>
+            <div class="companion-turntable"><img id="companion-image" src="imagenes/nex-galactic.webp" alt="Nex, criatura digital de pelaje naranja y armadura plateada" width="720" height="720" fetchpriority="high"></div>
+            <div class="arena-platform" aria-hidden="true"><img src="imagenes/arena-platform.svg" alt="" width="460" height="150"></div>
+          </div>
+          <div class="arena-nameplate"><span>COMPAÑERO ORIGINAL · TRES FORMAS</span><strong id="companion-name">NEX</strong><small id="companion-form-label">Forma inicial · Explorador digital</small></div>
+          <div class="evolution-picker" role="group" aria-label="Formas de evolución de Nex">
+            <button type="button" data-evolution="0" aria-pressed="true" aria-controls="companion-stage">Inicial</button>
+            <button type="button" data-evolution="1" aria-pressed="false" aria-controls="companion-stage">Guardián</button>
+            <button type="button" data-evolution="2" aria-pressed="false" aria-controls="companion-stage">Astral</button>
+          </div>
+          <div class="companion-actions"><button type="button" id="companion-evolve">Evolucionar <i class="bi bi-stars" aria-hidden="true"></i></button><button type="button" id="companion-spin" aria-label="Giro visual de 360 grados sobre la plataforma">Girar 360° <i class="bi bi-arrow-repeat" aria-hidden="true"></i></button></div>
+          <button class="companion-motion-toggle" type="button" id="companion-motion" aria-pressed="false">Activar animación</button>
+          <p class="evolution-status" id="evolution-status" role="status" aria-live="polite">Selecciona una forma o hazla evolucionar.</p>
         </div>
       </div>
-      <a class="arena-player-bar" href="#sobre-mi" aria-label="Abrir la ficha de Erick Barrena"><img src="imagenes/perfil.png" alt="" width="64" height="64"><div><strong>ERICK BARRENA</strong><span>Java · Spring Boot · Angular · MariaDB</span></div><p>Desarrollo full-stack con mayor enfoque en backend Java.<br><span>Interfaces, lógica de negocio y datos conectados.</span></p><i class="bi bi-chevron-right" aria-hidden="true"></i></a>
+      <a class="arena-player-bar" href="#sobre-mi" aria-label="Abrir la ficha de Erick Barrena"><img src="imagenes/erick-angel-avatar-pixel.webp" alt="" width="64" height="64"><div><strong>ERICK BARRENA</strong><span>Java · Spring Boot · Angular · MariaDB</span></div><p>Desarrollo full-stack con mayor enfoque en backend Java.<br><span>Interfaces, lógica de negocio y datos conectados.</span></p><i class="bi bi-chevron-right" aria-hidden="true"></i></a>
       <p class="arena-key-hints"><span>↑ ↓</span> Seleccionar <span>ENTER</span> Abrir <span>ESC</span> Menú <span class="touch-hint">También puedes hacer clic o tocar una opción</span></p>
     </section>
 
     <section class="player-profile section-shell" id="sobre-mi" aria-labelledby="profile-title">
       <div class="profile-screen-heading">
-        <div><p class="arena-kicker">PLAYER PROFILE · SOBRE MÍ</p><h2 id="profile-title">Ficha de jugador</h2></div>
+        <div><p class="arena-kicker">CONOCE MI PERFIL</p><h2 id="profile-title">Sobre mí</h2></div>
         <a class="profile-menu-back" href="#inicio"><i class="bi bi-arrow-left" aria-hidden="true"></i> Volver al menú</a>
       </div>
       <article class="player-dossier">
         <div class="player-portrait">
           <div class="player-ident"><span>PLAYER 1</span><span class="player-country"><i class="mexico-flag" aria-hidden="true"></i> MÉXICO</span></div>
-          <div class="player-photo-frame is-avatar"><img src="imagenes/erick-digital-avatar.webp" alt="Avatar de Erick Barrena González como aventurero digital, inspirado en Digimon" width="720" height="900" loading="lazy"><span class="portrait-corner" aria-hidden="true"></span></div>
+          <div class="player-photo-frame is-avatar"><img src="imagenes/erick-angel-avatar-pixel.webp" alt="Retrato pixel art de Erick Barrena González como guerrero angelical con armadura plateada y alas" width="1024" height="1536" loading="lazy"><span class="portrait-corner" aria-hidden="true"></span></div>
           <div class="player-codename"><small>CODENAME</small><strong>CODIGYX</strong><span>Desarrollador full-stack Java</span></div>
         </div>
         <div class="player-record">
@@ -111,11 +133,12 @@
     <section class="experience section-shell" id="experiencia" aria-labelledby="experience-title">
       <div class="section-heading reveal">
         <p class="eyebrow"><span></span> Experiencia</p>
-        <h2 id="experience-title">Trabajo real, contado con claridad.</h2>
+        <h2 id="experience-title">Experiencia profesional</h2>
         <p>Una trayectoria que combina desarrollo empresarial, producto y soporte técnico con una progresión clara hacia Java full-stack.</p>
       </div>
 
       <div class="career-map map-national reveal" aria-labelledby="map-title">
+        <div class="digital-map-chrome"><span><i class="bi bi-globe-americas" aria-hidden="true"></i> EXPLORADOR DE TRAYECTORIA</span><span class="map-interface-location" aria-live="polite">México</span></div>
         <div class="map-stage">
           <div class="map-stage-heading">
             <p>México · Trayectoria profesional</p>
@@ -235,7 +258,7 @@
     <section class="projects section-shell" id="proyectos" aria-labelledby="projects-title">
       <div class="section-heading reveal">
         <p class="eyebrow"><span></span> Proyectos seleccionados</p>
-        <h2 id="projects-title">Selecciona un proyecto.</h2>
+        <h2 id="projects-title">Software que he construido</h2>
         <p>Cada proyecto muestra una etapa distinta de mi crecimiento: colaboración, producto completo y resolución de problemas empresariales.</p>
       </div>
 
@@ -281,9 +304,9 @@
     <section class="contact section-shell" id="contacto">
       <div class="contact-card reveal">
         <p class="eyebrow"><span></span> Contacto</p>
-        <h2>¿Tu equipo necesita a alguien que entienda el sistema completo?</h2>
+        <h2>Hablemos de tu próximo proyecto.</h2>
         <p>Busco un entorno donde pueda fortalecer mi especialidad en Java, aportar una visión full-stack y seguir creciendo con retos reales.</p>
-        <div class="contact-actions"><a class="button button-light" href="mailto:ecodigyx@gmail.com">Hablemos <i class="bi bi-send"></i></a><a class="button button-ghost" href="https://www.linkedin.com/in/codigyx/" target="_blank" rel="noopener noreferrer">LinkedIn <i class="bi bi-arrow-up-right"></i></a></div>
+        <div class="contact-actions"><a class="button button-light" href="mailto:ecodigyx@gmail.com">ecodigyx@gmail.com <i class="bi bi-send"></i></a><a class="button button-ghost" href="https://www.linkedin.com/in/codigyx/" target="_blank" rel="noopener noreferrer">LinkedIn <i class="bi bi-arrow-up-right"></i></a><a class="button button-ghost" href="https://github.com/CodigyX" target="_blank" rel="noopener noreferrer">GitHub <i class="bi bi-arrow-up-right"></i></a></div>
       </div>
     </section>
   </main>
@@ -298,6 +321,5 @@
   <script src="vendor/mapa-web/mapa-web.js"></script>
   <script src="vendor/mx-geo/veracruz-municipios.js"></script>
   <script src="portafolio.js"></script>
-  <script src="galactic-arena.js"></script>
 </body>
 </html>

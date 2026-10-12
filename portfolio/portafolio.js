@@ -68,7 +68,7 @@ const activateMapCompany = (selectedId) => {
   if (selectedCompany && mapCompanyPanel) {
     mapCompanyPanel.scrollTo({
       top: Math.max(0, selectedCompany.offsetTop - mapCompanyPanel.offsetTop - 16),
-      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+      behavior: document.body.dataset.motion === 'false' || window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
     });
   }
 };
@@ -158,7 +158,7 @@ const buildMunicipalMap = () => {
   const setViewBox = (view) => svg.setAttribute('viewBox', `${view.x} ${view.y} ${view.w} ${view.h}`);
   const animateTo = (target) => {
     if (animationFrame) cancelAnimationFrame(animationFrame);
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    if (document.body.dataset.motion === 'false' || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       currentView = target;
       setViewBox(target);
       return;
