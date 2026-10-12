@@ -26,6 +26,6 @@
   <!-- Dark seams separate the rim panels like the console-era reference. -->
   <path d="m114 30 9 10m57-22 8 11m93-11-7 11m73 1-8 10M47 61l29 2m309 0 27-2M56 83l29-5m291 0 27 5m-272 27 15-12m168 0 15 12" stroke="#2d4057" stroke-width="4"/>
   <path d="M50 111 127 132h205l77-21" stroke="#bcd8ec" stroke-width="2"/>
-  <path d="M202 121h56" stroke="#73e8ff" stroke-width="3"/>
-  <path d="M70 97h17m286 0h17" stroke="#6586a8" stroke-width="3"/>
+  <path d="M202 121h56" stroke="#d3b8ff" stroke-width="3"/>
+  <path d="M70 97h17m286 0h17" stroke="#9479b6" stroke-width="3"/>
 </svg>
