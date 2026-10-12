@@ -61,7 +61,17 @@
     });
     panels.forEach(panel => { panel.hidden = panel.dataset.projectPanel !== id; });
   }
-  slots.forEach(slot => slot.addEventListener('click', () => selectProject(slot.dataset.projectSelect)));
+  slots.forEach((slot, index) => {
+    slot.addEventListener('click', () => selectProject(slot.dataset.projectSelect));
+    slot.addEventListener('keydown', event => {
+      if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+      event.preventDefault();
+      const direction = event.key === 'ArrowRight' ? 1 : -1;
+      const nextIndex = event.key === 'Home' ? 0 : event.key === 'End' ? slots.length - 1 : (index + direction + slots.length) % slots.length;
+      slots[nextIndex].focus();
+      selectProject(slots[nextIndex].dataset.projectSelect);
+    });
+  });
   selectProject('spendify');
 
   const profileSlots = [...document.querySelectorAll('[data-profile-select]')];
@@ -87,6 +97,20 @@
     });
   });
   selectProfile('backend');
+
+  // Mirror the existing map's state; geographic navigation remains in portafolio.js.
+  const map = document.querySelector('.career-map');
+  const mapLocation = document.querySelector('.map-interface-location');
+  function updateMapLocation() {
+    if (!map || !mapLocation) return;
+    const selected = map.querySelector('.map-company.active .map-company-copy small');
+    mapLocation.textContent = map.classList.contains('map-national') ? 'México'
+      : selected ? `Veracruz / ${selected.textContent.split(' · ')[0]}` : 'México / Veracruz';
+  }
+  if (map) {
+    new MutationObserver(updateMapLocation).observe(map, { attributes: true, subtree: true, attributeFilter: ['class'] });
+    updateMapLocation();
+  }
 
   const toggle = document.getElementById('arena-motion');
   const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -117,35 +141,32 @@
     for (const star of stars) {
       const x = (star.x * width + phase * 30 * star.size) % width;
       const y = star.y * height;
-      ctx.fillStyle = `rgba(195,224,255,${star.opacity})`;
+      ctx.fillStyle = `rgba(224,210,249,${star.opacity})`;
       ctx.beginPath(); ctx.arc(x, y, star.size, 0, Math.PI * 2); ctx.fill();
     }
     const cx = width * .69, cy = height * .47;
-    const rotation = -.15 + Math.sin(phase * .2) * .07;
-    const maxRadius = Math.hypot(width, height) * .72;
-    const rings = [];
-    for (let ring = 0; ring < 12; ring++) {
-      const depth = ((ring / 12 + phase * .04) % 1);
-      const radius = 22 + Math.pow(depth, 2.3) * maxRadius;
-      const points = Array.from({ length: 6 }, (_, i) => {
-        const angle = rotation + i * Math.PI / 3;
-        return [cx + Math.cos(angle) * radius, cy + Math.sin(angle) * radius * .84];
-      });
-      rings.push({ points, radius });
-    }
-    rings.sort((a, b) => a.radius - b.radius);
-    ctx.lineWidth = 1;
-    rings.forEach(({ points, radius }, index) => {
-      ctx.strokeStyle = `rgba(58,150,195,${.03 + Math.min(radius / maxRadius, 1) * .1})`;
-      ctx.beginPath(); points.forEach(([x, y], i) => i ? ctx.lineTo(x, y) : ctx.moveTo(x, y)); ctx.closePath(); ctx.stroke();
-      if (index > 0) {
-        points.forEach(([x, y], i) => {
-          ctx.beginPath(); ctx.moveTo(...rings[index - 1].points[i]); ctx.lineTo(x, y); ctx.stroke();
-        });
+    // Concentric data gates connect the console frame and the companion's portal.
+    const unit = Math.min(width, height) * .3;
+    for (let ring = 0; ring < 7; ring++) {
+      const radius = unit * (.8 + ring * .44);
+      ctx.lineWidth = ring % 2 ? 1 : 2;
+      ctx.strokeStyle = ring % 3 === 0 ? 'rgba(234,199,126,.10)' : 'rgba(194,163,232,.10)';
+      ctx.setLineDash(ring % 2 ? [2, 18] : [radius * .55, 18]);
+      ctx.lineDashOffset = phase * (ring % 2 ? -25 : 18);
+      ctx.beginPath(); ctx.arc(cx, cy, radius, 0, Math.PI * 2); ctx.stroke();
+      if (ring === 2) {
+        ctx.setLineDash([]);
+        for (let mark = 0; mark < 24; mark++) {
+          const angle = mark * Math.PI / 12 + phase * .025;
+          ctx.save(); ctx.translate(cx + Math.cos(angle) * radius, cy + Math.sin(angle) * radius);
+          ctx.rotate(angle); ctx.fillStyle = 'rgba(217,204,238,.16)';
+          ctx.fillRect(-3, -2, 8, 4); ctx.restore();
+        }
       }
-    });
+    }
+    ctx.setLineDash([]);
     // Small honeycomb cells form a receding digital floor, not a flat wallpaper.
-    ctx.strokeStyle = 'rgba(68,175,221,.065)';
+    ctx.strokeStyle = 'rgba(182,150,224,.065)';
     for (let row = 0; row < 5; row++) {
       const size = 11 + row * 7;
       const y = cy + 75 + row * row * 22;
