@@ -276,6 +276,16 @@ ul { list-style: none; padding: 0; }
   font-style: italic;
 }
 
+/* FORMACIÓN COMPLEMENTARIA */
+.cv-training {
+  display: flex;
+  gap: 14px;
+  margin-top: 10px;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: #444;
+}
+
 /* COMPETENCIAS PROFESIONALES */
 .soft-skills-list {
   display: grid;
