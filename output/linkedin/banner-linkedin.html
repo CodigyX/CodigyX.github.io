@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Banner LinkedIn</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1584px; height: 396px; overflow: hidden; background: #061a47; }
+
+  .banner {
+    position: relative;
+    width: 1584px;
+    height: 396px;
+    overflow: hidden;
+    font-family: "Source Sans 3", Arial, sans-serif;
+    color: #fff;
+    background:
+      radial-gradient(ellipse 60% 120% at 88% 40%, rgba(56, 132, 255, 0.28), transparent 70%),
+      radial-gradient(ellipse 40% 80% at 30% 0%, rgba(30, 80, 190, 0.35), transparent 70%),
+      linear-gradient(115deg, #051335 0%, #082d7a 55%, #0b3a9a 100%);
+  }
+
+  /* fine grid */
+  .grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
+    background-size: 36px 36px;
+    mask-image: linear-gradient(90deg, transparent 0%, #000 35%, #000 80%, transparent 100%);
+  }
+
+  /* left accent bar */
+  .accent { position: absolute; left: 0; top: 0; bottom: 0; width: 10px; background: linear-gradient(#3b82f6, #1d4ed8); }
+
+  /* code panel (abstract, original) */
+  .code {
+    position: absolute;
+    right: 60px; top: 62px;
+    width: 410px; height: 272px;
+    border-radius: 14px;
+    background: rgba(3, 12, 36, 0.62);
+    border: 1px solid rgba(147, 186, 255, 0.22);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+    padding: 18px 22px;
+    font-family: "JetBrains Mono", Consolas, monospace;
+    font-size: 14.5px;
+    line-height: 1.72;
+    color: #c9d8f5;
+  }
+  .dots { display: flex; gap: 7px; margin-bottom: 12px; }
+  .dots span { width: 11px; height: 11px; border-radius: 50%; background: rgba(255,255,255,0.18); }
+  .dots span:first-child { background: #f87171; }
+  .dots span:nth-child(2) { background: #fbbf24; }
+  .dots span:nth-child(3) { background: #34d399; }
+  .k { color: #93c5fd; }
+  .t { color: #fcd34d; }
+  .s { color: #86efac; }
+  .c { color: #64748b; }
+  .a { color: #f9a8d4; }
+  .ind { padding-left: 22px; }
+  .ind2 { padding-left: 44px; }
+
+  /* main text block: kept right of the profile photo area */
+  .content {
+    position: absolute;
+    left: 440px; top: 66px;
+    width: 600px;
+  }
+  .eyebrow {
+    font-size: 15px; font-weight: 600;
+    letter-spacing: 4px; text-transform: uppercase;
+    color: #93c5fd;
+    margin-bottom: 10px;
+  }
+  h1 {
+    font-family: "Playfair Display", Georgia, serif;
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 1.05;
+    letter-spacing: 0.3px;
+  }
+  .role {
+    margin-top: 10px;
+    font-size: 27px;
+    font-weight: 600;
+    color: #e2ebff;
+  }
+  .role b { color: #60a5fa; font-weight: 700; }
+  .tags { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 22px; }
+  .tag {
+    font-size: 16px; font-weight: 600;
+    padding: 5px 15px;
+    border-radius: 999px;
+    color: #dbe7ff;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(147,186,255,0.35);
+  }
+  .meta {
+    margin-top: 20px;
+    font-size: 17px;
+    color: #b6c7e8;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .meta .dot { width: 5px; height: 5px; border-radius: 50%; background: #60a5fa; }
+</style>
+</head>
+<body>
+  <div class="banner">
+    <div class="grid"></div>
+    <div class="accent"></div>
+
+    <div class="content">
+      <div class="eyebrow">Ingeniero de Software</div>
+      <h1>Erick Barrena González</h1>
+      <div class="role"><b>Java</b> Backend Developer</div>
+      <div class="tags">
+        <span class="tag">Java</span>
+        <span class="tag">Spring Boot</span>
+        <span class="tag">JPA</span>
+        <span class="tag">SQL</span>
+        <span class="tag">MariaDB</span>
+        <span class="tag">JUnit</span>
+      </div>
+      <div class="meta">
+        <span>ERP en producción</span><span class="dot"></span>
+        <span>49 sucursales</span><span class="dot"></span>
+        <span>Pruebas automatizadas</span>
+      </div>
+    </div>
+
+    <div class="code">
+      <div class="dots"><span></span><span></span><span></span></div>
+      <div><span class="a">@Service</span></div>
+      <div><span class="k">public class</span> <span class="t">GastoService</span> {</div>
+      <div class="ind"><span class="k">public</span> <span class="t">Folio</span> aprobar(<span class="t">Solicitud</span> s) {</div>
+      <div class="ind2">validar(s);</div>
+      <div class="ind2"><span class="k">return</span> repo.save(s.aprobar());</div>
+      <div class="ind">}</div>
+      <div>}</div>
+      <div class="c">// 49 sucursales · tests: <span class="s">passing ✓</span></div>
+    </div>
+  </div>
+</body>
+</html>
