@@ -286,6 +286,11 @@ ul { list-style: none; padding: 0; }
   color: #444;
 }
 
+.cv-training a {
+  text-decoration: underline dotted;
+  text-underline-offset: 2px;
+}
+
 /* COMPETENCIAS PROFESIONALES */
 .soft-skills-list {
   display: grid;
