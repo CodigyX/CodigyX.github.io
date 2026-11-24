@@ -1,325 +1,475 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Portafolio de Erick Barrena González, desarrollador full-stack especializado en Java, Spring Boot y soluciones empresariales.">
-  <title>Erick Barrena | Desarrollador Full-stack Java</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Erick Barrena · Java Backend Developer</title>
+  <meta name="description"
+    content="Portafolio de Erick Barrena González, desarrollador backend Java. ERP en producción para 49 sucursales, Spring Boot, SQL y pruebas automatizadas.">
+  <meta property="og:title" content="Erick Barrena · Java Backend Developer">
+  <meta property="og:description" content="Java · Spring Boot · SQL · JPA · ERP en producción para 49 sucursales.">
+  <meta property="og:image" content="https://codigyx.github.io/portfolio/img/perfil.webp">
+  <meta name="theme-color" content="#0b1220">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,700;1,800;1,900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  <link rel="stylesheet" href="vendor/mapa-web/mapa-web.css">
-  <link rel="stylesheet" href="portafolio.css">
-  <link rel="stylesheet" href="galactic-arena.css">
-  <link rel="stylesheet" href="cosmic-console.css">
-  <link rel="stylesheet" href="professional.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20261124">
+  <script>
+    // Aplica el tema antes de pintar para evitar parpadeo
+    (function () {
+      try {
+        var t = localStorage.getItem("pf-theme");
+        if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+      } catch (e) { }
+    })();
+  </script>
 </head>
-<body class="professional-portfolio" data-motion="false">
-  <div class="universe" aria-hidden="true"><canvas id="galaxy-canvas"></canvas><div class="galaxy-nebula"></div><div class="galaxy-planet"></div></div>
-  <a class="skip-link" href="#portfolio-content">Saltar al contenido</a>
-  <header class="site-header" id="inicio">
-    <nav class="nav-shell" aria-label="Navegación principal">
-      <a class="brand" href="#inicio" aria-label="Ir al inicio"><span>CX</span> CodigyX</a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-menu" aria-label="Abrir menú">
-        <span></span><span></span>
-      </button>
-      <div class="nav-menu" id="main-menu">
-        <a href="#sobre-mi">Sobre mí</a>
-        <a href="#experiencia">Experiencia</a>
-        <a href="#proyectos">Proyectos</a>
-        <a href="#tecnologias">Tecnologías</a>
-        <a href="#contacto">Contacto</a>
-        <a class="nav-cta" href="../?lang=es">Ver CV <i class="bi bi-arrow-up-right"></i></a>
+
+<body>
+  <a class="skip-link" href="#contenido" data-es="Saltar al contenido" data-en="Skip to content">Saltar al contenido</a>
+
+  <!-- NAVEGACIÓN -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a class="nav__brand" href="#inicio" aria-label="Inicio">
+        <span class="nav__logo">CX</span>
+        <span class="nav__name">Erick Barrena</span>
+      </a>
+
+      <nav class="nav__links" id="navLinks" aria-label="Secciones">
+        <a href="#sobre-mi" data-es="Sobre mí" data-en="About">Sobre mí</a>
+        <a href="#experiencia" data-es="Experiencia" data-en="Experience">Experiencia</a>
+        <a href="#proyectos" data-es="Proyectos" data-en="Projects">Proyectos</a>
+        <a href="#stack" data-es="Stack" data-en="Stack">Stack</a>
+        <a href="#contacto" data-es="Contacto" data-en="Contact">Contacto</a>
+        <a class="nav__cv" href="../" data-es="Ver CV" data-en="View CV">Ver CV</a>
+      </nav>
+
+      <div class="nav__actions">
+        <button class="icon-btn" id="btnLang" type="button" aria-label="Change language to English">EN</button>
+        <button class="icon-btn" id="btnTheme" type="button" aria-label="Cambiar tema">
+          <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
+          </svg>
+          <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
+          </svg>
+        </button>
+        <button class="icon-btn nav__toggle" id="btnMenu" type="button" aria-expanded="false" aria-controls="navLinks"
+          aria-label="Abrir menú">
+          <span></span><span></span><span></span>
+        </button>
       </div>
-    </nav>
+    </div>
   </header>
 
-  <main id="portfolio-content">
-    <section class="professional-hero section-shell" aria-labelledby="professional-title">
-      <p class="eyebrow">ERICK BARRENA GONZÁLEZ · CODIGYX</p>
-      <h1 id="professional-title">Desarrollo software.<br><span>Conecto soluciones.</span></h1>
-      <p class="hero-role">Desarrollador full-stack · Backend Java</p>
-      <p class="hero-summary">Trabajo con Java, interfaces web y bases de datos para construir y mantener soluciones empresariales. Mi enfoque principal: lógica de negocio, APIs y persistencia.</p>
-      <div class="hero-actions"><a class="button button-light" href="#proyectos">Ver proyectos <i class="bi bi-arrow-down" aria-hidden="true"></i></a><a class="button button-ghost" href="../?lang=es">Ver CV <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a></div>
-      <div class="hero-links"><a href="https://github.com/CodigyX" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://www.linkedin.com/in/codigyx/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><span>Veracruz, México · Abierto a reubicación</span></div>
-    </section>
-    <section class="console-hero section-shell" hidden data-arena-screen="inicio" aria-labelledby="hero-title">
-      <div class="digital-console-bar"><span><i class="bi bi-cpu" aria-hidden="true"></i> PORTAFOLIO · CODIGYX</span><span>EXPLORA / CONECTA / DESCUBRE</span></div>
-      <div class="arena-title">
-        <p class="arena-kicker">Erick Barrena González · Full-stack Java</p>
-        <h1 id="hero-title">CODIGYX</h1>
-        <span class="arena-subtitle">MUNDO DIGITAL</span>
-      </div>
-      <div class="arena-lobby">
-        <div class="arena-menu-panel">
-          <div class="digital-emblem" aria-hidden="true"><span>✧</span></div>
-          <p class="mode-label">Selecciona una sección</p>
-          <nav class="arena-main-menu" aria-label="Seleccionar sección del portafolio">
-            <a class="arena-menu-item is-selected" href="#proyectos" data-description="Aplicaciones, tecnologías y mi participación en cada proyecto."><span class="arena-selector" aria-hidden="true">▶</span><span>PROYECTOS</span><small>PROJECT SELECT</small></a>
-            <a class="arena-menu-item" href="#experiencia" data-description="Recorre México, Veracruz y los municipios donde he trabajado."><span class="arena-selector" aria-hidden="true">▶</span><span>TRAYECTORIA</span><small>WORLD MAP</small></a>
-            <a class="arena-menu-item" href="#tecnologias" data-description="Java como núcleo; frontend, bases de datos, herramientas y despliegue."><span class="arena-selector" aria-hidden="true">▶</span><span>TECNOLOGÍAS</span><small>TECH DATABASE</small></a>
-            <a class="arena-menu-item" href="#sobre-mi" data-description="Mi ficha: formación, enfoque técnico y cómo trabajo en equipo."><span class="arena-selector" aria-hidden="true">▶</span><span>SOBRE MÍ</span><small>DEVELOPER PROFILE</small></a>
-            <a class="arena-menu-item" href="#contacto" data-description="Mi perfil profesional, correo y enlaces para entrar en contacto."><span class="arena-selector" aria-hidden="true">▶</span><span>CONTACTO</span><small>COMMUNICATION</small></a>
-            <a class="arena-menu-item arena-menu-cv" href="../?lang=es" data-description="Consulta mi CV: experiencia, educación, proyectos y certificaciones."><span class="arena-selector" aria-hidden="true">▶</span><span>VER CV</span><small>FULL RECORD</small></a>
-          </nav>
-          <p class="arena-menu-description" id="arena-menu-description" aria-live="polite">Aplicaciones, tecnologías y mi participación en cada proyecto.</p>
+  <main id="contenido">
+
+    <!-- INICIO -->
+    <section class="hero" id="inicio">
+      <div class="container hero__grid">
+        <div class="hero__text reveal">
+          <p class="status"><span class="status__dot"></span><span data-es="Disponible para remoto"
+              data-en="Open to remote work">Disponible para remoto</span></p>
+          <h1>Erick Barrena González</h1>
+          <p class="hero__role">Java Backend Developer</p>
+          <p class="hero__lead"
+            data-es="Desarrollo módulos completos para el ERP interno de una empresa con 49 sucursales: lógica de negocio, persistencia y vistas con Java, JPA y MariaDB. Introduje pruebas automatizadas y control de versiones donde todo era manual."
+            data-en="I build end-to-end modules for the in-house ERP of a company with 49 branches: business logic, persistence and views with Java, JPA and MariaDB. I introduced automated testing and version control where everything was manual.">
+            Desarrollo módulos completos para el ERP interno de una empresa con 49 sucursales: lógica de negocio,
+            persistencia y vistas con Java, JPA y MariaDB. Introduje pruebas automatizadas y control de versiones donde
+            todo era manual.</p>
+          <div class="hero__cta">
+            <a class="btn btn--primary" href="#proyectos" data-es="Ver proyectos" data-en="View projects">Ver
+              proyectos</a>
+            <a class="btn" href="../" data-es="Ver CV" data-en="View CV">Ver CV</a>
+            <a class="btn btn--ghost" href="https://github.com/CodigyX" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn btn--ghost" href="https://www.linkedin.com/in/codigyx/" target="_blank"
+              rel="noopener">LinkedIn</a>
+          </div>
         </div>
-        <div class="companion-console">
-          <div class="arena-mascot" id="companion-stage" aria-label="Nex, compañero original del portafolio">
-            <div class="arena-energy-ring ring-back" aria-hidden="true"></div>
-            <div class="evolution-light" aria-hidden="true"></div>
-            <div class="companion-turntable"><img id="companion-image" src="imagenes/nex-galactic.webp" alt="Nex, criatura digital de pelaje naranja y armadura plateada" width="720" height="720" fetchpriority="high"></div>
-            <div class="arena-platform" aria-hidden="true"><img src="imagenes/arena-platform.svg" alt="" width="460" height="150"></div>
+
+        <div class="hero__photo reveal">
+          <img src="img/perfil.webp" width="480" height="480" alt="Fotografía de Erick Barrena González">
+          <div class="hero__log" aria-hidden="true">
+            <span><b>[OK]</b> erp · 49 sucursales</span>
+            <span><b>[OK]</b> tests · JUnit · Playwright</span>
+            <span class="dim">[..] spendify-v2 · build</span>
           </div>
-          <div class="arena-nameplate"><span>COMPAÑERO ORIGINAL · TRES FORMAS</span><strong id="companion-name">NEX</strong><small id="companion-form-label">Forma inicial · Explorador digital</small></div>
-          <div class="evolution-picker" role="group" aria-label="Formas de evolución de Nex">
-            <button type="button" data-evolution="0" aria-pressed="true" aria-controls="companion-stage">Inicial</button>
-            <button type="button" data-evolution="1" aria-pressed="false" aria-controls="companion-stage">Guardián</button>
-            <button type="button" data-evolution="2" aria-pressed="false" aria-controls="companion-stage">Astral</button>
-          </div>
-          <div class="companion-actions"><button type="button" id="companion-evolve">Evolucionar <i class="bi bi-stars" aria-hidden="true"></i></button><button type="button" id="companion-spin" aria-label="Giro visual de 360 grados sobre la plataforma">Girar 360° <i class="bi bi-arrow-repeat" aria-hidden="true"></i></button></div>
-          <button class="companion-motion-toggle" type="button" id="companion-motion" aria-pressed="false">Activar animación</button>
-          <p class="evolution-status" id="evolution-status" role="status" aria-live="polite">Selecciona una forma o hazla evolucionar.</p>
         </div>
       </div>
-      <a class="arena-player-bar" href="#sobre-mi" aria-label="Abrir la ficha de Erick Barrena"><img src="imagenes/erick-angel-avatar-pixel.webp" alt="" width="64" height="64"><div><strong>ERICK BARRENA</strong><span>Java · Spring Boot · Angular · MariaDB</span></div><p>Desarrollo full-stack con mayor enfoque en backend Java.<br><span>Interfaces, lógica de negocio y datos conectados.</span></p><i class="bi bi-chevron-right" aria-hidden="true"></i></a>
-      <p class="arena-key-hints"><span>↑ ↓</span> Seleccionar <span>ENTER</span> Abrir <span>ESC</span> Menú <span class="touch-hint">También puedes hacer clic o tocar una opción</span></p>
+
+      <div class="container">
+        <ul class="stats reveal">
+          <li><strong data-count="49">49</strong><span data-es="sucursales usan el ERP que desarrollo"
+              data-en="branches use the ERP I build">sucursales usan el ERP que desarrollo</span></li>
+          <li><strong data-count="57">57</strong><span data-es="pruebas automatizadas en un solo módulo"
+              data-en="automated tests in a single module">pruebas automatizadas en un solo módulo</span></li>
+          <li><strong data-count="400" data-prefix="+">+400</strong><span data-es="commits en el último año"
+              data-en="commits in the last year">commits en el último año</span></li>
+        </ul>
+      </div>
     </section>
 
-    <section class="player-profile section-shell" id="sobre-mi" aria-labelledby="profile-title">
-      <div class="profile-screen-heading">
-        <div><p class="arena-kicker">CONOCE MI PERFIL</p><h2 id="profile-title">Sobre mí</h2></div>
-        <a class="profile-menu-back" href="#inicio"><i class="bi bi-arrow-left" aria-hidden="true"></i> Volver al menú</a>
-      </div>
-      <article class="player-dossier">
-        <div class="player-portrait">
-          <div class="player-ident"><span>PLAYER 1</span><span class="player-country"><i class="mexico-flag" aria-hidden="true"></i> MÉXICO</span></div>
-          <div class="player-photo-frame is-avatar"><img src="imagenes/erick-angel-avatar-pixel.webp" alt="Retrato pixel art de Erick Barrena González como guerrero angelical con armadura plateada y alas" width="1024" height="1536" loading="lazy"><span class="portrait-corner" aria-hidden="true"></span></div>
-          <div class="player-codename"><small>CODENAME</small><strong>CODIGYX</strong><span>Desarrollador full-stack Java</span></div>
-        </div>
-        <div class="player-record">
-          <p class="player-record-label"><span class="profile-hex" aria-hidden="true"></span> PERFIL PROFESIONAL</p>
-          <h3>Erick Barrena <span>González</span></h3>
-          <p class="player-intro">Mi enfoque principal es el backend Java. Trabajo también con interfaces y bases de datos para conectar el flujo completo de una solución.</p>
-          <dl class="player-inventory">
-            <div><dt>Formación</dt><dd>Ingeniería de Software<span>Universidad Veracruzana</span></dd></div>
-            <div><dt>Estado académico</dt><dd class="player-degree"><i class="bi bi-check2" aria-hidden="true"></i> Título profesional obtenido</dd></div>
-            <div><dt>Stack principal</dt><dd>Java · Spring Boot · Angular · MariaDB</dd></div>
-            <div><dt>Base profesional</dt><dd>Veracruz, México<span>Abierto a reubicación</span></dd></div>
+    <!-- SOBRE MÍ -->
+    <section class="section" id="sobre-mi">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow">01</p>
+          <h2 data-es="Sobre mí" data-en="About me">Sobre mí</h2>
+        </header>
+        <div class="about reveal">
+          <div class="about__text">
+            <p
+              data-es="Soy desarrollador backend Java. Mi trabajo diario es un ERP en producción: me encargo del módulo de gastos, el más grande del sistema, y de la gestión de expedientes y contratos de colaboradores."
+              data-en="I'm a Java backend developer. My daily work is a production ERP: I own the expense management module, the system's largest, and employee records and contracts.">
+              Soy desarrollador backend Java. Mi trabajo diario es un ERP en producción: me encargo del módulo de
+              gastos, el más grande del sistema, y de la gestión de expedientes y contratos de colaboradores.</p>
+            <p
+              data-es="Me gusta dejar los sistemas mejor de como los encontré: llevar pruebas automatizadas y Git a un entorno donde todo se hacía a mano fue de lo que más aprendí. Hoy estudio Java 21 y Spring Boot 3, y construyo Spendify V2 para llevarlo a producción."
+              data-en="I like leaving systems better than I found them: bringing automated tests and Git to an environment where everything was manual taught me a lot. I'm currently studying Java 21 and Spring Boot 3, and building Spendify V2 to take it to production.">
+              Me gusta dejar los sistemas mejor de como los encontré: llevar pruebas automatizadas y Git a un entorno
+              donde todo se hacía a mano fue de lo que más aprendí. Hoy estudio Java 21 y Spring Boot 3, y construyo
+              Spendify V2 para llevarlo a producción.</p>
+          </div>
+          <dl class="facts">
+            <div>
+              <dt data-es="Formación" data-en="Education">Formación</dt>
+              <dd data-es="Ingeniería de Software · Universidad Veracruzana (titulado)"
+                data-en="B.Eng. Software Engineering · Universidad Veracruzana">Ingeniería de Software · Universidad
+                Veracruzana (titulado)</dd>
+            </div>
+            <div>
+              <dt data-es="Ubicación" data-en="Location">Ubicación</dt>
+              <dd data-es="Veracruz, México · remoto" data-en="Veracruz, Mexico · remote">Veracruz, México · remoto</dd>
+            </div>
+            <div>
+              <dt data-es="Enfoque" data-en="Focus">Enfoque</dt>
+              <dd data-es="Backend Java, APIs REST, bases de datos y pruebas"
+                data-en="Java backend, REST APIs, databases and testing">Backend Java, APIs REST, bases de datos y
+                pruebas</dd>
+            </div>
+            <div>
+              <dt data-es="Idiomas" data-en="Languages">Idiomas</dt>
+              <dd data-es="Español nativo · Inglés intermedio" data-en="Spanish (native) · English (intermediate)">
+                Español nativo · Inglés intermedio</dd>
+            </div>
           </dl>
-          <div class="player-working-style"><p>FORMA DE TRABAJAR</p><span>Aprendizaje autónomo · Comunicación asertiva · Inteligencia emocional</span><small>En Spendify V1 coordiné al equipo y participé en las integraciones. La V2 la estoy reconstruyendo de forma individual y sigue en desarrollo.</small></div>
-          <div class="player-profile-actions"><a class="button button-light" href="../?lang=es">Ver CV <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a><a class="button" href="#experiencia">Explorar trayectoria <i class="bi bi-globe-americas" aria-hidden="true"></i></a></div>
-        </div>
-      </article>
-      <div class="profile-loadout">
-        <p class="mode-label">Selecciona un área de mi stack</p>
-        <div class="profile-roster" role="group" aria-label="Áreas técnicas de Erick">
-          <button class="profile-slot is-selected" type="button" data-profile-select="backend" aria-pressed="true" aria-controls="profile-backend"><span><i class="bi bi-braces" aria-hidden="true"></i></span><strong>BACKEND</strong></button>
-          <button class="profile-slot" type="button" data-profile-select="frontend" aria-pressed="false" aria-controls="profile-frontend"><span><i class="bi bi-window" aria-hidden="true"></i></span><strong>FRONTEND</strong></button>
-          <button class="profile-slot" type="button" data-profile-select="datos" aria-pressed="false" aria-controls="profile-datos"><span><i class="bi bi-database" aria-hidden="true"></i></span><strong>DATOS</strong></button>
-          <button class="profile-slot" type="button" data-profile-select="entrega" aria-pressed="false" aria-controls="profile-entrega"><span><i class="bi bi-infinity" aria-hidden="true"></i></span><strong>ENTREGA</strong></button>
-        </div>
-        <div class="profile-specialty" aria-live="polite">
-          <article data-profile-panel="backend" id="profile-backend"><p>ENFOQUE PRINCIPAL</p><h3>Backend Java</h3><span>Java 8/17/21 · Spring Boot · APIs REST · JPA/Hibernate</span><small>Lógica de negocio y persistencia en un ERP; desarrollo de módulos y actualización de Spendify V2.</small></article>
-          <article data-profile-panel="frontend" id="profile-frontend"><p>INTERFACES CONECTADAS</p><h3>Frontend</h3><span>JSP · Angular · Angular Material · TypeScript · HTML/CSS</span><small>Vistas JSP en el ERP, interfaces con Angular en Dislyshop y conexiones con backend Java en proyectos.</small></article>
-          <article data-profile-panel="datos" id="profile-datos"><p>PERSISTENCIA Y CONSULTA</p><h3>Bases de datos</h3><span>MariaDB · PostgreSQL · MySQL · SQLyog</span><small>Consultas y persistencia para módulos empresariales. MariaDB y SQLyog forman parte de mi trabajo en el ERP.</small></article>
-          <article data-profile-panel="entrega" id="profile-entrega"><p>VERSIONADO, PRUEBAS Y DESPLIEGUE</p><h3>Entrega y calidad</h3><span>Git · JUnit · Postman · Cypress · Docker · GitHub Actions</span><small>Versionado y pruebas de proyectos; experiencia con contenedores y despliegues de prueba con Kubernetes/Minikube.</small></article>
         </div>
       </div>
     </section>
 
-    <section class="experience section-shell" id="experiencia" aria-labelledby="experience-title">
-      <div class="section-heading reveal">
-        <p class="eyebrow"><span></span> Experiencia</p>
-        <h2 id="experience-title">Experiencia profesional</h2>
-        <p>Una trayectoria que combina desarrollo empresarial, producto y soporte técnico con una progresión clara hacia Java full-stack.</p>
-      </div>
+    <!-- EXPERIENCIA -->
+    <section class="section section--alt" id="experiencia">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow">02</p>
+          <h2 data-es="Experiencia" data-en="Experience">Experiencia</h2>
+        </header>
 
-      <div class="career-map map-national reveal" aria-labelledby="map-title">
-        <div class="digital-map-chrome"><span><i class="bi bi-globe-americas" aria-hidden="true"></i> EXPLORADOR DE TRAYECTORIA</span><span class="map-interface-location" aria-live="polite">México</span></div>
-        <div class="map-stage">
-          <div class="map-stage-heading">
-            <p>México · Trayectoria profesional</p>
-            <h3 id="map-title">México</h3>
-            <span>Selecciona Veracruz para explorar mis experiencias.</span>
+        <ol class="timeline">
+          <li class="job reveal">
+            <div class="job__head">
+              <span class="job__logo"><img src="img/gigante.webp" alt="Gigante de los Azulejos y Mármoles"
+                  loading="lazy"></span>
+              <div>
+                <h3 data-es="Desarrollador de Software" data-en="Software Developer">Desarrollador de Software</h3>
+                <p class="job__org">Gigante de los Azulejos y Mármoles</p>
+              </div>
+              <p class="job__date"><span data-es="Jul 2026 — Presente" data-en="Jul 2026 — Present">Jul 2026 —
+                  Presente</span></p>
+            </div>
+            <ul class="job__list">
+              <li
+                data-es="Módulos completos (vistas JSP, lógica de negocio y persistencia) para el ERP interno de una empresa con 49 sucursales."
+                data-en="End-to-end modules (JSP views, business logic and persistence) for the in-house ERP of a company with 49 branches.">
+                Módulos completos (vistas JSP, lógica de negocio y persistencia) para el ERP interno de una empresa con
+                49 sucursales.</li>
+              <li
+                data-es="Módulo de gastos, el más grande del sistema: solicitudes, caja chica, viáticos, facturas con múltiples vales, aprobación y rechazo, pagos y revisión documental."
+                data-en="Expense management module, the system's largest: requests, petty cash, travel expenses, multi-voucher invoices, approval workflows, payments and document review.">
+                Módulo de gastos, el más grande del sistema: solicitudes, caja chica, viáticos, facturas con múltiples
+                vales, aprobación y rechazo, pagos y revisión documental.</li>
+              <li
+                data-es="Gestión de colaboradores: expedientes con versionado, contratos y cartas, almacenamiento en MinIO y permisos por sucursal y región."
+                data-en="Employee management: versioned records, contracts and offer letters, MinIO storage and branch/region-scoped permissions.">
+                Gestión de colaboradores: expedientes con versionado, contratos y cartas, almacenamiento en MinIO y
+                permisos por sucursal y región.</li>
+              <li
+                data-es="Introduje Git y pruebas automatizadas (JUnit, Playwright, pytest, Postman) en un entorno sin versionado ni pruebas: 57 pruebas solo en el módulo de expedientes."
+                data-en="Introduced Git and automated testing (JUnit, Playwright, pytest, Postman) in an environment with no versioning or tests: 57 tests in the employee records module alone.">
+                Introduje Git y pruebas automatizadas (JUnit, Playwright, pytest, Postman) en un entorno sin versionado
+                ni pruebas: 57 pruebas solo en el módulo de expedientes.</li>
+            </ul>
+            <ul class="tags">
+              <li>Java 8</li><li>JSP</li><li>EJB/JPA</li><li>Payara</li><li>MariaDB</li><li>MinIO</li><li>JUnit</li><li>Playwright</li>
+            </ul>
+          </li>
+
+          <li class="job reveal">
+            <div class="job__head">
+              <span class="job__logo job__logo--dark"><img src="img/jamova.webp" alt="JAMOVA Technology"
+                  loading="lazy"></span>
+              <div>
+                <h3 data-es="Desarrollador de Software (por proyectos)" data-en="Software Developer (project-based)">
+                  Desarrollador de Software (por proyectos)</h3>
+                <p class="job__org">JAMOVA Technology</p>
+              </div>
+              <p class="job__date">May 2020 — Jun 2026</p>
+            </div>
+            <p class="job__note"
+              data-es="Becario de tiempo completo (May 2020 — May 2021) y después colaboración por proyectos durante mis estudios."
+              data-en="Full-time intern (May 2020 — May 2021), then project-based collaboration during my studies.">
+              Becario de tiempo completo (May 2020 — May 2021) y después colaboración por proyectos durante mis
+              estudios.</p>
+            <ul class="job__list">
+              <li
+                data-es="Desarrollo y adaptación de un sistema interno de control de ingresos y gastos."
+                data-en="Built and later adapted an internal income and expense tracking system.">Desarrollo y
+                adaptación de un sistema interno de control de ingresos y gastos.</li>
+              <li data-es="Desarrollo y mantenimiento de sitios web con WordPress y PHP."
+                data-en="Developed and maintained websites with WordPress and PHP.">Desarrollo y mantenimiento de sitios
+                web con WordPress y PHP.</li>
+            </ul>
+            <ul class="tags">
+              <li>PHP</li><li>WordPress</li><li>SQL</li>
+            </ul>
+          </li>
+
+          <li class="job reveal">
+            <div class="job__head">
+              <span class="job__logo"><img src="img/dislyshop.webp" alt="Dislyshop" loading="lazy"></span>
+              <div>
+                <h3 data-es="Desarrollador Frontend (prácticas)" data-en="Frontend Developer (internship)">
+                  Desarrollador Frontend (prácticas)</h3>
+                <p class="job__org">Dislyshop</p>
+              </div>
+              <p class="job__date"><span data-es="Sep — Nov 2024 · Remoto" data-en="Sep — Nov 2024 · Remote">Sep — Nov
+                  2024 · Remoto</span></p>
+            </div>
+            <ul class="job__list">
+              <li
+                data-es="Interfaces para una plataforma marketplace con Angular, TypeScript y Angular Material, consumiendo APIs con componentes reutilizables."
+                data-en="Interfaces for a marketplace platform with Angular, TypeScript and Angular Material, consuming APIs with reusable components.">
+                Interfaces para una plataforma marketplace con Angular, TypeScript y Angular Material, consumiendo APIs
+                con componentes reutilizables.</li>
+              <li
+                data-es="Entorno completo en contenedores con Docker Compose (frontend, API y PostgreSQL); trabajo remoto con pull requests y Jira."
+                data-en="Full environment in containers with Docker Compose (frontend, API and PostgreSQL); remote teamwork with pull requests and Jira.">
+                Entorno completo en contenedores con Docker Compose (frontend, API y PostgreSQL); trabajo remoto con
+                pull requests y Jira.</li>
+            </ul>
+            <ul class="tags">
+              <li>Angular</li><li>TypeScript</li><li>Docker</li><li>PostgreSQL</li><li>Jira</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- PROYECTOS -->
+    <section class="section" id="proyectos">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow">03</p>
+          <h2 data-es="Proyectos" data-en="Projects">Proyectos</h2>
+        </header>
+
+        <div class="projects">
+          <article class="project project--featured reveal">
+            <div class="project__top">
+              <span class="badge badge--live"><span data-es="En producción" data-en="In production">En
+                  producción</span></span>
+              <span class="project__kind" data-es="Caso profesional" data-en="Professional case">Caso
+                profesional</span>
+            </div>
+            <h3 data-es="Módulos para un ERP empresarial" data-en="Modules for an enterprise ERP">Módulos para un ERP
+              empresarial</h3>
+            <p
+              data-es="Sistema interno usado a diario en 49 sucursales. Trabajo sobre código existente sin romper la operación: análisis de flujos, reglas de negocio, consultas SQL, permisos por sucursal y región, y almacenamiento de documentos en MinIO. El código es privado de la empresa."
+              data-en="In-house system used daily across 49 branches. I work on an existing codebase without breaking operations: flow analysis, business rules, SQL queries, branch/region permissions and document storage in MinIO. The code is the company's private property.">
+              Sistema interno usado a diario en 49 sucursales. Trabajo sobre código existente sin romper la operación:
+              análisis de flujos, reglas de negocio, consultas SQL, permisos por sucursal y región, y almacenamiento de
+              documentos en MinIO. El código es privado de la empresa.</p>
+            <ul class="tags">
+              <li>Java 8</li><li>JPA</li><li>MariaDB</li><li>MinIO</li><li>JUnit</li><li>Playwright</li>
+            </ul>
+          </article>
+
+          <article class="project project--featured reveal">
+            <div class="project__top">
+              <span class="badge badge--wip"><span data-es="En desarrollo" data-en="In progress">En
+                  desarrollo</span></span>
+              <span class="project__kind" data-es="Proyecto personal" data-en="Personal project">Proyecto
+                personal</span>
+            </div>
+            <h3>Spendify V2</h3>
+            <p
+              data-es="Gestor de finanzas personales que reconstruyo desde cero: API con Spring Boot 3 y Java 21, app con Flutter y base de datos PostgreSQL, con pruebas, Docker y despliegue continuo. La demo en vivo se publicará aquí."
+              data-en="Personal finance manager I'm rebuilding from scratch: Spring Boot 3 and Java 21 API, Flutter app and PostgreSQL database, with tests, Docker and continuous deployment. The live demo will be published here.">
+              Gestor de finanzas personales que reconstruyo desde cero: API con Spring Boot 3 y Java 21, app con Flutter
+              y base de datos PostgreSQL, con pruebas, Docker y despliegue continuo. La demo en vivo se publicará
+              aquí.</p>
+            <ul class="tags">
+              <li>Java 21</li><li>Spring Boot 3</li><li>PostgreSQL</li><li>Flutter</li><li>Docker</li><li>GitHub Actions</li>
+            </ul>
+            <p class="project__links"><span class="btn btn--sm btn--disabled" aria-disabled="true"
+                data-es="Demo próximamente" data-en="Demo coming soon">Demo próximamente</span></p>
+          </article>
+
+          <article class="project reveal">
+            <div class="project__top">
+              <span class="badge"><span data-es="Práctica" data-en="Practice">Práctica</span></span>
+            </div>
+            <h3 data-es="Curso Spring Boot: reuniones" data-en="Spring Boot course: meetings">Curso Spring Boot:
+              reuniones</h3>
+            <p
+              data-es="Dos aplicaciones que se comunican por RabbitMQ: API REST y web con Spring Security, JPA con PostgreSQL y Actuator, y un cliente de consola."
+              data-en="Two apps communicating through RabbitMQ: REST API and web app with Spring Security, JPA with PostgreSQL and Actuator, plus a console client.">
+              Dos aplicaciones que se comunican por RabbitMQ: API REST y web con Spring Security, JPA con PostgreSQL y
+              Actuator, y un cliente de consola.</p>
+            <ul class="tags">
+              <li>Spring Boot 3</li><li>Spring Security</li><li>RabbitMQ</li><li>PostgreSQL</li>
+            </ul>
+            <p class="project__links"><a class="btn btn--sm" href="https://github.com/CodigyX/CursoSpringBoot"
+                target="_blank" rel="noopener" data-es="Ver código" data-en="View code">Ver código</a></p>
+          </article>
+
+          <article class="project reveal">
+            <div class="project__top">
+              <span class="badge"><span data-es="Académico" data-en="Academic">Académico</span></span>
+            </div>
+            <h3>Spendify V1</h3>
+            <p
+              data-es="Proyecto en equipo que coordiné como líder: app móvil en Flutter conectada a una API REST con Spring Boot, con ingresos y gastos por categoría y alertas de presupuesto."
+              data-en="Team project I led: Flutter mobile app connected to a Spring Boot REST API, with categorized income and expenses and budget alerts.">
+              Proyecto en equipo que coordiné como líder: app móvil en Flutter conectada a una API REST con Spring Boot,
+              con ingresos y gastos por categoría y alertas de presupuesto.</p>
+            <ul class="tags">
+              <li>Spring Boot</li><li>Flutter</li><li>PostgreSQL</li>
+            </ul>
+          </article>
+
+          <article class="project reveal">
+            <div class="project__top">
+              <span class="badge"><span data-es="Académico" data-en="Academic">Académico</span></span>
+            </div>
+            <h3>Code Sale</h3>
+            <p
+              data-es="Punto de venta de escritorio con roles de usuario, registro de ventas y generación de tickets en PDF."
+              data-en="Desktop point-of-sale app with user roles, sales registration and PDF receipt generation.">Punto de
+              venta de escritorio con roles de usuario, registro de ventas y generación de tickets en PDF.</p>
+            <ul class="tags">
+              <li>Java</li><li>Swing</li><li>PostgreSQL</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- STACK -->
+    <section class="section section--alt" id="stack">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow">04</p>
+          <h2 data-es="Stack" data-en="Stack">Stack</h2>
+        </header>
+        <div class="stack">
+          <div class="stack__group reveal">
+            <h3>Backend</h3>
+            <ul class="tags tags--lg">
+              <li class="core">Java 8/17/21</li><li class="core">Spring Boot</li><li class="core">JPA/Hibernate</li>
+              <li>EJB</li><li>REST APIs</li><li>Maven</li>
+            </ul>
           </div>
-          <div id="career-map-canvas" class="career-map-canvas" aria-label="Mapa de México con las empresas donde Erick ha colaborado"></div>
-          <div id="municipal-map-canvas" class="municipal-map-canvas" aria-hidden="true"></div>
-          <button class="national-company-stack" type="button" aria-label="Abrir experiencias en Veracruz">
-            <span class="national-company-place"><strong>Veracruz</strong><small>5 experiencias</small></span>
-            <span class="national-company-logos" aria-hidden="true">
-              <b><img src="imagenes/empresas/gigante-logo.png" alt=""></b>
-              <b><img src="imagenes/empresas/jamova-header.jpg" alt=""></b>
-              <b><img src="imagenes/empresas/dislyshop-logo.png" alt=""></b>
-              <b class="national-logo-asti"><img src="imagenes/empresas/asti-logo.png" alt=""></b>
-              <b><img src="imagenes/empresas/kenworth.png" alt=""></b>
-            </span>
-          </button>
-          <button class="map-back" type="button"><i class="bi bi-arrow-left"></i> Ver Veracruz completo</button>
-          <div class="map-credits"><a href="https://github.com/AzaelW3b/mapa-web" target="_blank" rel="noopener noreferrer">Mapa nacional: mapa-web</a><span>·</span><a href="https://github.com/webrek/mx-geo" target="_blank" rel="noopener noreferrer">Municipios: mx-geo / INEGI</a></div>
-        </div>
-
-        <div class="map-companies">
-          <div class="map-panel-heading">
-            <p class="map-list-label">Empresas y modalidades</p>
-            <p>Selecciona una etapa para acercarte a su municipio.</p>
+          <div class="stack__group reveal">
+            <h3 data-es="Bases de datos" data-en="Databases">Bases de datos</h3>
+            <ul class="tags tags--lg">
+              <li class="core">SQL</li><li class="core">MariaDB</li><li>PostgreSQL</li><li>MySQL</li>
+            </ul>
           </div>
-          <button class="map-company" type="button" data-map-id="gigante" aria-pressed="false">
-            <span class="map-company-number">01</span>
-            <span class="map-company-logo logo-gigante" aria-hidden="true"><img src="imagenes/empresas/gigante-logo.png" alt=""></span>
-            <span class="map-company-copy">
-              <span class="map-company-kicker">ERP · Experiencia actual</span>
-              <strong>Gigante de los Azulejos y Mármoles</strong>
-              <small>Veracruz, Veracruz</small>
-              <span class="map-company-duration">Jul 2026 — Presente</span>
-              <span class="map-company-description">Desarrollo full-stack de módulos empresariales, desde vistas JSP y lógica Java hasta consultas y persistencia en MariaDB.</span>
-              <span class="map-company-tags"><span>Java 8</span><span>JSP</span><span>MariaDB</span></span>
-            </span>
-            <i class="bi bi-arrow-up-right"></i>
-          </button>
-          <button class="map-company" type="button" data-map-id="jamova" aria-pressed="false">
-            <span class="map-company-number">02</span>
-            <span class="map-company-logo logo-jamova" aria-hidden="true"><img src="imagenes/empresas/jamova-header.jpg" alt=""></span>
-            <span class="map-company-copy">
-              <span class="map-company-kicker">Software y soporte · Por proyectos</span>
-              <strong>JAMOVA Technology</strong>
-              <small>Cuitláhuac, Veracruz</small>
-              <span class="map-company-duration">May 2020 — Jun 2026 · Etapas de becario y por proyectos</span>
-              <span class="map-company-description">Soluciones internas, sitios web y adaptación de un control de ingresos y gastos para la operación de la empresa.</span>
-              <span class="map-company-tags"><span>Java 17</span><span>Spring Boot</span><span>WordPress</span></span>
-            </span>
-            <i class="bi bi-arrow-up-right"></i>
-          </button>
-          <button class="map-company" type="button" data-map-id="dislyshop" aria-pressed="false">
-            <span class="map-company-number">03</span>
-            <span class="map-company-logo logo-dislyshop" aria-hidden="true"><img src="imagenes/empresas/dislyshop-logo.png" alt=""></span>
-            <span class="map-company-copy">
-              <span class="map-company-kicker">Frontend · Prácticas profesionales</span>
-              <strong>Dislyshop</strong>
-              <small>Córdoba, Veracruz · Remoto</small>
-              <span class="map-company-duration">Sep — Nov 2024 · 3 meses</span>
-              <span class="map-company-description">Vistas e interacciones para una plataforma marketplace, incluyendo landing page y componentes con Angular Material.</span>
-              <span class="map-company-tags"><span>Angular</span><span>TypeScript</span><span>Jira</span></span>
-            </span>
-            <i class="bi bi-arrow-up-right"></i>
-          </button>
-          <button class="map-company" type="button" data-map-id="asti" aria-pressed="false">
-            <span class="map-company-number">04</span>
-            <span class="map-company-logo logo-asti" aria-hidden="true"><img src="imagenes/empresas/asti-logo.png" alt=""></span>
-            <span class="map-company-copy">
-              <span class="map-company-kicker">Consultoría de software · Formación</span>
-              <strong>ASTI Consultoría</strong>
-              <small>Orizaba, Veracruz</small>
-              <span class="map-company-duration">Periodo formativo · Servicio social universitario</span>
-              <span class="map-company-description">Servicio social universitario dentro de una empresa dedicada a soluciones de software para PyMEs.</span>
-              <span class="map-company-tags"><span>Servicio social</span><span>Software</span></span>
-            </span>
-            <i class="bi bi-arrow-up-right"></i>
-          </button>
-          <button class="map-company" type="button" data-map-id="kenworth" aria-pressed="false">
-            <span class="map-company-number">05</span>
-            <span class="map-company-logo logo-kenworth" aria-hidden="true"><img src="imagenes/empresas/kenworth.png" alt=""></span>
-            <span class="map-company-copy">
-              <span class="map-company-kicker">Etapa formativa · Bachillerato</span>
-              <strong>Kenworth del Este</strong>
-              <small>Venta Parada, Amatlán de los Reyes</small>
-              <span class="map-company-duration">Periodo formativo · Servicio en bachillerato</span>
-              <span class="map-company-description">Primer acercamiento formativo a un entorno empresarial mediante servicio en bachillerato.</span>
-              <span class="map-company-tags"><span>Servicio formativo</span></span>
-            </span>
-            <i class="bi bi-arrow-up-right"></i>
-          </button>
+          <div class="stack__group reveal">
+            <h3 data-es="Pruebas" data-en="Testing">Pruebas</h3>
+            <ul class="tags tags--lg">
+              <li class="core">JUnit</li><li>Playwright</li><li>pytest</li><li>Postman</li>
+            </ul>
+          </div>
+          <div class="stack__group reveal">
+            <h3 data-es="Infraestructura" data-en="Infrastructure">Infraestructura</h3>
+            <ul class="tags tags--lg">
+              <li>Docker</li><li>GitHub Actions</li><li>Git</li><li>Payara</li><li>Tomcat</li><li>MinIO</li>
+            </ul>
+          </div>
+          <div class="stack__group reveal">
+            <h3>Frontend</h3>
+            <ul class="tags tags--lg">
+              <li>JSP</li><li>Angular</li><li>TypeScript</li><li>JavaScript</li><li>HTML/CSS</li><li>Flutter</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="learning reveal">
+          <h3 data-es="Formación complementaria" data-en="Additional training">Formación complementaria</h3>
+          <ul class="learning__list">
+            <li><a href="https://www.linkedin.com/learning/certificates/8a9da27f5ceda5a4108403d5660f873a975d3f5b0c34040a9322b1e1a2ef3892"
+                target="_blank" rel="noopener">Spring Boot esencial</a><span>LinkedIn Learning · 2026</span></li>
+            <li><a href="https://codigofacilito.com/certificados/74459f98-1915-4737-90b5-8c258245de63" target="_blank"
+                rel="noopener">Docker</a><span>Código Facilito · 2026</span></li>
+            <li><a href="https://codigofacilito.com/certificados/89b8b070-4e31-4e05-9659-3c6f63740d12" target="_blank"
+                rel="noopener">Kubernetes</a><span>Código Facilito · 2026</span></li>
+            <li><a href="https://codigofacilito.com/certificados/5c86ac53-7a67-4528-b639-eb3f62c313f3" target="_blank"
+                rel="noopener">GitHub Actions</a><span>Código Facilito · 2026</span></li>
+            <li><a href="https://codigofacilito.com/certificados/40725046-e38b-41cb-a271-be0118d42e0f" target="_blank"
+                rel="noopener">DevOps</a><span>Código Facilito · 2026</span></li>
+          </ul>
         </div>
       </div>
-
-      <div class="timeline">
-        <article class="experience-row reveal">
-          <div class="experience-date">Jul 2026 — Presente</div>
-          <div class="experience-role"><span>01</span><h3>Desarrollador Full-stack Java</h3><p>Gigante de los Azulejos y Mármoles</p></div>
-          <div class="experience-detail"><p>Desarrollo y mantenimiento de módulos de un ERP con Java 8, JSP, Payara y MariaDB. Trabajo con reglas de negocio, consultas SQL, persistencia, vistas e incidencias de operación.</p><ul class="tags"><li>Java 8</li><li>JSP</li><li>Payara</li><li>MariaDB</li></ul></div>
-        </article>
-
-        <article class="experience-row reveal">
-          <div class="experience-date">2021 — Jun 2026</div>
-          <div class="experience-role"><span>02</span><h3>Desarrollador / Soporte TI</h3><p>JAMOVA Technology · Colaboración por proyectos</p></div>
-          <div class="experience-detail"><p>Apoyo en soluciones internas, sitios con WordPress y PHP, sistemas de punto de venta e infraestructura. Adapté la base de Spendify para iniciar un control interno de ingresos y gastos.</p><ul class="tags"><li>Java 17</li><li>Spring Boot</li><li>PHP</li><li>WordPress</li></ul></div>
-        </article>
-
-        <article class="experience-row reveal">
-          <div class="experience-date">Sep — Nov 2024</div>
-          <div class="experience-role"><span>03</span><h3>Desarrollador Frontend</h3><p>Dislyshop · Prácticas remotas</p></div>
-          <div class="experience-detail"><p>Implementé vistas y ajustes de interfaz para una plataforma tipo marketplace: landing page, menús, etiquetas, botones, barras de carga e interacciones con Angular Material.</p><ul class="tags"><li>Angular</li><li>TypeScript</li><li>Angular Material</li><li>Jira</li></ul></div>
-        </article>
-      </div>
     </section>
 
-    <section class="projects section-shell" id="proyectos" aria-labelledby="projects-title">
-      <div class="section-heading reveal">
-        <p class="eyebrow"><span></span> Proyectos seleccionados</p>
-        <h2 id="projects-title">Software que he construido</h2>
-        <p>Cada proyecto muestra una etapa distinta de mi crecimiento: colaboración, producto completo y resolución de problemas empresariales.</p>
-      </div>
-
-      <div class="arena-project-roster" aria-label="Selector de proyectos">
-        <button type="button" class="arena-project-slot is-selected" data-project-select="spendify" aria-pressed="true"><span class="roster-image"><img src="imagenes/spendify.png" alt="" width="100" height="100"></span><strong>SPENDIFY</strong></button>
-        <button type="button" class="arena-project-slot" data-project-select="codesale" aria-pressed="false"><span class="roster-image"><img src="imagenes/codesale.png" alt="" width="100" height="100"></span><strong>CODE SALE</strong></button>
-        <button type="button" class="arena-project-slot" data-project-select="erp" aria-pressed="false"><span class="roster-image roster-erp"><i class="bi bi-braces" aria-hidden="true"></i></span><strong>MÓDULOS ERP</strong></button>
-      </div>
-      <div class="project-grid" aria-live="polite">
-        <article class="project-card project-featured reveal" data-project-panel="spendify">
-          <div class="project-image"><img src="imagenes/spendify.png" alt="Interfaz de la aplicación Spendify" loading="lazy"><span>V2 en desarrollo</span></div>
-          <div class="project-body"><p class="project-number">Proyecto 01</p><h3>Spendify</h3><p>Gestor de finanzas personales. En la primera versión coordiné al equipo y realicé integraciones; en la V2 estoy reconstruyendo de forma individual los módulos, la arquitectura y la experiencia.</p><ul class="tags"><li>Java 21</li><li>Spring Boot</li><li>Flutter</li><li>PostgreSQL</li></ul></div>
-        </article>
-
-        <article class="project-card reveal" data-project-panel="codesale">
-          <div class="project-image"><img src="imagenes/codesale.png" alt="Interfaz del sistema de punto de venta Code Sale" loading="lazy"><span>Proyecto académico</span></div>
-          <div class="project-body"><p class="project-number">Proyecto 02</p><h3>Code Sale</h3><p>Punto de venta de escritorio con productos por categoría, usuarios con roles, registro de ventas y generación automática de tickets en PDF.</p><ul class="tags"><li>Java</li><li>Swing</li><li>PostgreSQL</li></ul></div>
-        </article>
-
-        <article class="project-card project-case reveal" data-project-panel="erp">
-          <div class="case-visual" aria-hidden="true"><span class="case-node">Vista JSP</span><i class="bi bi-arrow-right"></i><span class="case-node">Java</span><i class="bi bi-arrow-right"></i><span class="case-node">MariaDB</span></div>
-          <div class="project-body"><p class="project-number">Caso profesional</p><h3>Módulos para ERP</h3><p>Trabajo sobre un sistema empresarial existente: análisis de flujo, cambios de interfaz, validaciones, lógica de negocio, consultas y persistencia, cuidando no romper la operación diaria.</p><ul class="tags"><li>Java 8</li><li>JSP</li><li>SQL</li><li>JUnit</li></ul></div>
-        </article>
-      </div>
-
-      <a class="text-link reveal" href="https://github.com/CodigyX" target="_blank" rel="noopener noreferrer">Explorar mi GitHub <i class="bi bi-arrow-up-right"></i></a>
-    </section>
-
-    <section class="technology section-shell" id="tecnologias" aria-labelledby="technology-title">
-      <div class="section-heading reveal">
-        <p class="eyebrow"><span></span> Tecnologías</p>
-        <h2 id="technology-title">Un stack amplio, con un centro definido.</h2>
-        <p>Java es mi eje. El resto del stack me permite entender y construir el flujo completo de una solución.</p>
-      </div>
-      <div class="tech-grid">
-        <article class="tech-card reveal"><i class="bi bi-braces"></i><p>01 · Backend</p><h3>Java como núcleo</h3><span>Java 8/17/21 · Spring Boot · APIs REST · JPA/Hibernate</span></article>
-        <article class="tech-card reveal"><i class="bi bi-window"></i><p>02 · Frontend</p><h3>Interfaces funcionales</h3><span>JSP · Angular · Angular Material · TypeScript · HTML/CSS</span></article>
-        <article class="tech-card reveal"><i class="bi bi-database"></i><p>03 · Datos</p><h3>Persistencia y consulta</h3><span>MariaDB · PostgreSQL · MySQL · SQLyog</span></article>
-        <article class="tech-card reveal"><i class="bi bi-infinity"></i><p>04 · Entrega y calidad</p><h3>Del cambio al despliegue</h3><span>Git · JUnit · Postman · Docker · GitHub Actions · Kubernetes/Minikube</span></article>
-      </div>
-    </section>
-
-    <section class="contact section-shell" id="contacto">
-      <div class="contact-card reveal">
-        <p class="eyebrow"><span></span> Contacto</p>
-        <h2>Hablemos de tu próximo proyecto.</h2>
-        <p>Busco un entorno donde pueda fortalecer mi especialidad en Java, aportar una visión full-stack y seguir creciendo con retos reales.</p>
-        <div class="contact-actions"><a class="button button-light" href="mailto:ecodigyx@gmail.com">ecodigyx@gmail.com <i class="bi bi-send"></i></a><a class="button button-ghost" href="https://www.linkedin.com/in/codigyx/" target="_blank" rel="noopener noreferrer">LinkedIn <i class="bi bi-arrow-up-right"></i></a><a class="button button-ghost" href="https://github.com/CodigyX" target="_blank" rel="noopener noreferrer">GitHub <i class="bi bi-arrow-up-right"></i></a></div>
+    <!-- CONTACTO -->
+    <section class="section contact" id="contacto">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow">05</p>
+          <h2 data-es="Hablemos" data-en="Let's talk">Hablemos</h2>
+        </header>
+        <div class="contact__card reveal">
+          <p
+            data-es="Busco un puesto remoto como Java Backend Developer. Si tu equipo necesita a alguien que cuide la calidad de un sistema en producción, escríbeme."
+            data-en="I'm looking for a remote Java Backend Developer role. If your team needs someone who cares about the quality of a production system, get in touch.">
+            Busco un puesto remoto como Java Backend Developer. Si tu equipo necesita a alguien que cuide la calidad de
+            un sistema en producción, escríbeme.</p>
+          <div class="contact__mail">
+            <a href="mailto:ecodigyx@gmail.com" class="contact__email">ecodigyx@gmail.com</a>
+            <button class="btn btn--sm" id="btnCopy" type="button" data-es="Copiar" data-en="Copy">Copiar</button>
+          </div>
+          <div class="hero__cta">
+            <a class="btn btn--primary" href="https://www.linkedin.com/in/codigyx/" target="_blank"
+              rel="noopener">LinkedIn</a>
+            <a class="btn" href="https://github.com/CodigyX" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn" href="../output/pdf/Erick_Barrena_CV_ES.pdf" target="_blank" rel="noopener"
+              data-es="CV en PDF (ES)" data-en="CV PDF (ES)">CV en PDF (ES)</a>
+            <a class="btn" href="../output/pdf/Erick_Barrena_CV_EN.pdf" target="_blank" rel="noopener"
+              data-es="CV en PDF (EN)" data-en="CV PDF (EN)">CV en PDF (EN)</a>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer section-shell">
-    <a class="brand" href="#inicio"><span>CX</span> CodigyX</a>
-    <p>Diseñado y desarrollado por Erick Barrena · <span id="year">2026</span></p>
-    <label class="arena-motion-control"><input id="arena-motion" type="checkbox"> Movimiento</label>
-    <div class="social-links"><a href="https://github.com/CodigyX" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="bi bi-github"></i></a><a href="https://www.linkedin.com/in/codigyx/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a><a href="mailto:ecodigyx@gmail.com" aria-label="Correo electrónico"><i class="bi bi-envelope"></i></a></div>
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span>© 2026 Erick Barrena González</span>
+      <a href="#inicio" data-es="Volver arriba ↑" data-en="Back to top ↑">Volver arriba ↑</a>
+    </div>
   </footer>
-  <script src="vendor/mapa-web/mexico.js"></script>
-  <script src="vendor/mapa-web/mapa-web.js"></script>
-  <script src="vendor/mx-geo/veracruz-municipios.js"></script>
-  <script src="portafolio.js"></script>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="main.js?v=20261124"></script>
 </body>
+
 </html>
