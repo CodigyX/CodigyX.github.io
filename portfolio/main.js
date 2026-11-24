@@ -179,5 +179,51 @@
     });
   }
 
+  /* ---------- Temática metro: líneas por tecnología ---------- */
+  var techLine = {
+    be: ["java", "spring", "jpa", "hibernate", "ejb", "rest", "maven"],
+    db: ["sql", "mariadb", "postgresql", "mysql", "minio"],
+    fe: ["jsp", "angular", "typescript", "javascript", "html", "flutter", "swing", "wordpress", "php"],
+    qa: ["junit", "playwright", "pytest", "postman"],
+    inf: ["docker", "github actions", "git", "payara", "tomcat", "jira", "rabbitmq", "kubernetes"]
+  };
+  document.querySelectorAll(".tags li").forEach(function (li) {
+    var name = li.textContent.trim().toLowerCase();
+    var order = ["qa", "inf", "db", "fe", "be"]; // las más específicas primero
+    for (var i = 0; i < order.length; i++) {
+      var keys = techLine[order[i]];
+      for (var k = 0; k < keys.length; k++) {
+        if (name.indexOf(keys[k]) === 0 || name === keys[k]) {
+          li.setAttribute("data-line", order[i]);
+          return;
+        }
+      }
+    }
+  });
+
+  /* ---------- Temática metro: el tren avanza con el scroll ---------- */
+  var metroLine = document.querySelector(".metro-line");
+  var train = metroLine && metroLine.querySelector(".train");
+  var trainTicking = false;
+
+  function moveTrain() {
+    trainTicking = false;
+    if (!train) return;
+    var rect = metroLine.getBoundingClientRect();
+    var travel = Math.max(rect.height - train.offsetHeight - 20, 0);
+    var progress = (window.innerHeight * 0.55 - rect.top) / rect.height;
+    progress = Math.min(Math.max(progress, 0), 1);
+    train.style.setProperty("--train-y", Math.round(10 + travel * progress) + "px");
+  }
+  function requestTrain() {
+    if (!trainTicking) { trainTicking = true; requestAnimationFrame(moveTrain); }
+  }
+  if (train && !reduceMotion) {
+    window.addEventListener("scroll", requestTrain, { passive: true });
+    window.addEventListener("resize", requestTrain);
+    moveTrain();
+  }
+
+
   setLang(lang, { save: false });
 })();
