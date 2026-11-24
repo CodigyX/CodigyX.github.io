@@ -1,0 +1,208 @@
+/* ================================================================
+   Temática "mapa de metro" — capa opcional sobre styles.css
+   Todo lo visual vive bajo .metro (clase fija en <html>).
+   Colores e íconos propios: no replica ningún sistema de metro real.
+   ================================================================ */
+
+/* ---------- Colores de línea ---------- */
+:root {
+  --l-be: #534ab7;   /* Backend  */
+  --l-db: #1d9e75;   /* Datos    */
+  --l-fe: #d85a30;   /* Frontend */
+  --l-qa: #d4537e;   /* Pruebas  */
+  --l-inf: #888780;  /* Infra    */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --l-be: #8f88e6;
+    --l-db: #5dcaa5;
+    --l-fe: #f0997b;
+    --l-qa: #ed93b1;
+    --l-inf: #b4b2a9;
+  }
+}
+
+:root[data-theme="dark"] {
+  --l-be: #8f88e6;
+  --l-db: #5dcaa5;
+  --l-fe: #f0997b;
+  --l-qa: #ed93b1;
+  --l-inf: #b4b2a9;
+}
+
+[data-line="be"] { --ln: var(--l-be); }
+[data-line="db"] { --ln: var(--l-db); }
+[data-line="fe"] { --ln: var(--l-fe); }
+[data-line="qa"] { --ln: var(--l-qa); }
+[data-line="inf"] { --ln: var(--l-inf); }
+
+/* ---------- Elementos que solo existen en la vista metro ---------- */
+.section__sub,
+.route,
+.train,
+.project__line { display: none; }
+
+
+/* ================================================================
+   Vista metro
+   ================================================================ */
+
+/* Marca y navegación */
+.metro .nav__logo {
+  border-radius: 50%;
+  background: var(--surface); color: var(--text);
+  border: 4px solid var(--l-be);
+}
+
+/* Encabezados de sección: el número es una estación */
+.metro .eyebrow {
+  display: inline-grid; place-items: center;
+  width: 32px; height: 32px; border-radius: 50%;
+  border: 4px solid var(--l-be); background: var(--surface); color: var(--text);
+  font-size: 11px;
+}
+.metro .section__sub {
+  display: block; margin-top: 6px;
+  font: 500 13px var(--mono); color: var(--muted);
+}
+
+/* ---------- Inicio: la ruta ---------- */
+.metro .route {
+  --dot: 26px;
+  position: relative;
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  margin-top: 36px;
+}
+.metro .route::before,
+.metro .route::after {
+  content: ""; position: absolute; top: calc(var(--dot) / 2 - 4px); height: 8px; border-radius: 4px;
+}
+/* Tramo recorrido */
+.metro .route::before { left: 12.5%; right: 37.5%; background: var(--l-be); transform-origin: left; }
+/* Tramo por recorrer */
+.metro .route::after {
+  left: 62.5%; right: 12.5%;
+  background: repeating-linear-gradient(90deg, var(--l-inf) 0 6px, transparent 6px 14px);
+}
+
+.metro .route__st {
+  position: relative; z-index: 1;
+  display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center;
+}
+.metro .route__st::before {
+  content: ""; width: var(--dot); height: var(--dot); border-radius: 50%;
+  background: var(--surface); border: 5px solid var(--ln, var(--l-be));
+}
+.metro .route__st--now::before {
+  background: var(--l-be);
+  box-shadow: 0 0 0 0 color-mix(in srgb, var(--l-be) 45%, transparent);
+  animation: station-pulse 2.4s infinite;
+}
+.metro .route__st--next::before { border: 4px dashed var(--l-inf); }
+.metro .route__name { font-weight: 700; font-size: .95rem; }
+.metro .route__meta { font: 12px var(--mono); color: var(--muted); }
+
+@keyframes station-pulse {
+  70% { box-shadow: 0 0 0 10px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+
+/* La línea se dibuja al aparecer el inicio */
+.js .metro .route::before { transform: scaleX(0); }
+.js .metro .reveal.is-visible .route::before { animation: draw-x 1.1s .2s ease-out forwards; }
+@keyframes draw-x { to { transform: scaleX(1); } }
+
+/* ---------- Experiencia: estaciones sobre la línea ---------- */
+.metro .metro-line { position: relative; padding-left: 48px; }
+.metro .metro-line::before {
+  content: ""; position: absolute; left: 16px; top: 10px; bottom: 10px;
+  width: 8px; border-radius: 4px; background: var(--l-be);
+}
+.metro .job { position: relative; }
+.metro .job::before {
+  content: ""; position: absolute; left: -41px; top: 22px; z-index: 1;
+  width: 24px; height: 24px; border-radius: 50%;
+  background: var(--surface); border: 5px solid var(--ln);
+}
+.metro .job--now::before { background: var(--ln); }
+
+/* El tren avanza con el scroll */
+.metro .train {
+  display: block; position: absolute; left: 10px; top: 0; z-index: 2;
+  width: 20px; height: 36px; border-radius: 9px 9px 5px 5px;
+  background: var(--text);
+  transform: translateY(var(--train-y, 0px));
+  transition: transform .12s linear;
+}
+.metro .train::before {
+  content: ""; position: absolute; left: 4px; right: 4px; top: 5px; height: 9px;
+  border-radius: 3px; background: var(--bg);
+}
+.metro .train::after {
+  content: ""; position: absolute; left: 7px; bottom: 5px;
+  width: 6px; height: 4px; border-radius: 2px; background: var(--wip);
+}
+
+/* ---------- Etiquetas: cada tecnología pertenece a una línea ---------- */
+.metro .tags li[data-line] {
+  background: color-mix(in srgb, var(--ln) 13%, var(--surface));
+  color: color-mix(in srgb, var(--ln) 72%, var(--text));
+}
+.metro .tags li[data-line]::before {
+  content: ""; display: inline-block; width: 7px; height: 7px; margin-right: 6px;
+  border-radius: 50%; background: var(--ln); vertical-align: 1px;
+}
+.metro .tags--lg li.core[data-line] { border-color: var(--ln); }
+
+/* ---------- Proyectos: líneas de la red ---------- */
+.metro .project { border-top: 6px solid var(--ln); }
+.metro .project:has(.badge--wip) { border-top-style: dashed; }
+.metro .project__top { justify-content: flex-start; flex-wrap: wrap; }
+.metro .project__kind { margin-left: auto; }
+.metro .project__line {
+  display: inline-flex; align-items: center;
+  padding: 3px 10px; border-radius: 999px;
+  background: var(--ln); color: var(--surface);
+  font: 500 12px var(--mono);
+}
+
+/* ---------- Stack: leyenda del mapa ---------- */
+.metro .stack__group h3::before {
+  content: ""; display: inline-block; width: 28px; height: 8px; margin-right: 10px;
+  border-radius: 4px; background: var(--ln); vertical-align: middle;
+}
+
+/* ---------- Celular: la ruta del inicio va en vertical ---------- */
+@media (max-width: 639px) {
+  .metro .route {
+    grid-template-columns: 1fr; gap: 14px;
+    margin-top: 28px; padding-left: 2px;
+  }
+  .metro .route::before,
+  .metro .route::after {
+    top: auto; left: calc(var(--dot) / 2 - 2px); right: auto; width: 8px; height: auto;
+  }
+  .metro .route::before { top: 10px; bottom: 50%; transform-origin: top; }
+  .metro .route::after {
+    top: 52%; bottom: 10px;
+    background: repeating-linear-gradient(180deg, var(--l-inf) 0 6px, transparent 6px 14px);
+  }
+  .metro .route__st { flex-direction: row; text-align: left; gap: 12px; }
+  .metro .route__name { min-width: 88px; }
+  .js .metro .route::before { transform: scaleY(0); }
+  .js .metro .reveal.is-visible .route::before { animation-name: draw-y; }
+
+  .metro .metro-line { padding-left: 40px; }
+  .metro .metro-line::before { left: 12px; }
+  .metro .job::before { left: -37px; }
+  .metro .train { left: 6px; }
+}
+@keyframes draw-y { to { transform: scaleY(1); } }
+
+/* ---------- Movimiento reducido ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .js .metro .route::before { transform: none; animation: none; }
+  .metro .route__st--now::before { animation: none; }
+  .metro .train { display: none; }
+}
