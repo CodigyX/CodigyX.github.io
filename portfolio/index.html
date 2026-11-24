@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="metro">
 
 <head>
   <meta charset="UTF-8">
@@ -9,14 +9,14 @@
     content="Portafolio de Erick Barrena González, desarrollador backend Java. ERP en producción para 49 sucursales, Spring Boot, SQL y pruebas automatizadas.">
   <meta property="og:title" content="Erick Barrena · Java Backend Developer">
   <meta property="og:description" content="Java · Spring Boot · SQL · JPA · ERP en producción para 49 sucursales.">
-  <meta property="og:image" content="https://codigyx.github.io/portfolio/img/perfil.webp">
   <meta name="theme-color" content="#0b1220">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20261124">
+  <link rel="stylesheet" href="styles.css?v=20261126">
+  <link rel="stylesheet" href="metro.css?v=20261126">
   <script>
     // Aplica el tema antes de pintar para evitar parpadeo
     (function () {
@@ -90,15 +90,18 @@
             <a class="btn btn--ghost" href="https://www.linkedin.com/in/codigyx/" target="_blank"
               rel="noopener">LinkedIn</a>
           </div>
-        </div>
 
-        <div class="hero__photo reveal">
-          <img src="img/perfil.webp" width="480" height="480" alt="Fotografía de Erick Barrena González">
-          <div class="hero__log" aria-hidden="true">
-            <span><b>[OK]</b> erp · 49 sucursales</span>
-            <span><b>[OK]</b> tests · JUnit · Playwright</span>
-            <span class="dim">[..] spendify-v2 · build</span>
-          </div>
+          <ol class="route" aria-label="Trayectoria">
+            <li class="route__st" data-line="be"><span class="route__name">JAMOVA</span><span
+                class="route__meta">2020</span></li>
+            <li class="route__st" data-line="fe"><span class="route__name">Dislyshop</span><span
+                class="route__meta">2024</span></li>
+            <li class="route__st route__st--now" data-line="be"><span class="route__name">Gigante</span><span
+                class="route__meta" data-es="Estación actual" data-en="Current stop">Estación actual</span></li>
+            <li class="route__st route__st--next"><span class="route__name" data-es="Remoto"
+                data-en="Remote">Remoto</span><span class="route__meta" data-es="Próxima estación"
+                data-en="Next stop">Próxima estación</span></li>
+          </ol>
         </div>
       </div>
 
@@ -120,6 +123,7 @@
         <header class="section__head reveal">
           <p class="eyebrow">01</p>
           <h2 data-es="Sobre mí" data-en="About me">Sobre mí</h2>
+          <p class="section__sub" data-es="Estación de origen" data-en="Origin station">Estación de origen</p>
         </header>
         <div class="about reveal">
           <div class="about__text">
@@ -168,10 +172,14 @@
         <header class="section__head reveal">
           <p class="eyebrow">02</p>
           <h2 data-es="Experiencia" data-en="Experience">Experiencia</h2>
+          <p class="section__sub" data-es="Estaciones recorridas · línea backend"
+            data-en="Stations so far · backend line">Estaciones recorridas · línea backend</p>
         </header>
 
+        <div class="metro-line">
+        <span class="train" aria-hidden="true"></span>
         <ol class="timeline">
-          <li class="job reveal">
+          <li class="job reveal job--now" data-line="be">
             <div class="job__head">
               <span class="job__logo"><img src="img/gigante.webp" alt="Gigante de los Azulejos y Mármoles"
                   loading="lazy"></span>
@@ -209,7 +217,7 @@
             </ul>
           </li>
 
-          <li class="job reveal">
+          <li class="job reveal" data-line="be">
             <div class="job__head">
               <span class="job__logo job__logo--dark"><img src="img/jamova.webp" alt="JAMOVA Technology"
                   loading="lazy"></span>
@@ -239,7 +247,7 @@
             </ul>
           </li>
 
-          <li class="job reveal">
+          <li class="job reveal" data-line="fe">
             <div class="job__head">
               <span class="job__logo"><img src="img/dislyshop.webp" alt="Dislyshop" loading="lazy"></span>
               <div>
@@ -267,6 +275,7 @@
             </ul>
           </li>
         </ol>
+        </div>
       </div>
     </section>
 
@@ -276,11 +285,13 @@
         <header class="section__head reveal">
           <p class="eyebrow">03</p>
           <h2 data-es="Proyectos" data-en="Projects">Proyectos</h2>
+          <p class="section__sub" data-es="Líneas de la red" data-en="Lines on the network">Líneas de la red</p>
         </header>
 
         <div class="projects">
-          <article class="project project--featured reveal">
+          <article class="project project--featured reveal" data-line="be">
             <div class="project__top">
+              <span class="project__line" data-es="Línea 1" data-en="Line 1">Línea 1</span>
               <span class="badge badge--live"><span data-es="En producción" data-en="In production">En
                   producción</span></span>
               <span class="project__kind" data-es="Caso profesional" data-en="Professional case">Caso
@@ -299,8 +310,9 @@
             </ul>
           </article>
 
-          <article class="project project--featured reveal">
+          <article class="project project--featured reveal" data-line="db">
             <div class="project__top">
+              <span class="project__line" data-es="Línea 2" data-en="Line 2">Línea 2</span>
               <span class="badge badge--wip"><span data-es="En desarrollo" data-en="In progress">En
                   desarrollo</span></span>
               <span class="project__kind" data-es="Proyecto personal" data-en="Personal project">Proyecto
@@ -320,8 +332,9 @@
                 data-es="Demo próximamente" data-en="Demo coming soon">Demo próximamente</span></p>
           </article>
 
-          <article class="project reveal">
+          <article class="project reveal" data-line="be">
             <div class="project__top">
+              <span class="project__line" data-es="Línea 3" data-en="Line 3">Línea 3</span>
               <span class="badge"><span data-es="Práctica" data-en="Practice">Práctica</span></span>
             </div>
             <h3 data-es="Curso Spring Boot: reuniones" data-en="Spring Boot course: meetings">Curso Spring Boot:
@@ -338,8 +351,9 @@
                 target="_blank" rel="noopener" data-es="Ver código" data-en="View code">Ver código</a></p>
           </article>
 
-          <article class="project reveal">
+          <article class="project reveal" data-line="fe">
             <div class="project__top">
+              <span class="project__line" data-es="Línea 4" data-en="Line 4">Línea 4</span>
               <span class="badge"><span data-es="Académico" data-en="Academic">Académico</span></span>
             </div>
             <h3>Spendify V1</h3>
@@ -353,8 +367,9 @@
             </ul>
           </article>
 
-          <article class="project reveal">
+          <article class="project reveal" data-line="fe">
             <div class="project__top">
+              <span class="project__line" data-es="Línea 5" data-en="Line 5">Línea 5</span>
               <span class="badge"><span data-es="Académico" data-en="Academic">Académico</span></span>
             </div>
             <h3>Code Sale</h3>
@@ -376,34 +391,35 @@
         <header class="section__head reveal">
           <p class="eyebrow">04</p>
           <h2 data-es="Stack" data-en="Stack">Stack</h2>
+          <p class="section__sub" data-es="Leyenda del mapa" data-en="Map legend">Leyenda del mapa</p>
         </header>
         <div class="stack">
-          <div class="stack__group reveal">
+          <div class="stack__group reveal" data-line="be">
             <h3>Backend</h3>
             <ul class="tags tags--lg">
               <li class="core">Java 8/17/21</li><li class="core">Spring Boot</li><li class="core">JPA/Hibernate</li>
               <li>EJB</li><li>REST APIs</li><li>Maven</li>
             </ul>
           </div>
-          <div class="stack__group reveal">
+          <div class="stack__group reveal" data-line="db">
             <h3 data-es="Bases de datos" data-en="Databases">Bases de datos</h3>
             <ul class="tags tags--lg">
               <li class="core">SQL</li><li class="core">MariaDB</li><li>PostgreSQL</li><li>MySQL</li>
             </ul>
           </div>
-          <div class="stack__group reveal">
+          <div class="stack__group reveal" data-line="qa">
             <h3 data-es="Pruebas" data-en="Testing">Pruebas</h3>
             <ul class="tags tags--lg">
               <li class="core">JUnit</li><li>Playwright</li><li>pytest</li><li>Postman</li>
             </ul>
           </div>
-          <div class="stack__group reveal">
+          <div class="stack__group reveal" data-line="inf">
             <h3 data-es="Infraestructura" data-en="Infrastructure">Infraestructura</h3>
             <ul class="tags tags--lg">
               <li>Docker</li><li>GitHub Actions</li><li>Git</li><li>Payara</li><li>Tomcat</li><li>MinIO</li>
             </ul>
           </div>
-          <div class="stack__group reveal">
+          <div class="stack__group reveal" data-line="fe">
             <h3>Frontend</h3>
             <ul class="tags tags--lg">
               <li>JSP</li><li>Angular</li><li>TypeScript</li><li>JavaScript</li><li>HTML/CSS</li><li>Flutter</li>
@@ -435,6 +451,8 @@
         <header class="section__head reveal">
           <p class="eyebrow">05</p>
           <h2 data-es="Hablemos" data-en="Let's talk">Hablemos</h2>
+          <p class="section__sub" data-es="Terminal · fin del recorrido" data-en="Terminal · end of the line">Terminal ·
+            fin del recorrido</p>
         </header>
         <div class="contact__card reveal">
           <p
@@ -469,7 +487,7 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-  <script src="main.js?v=20261124"></script>
+  <script src="main.js?v=20261126"></script>
 </body>
 
 </html>
